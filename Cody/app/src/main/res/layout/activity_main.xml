@@ -16,5 +16,9 @@
         android:layout_marginTop="54dp"
         android:text="Button"
         />
+    <ImageView
+        android:id="@+id/cameraImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>
