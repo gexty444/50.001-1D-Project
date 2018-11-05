@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cody</string>
+    <string name="welcometext">Good day, what\'s the dress code today?</string>
+    <string name="dresscode">Dress Code</string>
+    <string name="luckytext">I\'m feeling lucky</string>
+    <string name="emptyinput">Nothing selected!</string>
 </resources>
