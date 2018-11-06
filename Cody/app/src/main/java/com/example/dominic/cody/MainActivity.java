@@ -2,6 +2,7 @@ package com.example.dominic.cody;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -69,11 +70,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             try{
-                Bundle extras = data.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
+//                Bundle extras = data.getExtras();
+//                Bitmap imageBitmap = (Bitmap) extras.get("data");
 //            Uri selectedImage = data.getData();
 //            Bitmap imageBitmap = getThumbnail(selectedImage);
+                Bitmap imageBitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
                 cameraImageView.setImageBitmap(imageBitmap);
+
+
             }
             catch (Exception e)
             {
