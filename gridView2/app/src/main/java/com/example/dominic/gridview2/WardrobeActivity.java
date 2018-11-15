@@ -1,5 +1,6 @@
 package com.example.dominic.gridview2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,14 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                {
 //                      // go to particular activity
 //                }
+                case 4:
+                {
+                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    // Switch intent to next activity
+                    Intent intent = new Intent(WardrobeActivity.this, ShoeActivity.class);
+                    startActivity(intent);
+                    break;
+                }
                 default:{
                     Toast.makeText(getApplicationContext(), "No action associated with this item", Toast.LENGTH_LONG).show();
                     break;
