@@ -53,6 +53,6 @@ public class ImageAdapter extends BaseAdapter {
 
     // Keep all Images in array
     public Integer[] mThumbIds = {
-            R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe
+            R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,  R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,
     };
 }
