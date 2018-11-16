@@ -27,6 +27,11 @@ public class ShoeActivity extends AppCompatActivity implements View.OnClickListe
         addItemfab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO: add item to end of ImageAdapterShoe thumbID array
+                /**
+                 * 1. add item to drawable folder.
+                 * 2. add item to array. Problem - array size is immutable.. might need to use arraylist?
+                * */
                 Toast.makeText(getApplicationContext(), "Add new item when clicked", Toast.LENGTH_LONG).show();
             }
         });
