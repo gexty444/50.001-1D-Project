@@ -38,7 +38,7 @@ public class Calendar extends AppCompatActivity {
         Log.i(TAG,"imageResource: "+ imageResource);
         imageView.setImageResource(imageResource);
 
-
+        //when a date on the calendar is selected
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
