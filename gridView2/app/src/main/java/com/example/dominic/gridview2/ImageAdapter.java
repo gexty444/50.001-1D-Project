@@ -13,7 +13,6 @@ import android.widget.ImageView;
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
 
-    // Constructor
     public ImageAdapter(Context c) {
         mContext = c;
     }
@@ -32,11 +31,12 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
+
         ImageView imageView;
 
-
-
+        // this if statement puts new images to imageViews that will be added upon scrolling
         if (convertView == null) {
+            // properties of each imageView that will be added into the gridView
             imageView = new ImageView(mContext);
             imageView.setAdjustViewBounds(true);
             imageView.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.MATCH_PARENT, GridView.LayoutParams.MATCH_PARENT));
@@ -45,13 +45,14 @@ public class ImageAdapter extends BaseAdapter {
         }
         else
         {
+            // if there exits a view already, we return the imageView
             imageView = (ImageView) convertView;
         }
-        imageView.setImageResource(mThumbIds[position]);
+        imageView.setImageResource(mThumbIds[position]); // maps images to position in mThumbIds
         return imageView;
     }
 
-    // Keep all Images in array
+    // reference all Images from an array, index of items starts from 0
     public Integer[] mThumbIds = {
             R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,  R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,
     };
