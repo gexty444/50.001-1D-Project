@@ -26,7 +26,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
         addItemfab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Floating Action Button Clicked!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Add new category when clicked?", Toast.LENGTH_LONG).show();
             }
         });
 
