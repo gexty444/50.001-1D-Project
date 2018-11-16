@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".Calendar">
 
     <android.support.design.widget.AppBarLayout
@@ -23,7 +24,18 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <ImageView
+        android:id="@+id/ImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@mipmap/ic_launcher_foreground" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></CalendarView>
+
     <include layout="@layout/content_calendar" />
 
-
 </LinearLayout>
+
