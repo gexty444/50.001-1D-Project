@@ -5,7 +5,7 @@ Please branch from here and open pull requests to merge your app feature/ layout
 * login page
 * tip of the day
 * Front page (choosing of dress code)
-* Recommendations (tinder swipe thing)
+* Recommendations
 * My Wardrobe
 * History
 * Customize
