@@ -1,0 +1,180 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+MERGED from [com.android.support:design:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/c9d542e3c3cf9c4b393c0a2385202f06/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/4f7f33fc737f7f287eabccc93f034403/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/dominic/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/35b8587ea5a920d7dd20ec6b37e430d0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a10f56532d225795e6f9440b0938d511/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/b6cbcc6f56e3535711f27873cb7d4401/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/36d7b35e9b67e6c2ec98c5ee19f5ed36/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/9f1aa14635b440d413c4ce26479288f2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/3aebcaa40c2f2fa6ef6b8df8eba2ce86/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/5c10a2538cdbe96001ef954963caa901/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/43fd6fab3afb26f4d16b91bfb2a6ef81/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/dff2981bebd83658e10d1da9eae0dd58/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/25f930e798cb93a1760a4e947337f758/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/70067ec203288ecbd4a3f8f1205c9178/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/0bbda3816576c5e4720d845b3f8f737e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/b366af7c8e772c75f34cc51d613bf073/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/80d213f8e290aa201796a2e9e5c5eb9a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/bf71de6a60aafc43ebe2d617dfcffcf5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/2a84206f86d6bb9af3c5d2385792f0cd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f072b95adac2e04f2a7d2815b86ffdbf/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/87ad6b1689ecdc1c6273d5baa32df3c6/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/5d162121c1ac1610779b9ae11b2bffb2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/15bb38b000bbf0f3618f46e9cc7a585c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/eb30535f3e7f7399ea4530362d28cb2d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/95c9c562d395855e92d3e6142a31d277/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/5acf6516cf16ce0c0709ff0b724d18d7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4daa9445d926795ad1f031be592008e6/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8edf4a339a51dae2f66696c06c2f60da/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/1d2763c1e57b1e489a107c3839f2b136/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/09eb79ec5c3fa3add7862cd0b183be86/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0f5873da74ceee86c55690ca09f1fc46/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/71d5e722b34129f900ff45749d56f59e/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+	package
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:3:5-44
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:1-25:12
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:5:5-23:19
+MERGED from [com.android.support:design:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/c9d542e3c3cf9c4b393c0a2385202f06/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/c9d542e3c3cf9c4b393c0a2385202f06/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/dominic/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/35b8587ea5a920d7dd20ec6b37e430d0/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/dominic/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/35b8587ea5a920d7dd20ec6b37e430d0/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f072b95adac2e04f2a7d2815b86ffdbf/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f072b95adac2e04f2a7d2815b86ffdbf/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/87ad6b1689ecdc1c6273d5baa32df3c6/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/87ad6b1689ecdc1c6273d5baa32df3c6/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f072b95adac2e04f2a7d2815b86ffdbf/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.example.dominic.gridview2.MainActivity
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:16:27-74
+activity#com.example.dominic.gridview2.WardrobeActivity
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:19:9-20:57
+	android:parentActivityName
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:20:13-55
+	android:name
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:19:19-51
+activity#com.example.dominic.gridview2.ShoeActivity
+ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:21:9-22:71
+	android:parentActivityName
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:22:13-59
+	android:name
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml:21:19-47
+uses-sdk
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/c9d542e3c3cf9c4b393c0a2385202f06/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/c9d542e3c3cf9c4b393c0a2385202f06/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/4f7f33fc737f7f287eabccc93f034403/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/4f7f33fc737f7f287eabccc93f034403/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/dominic/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/35b8587ea5a920d7dd20ec6b37e430d0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/dominic/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/35b8587ea5a920d7dd20ec6b37e430d0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a10f56532d225795e6f9440b0938d511/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/a10f56532d225795e6f9440b0938d511/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/b6cbcc6f56e3535711f27873cb7d4401/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/b6cbcc6f56e3535711f27873cb7d4401/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/36d7b35e9b67e6c2ec98c5ee19f5ed36/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/36d7b35e9b67e6c2ec98c5ee19f5ed36/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/9f1aa14635b440d413c4ce26479288f2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/9f1aa14635b440d413c4ce26479288f2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/3aebcaa40c2f2fa6ef6b8df8eba2ce86/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/3aebcaa40c2f2fa6ef6b8df8eba2ce86/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/5c10a2538cdbe96001ef954963caa901/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/5c10a2538cdbe96001ef954963caa901/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/43fd6fab3afb26f4d16b91bfb2a6ef81/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/43fd6fab3afb26f4d16b91bfb2a6ef81/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/dff2981bebd83658e10d1da9eae0dd58/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/dff2981bebd83658e10d1da9eae0dd58/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/25f930e798cb93a1760a4e947337f758/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/25f930e798cb93a1760a4e947337f758/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/70067ec203288ecbd4a3f8f1205c9178/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/70067ec203288ecbd4a3f8f1205c9178/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/0bbda3816576c5e4720d845b3f8f737e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/0bbda3816576c5e4720d845b3f8f737e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/b366af7c8e772c75f34cc51d613bf073/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/b366af7c8e772c75f34cc51d613bf073/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/80d213f8e290aa201796a2e9e5c5eb9a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/80d213f8e290aa201796a2e9e5c5eb9a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/bf71de6a60aafc43ebe2d617dfcffcf5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/bf71de6a60aafc43ebe2d617dfcffcf5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/2a84206f86d6bb9af3c5d2385792f0cd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/2a84206f86d6bb9af3c5d2385792f0cd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f072b95adac2e04f2a7d2815b86ffdbf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f072b95adac2e04f2a7d2815b86ffdbf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/87ad6b1689ecdc1c6273d5baa32df3c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/87ad6b1689ecdc1c6273d5baa32df3c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/5d162121c1ac1610779b9ae11b2bffb2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/5d162121c1ac1610779b9ae11b2bffb2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/15bb38b000bbf0f3618f46e9cc7a585c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/15bb38b000bbf0f3618f46e9cc7a585c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/eb30535f3e7f7399ea4530362d28cb2d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/eb30535f3e7f7399ea4530362d28cb2d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/95c9c562d395855e92d3e6142a31d277/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/95c9c562d395855e92d3e6142a31d277/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/5acf6516cf16ce0c0709ff0b724d18d7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/5acf6516cf16ce0c0709ff0b724d18d7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4daa9445d926795ad1f031be592008e6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4daa9445d926795ad1f031be592008e6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8edf4a339a51dae2f66696c06c2f60da/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8edf4a339a51dae2f66696c06c2f60da/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/1d2763c1e57b1e489a107c3839f2b136/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/dominic/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/1d2763c1e57b1e489a107c3839f2b136/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/09eb79ec5c3fa3add7862cd0b183be86/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/09eb79ec5c3fa3add7862cd0b183be86/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0f5873da74ceee86c55690ca09f1fc46/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0f5873da74ceee86c55690ca09f1fc46/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/71d5e722b34129f900ff45749d56f59e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/dominic/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/71d5e722b34129f900ff45749d56f59e/AndroidManifest.xml:20:5-44
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		ADDED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
+		INJECTED from /home/dominic/repositories/50.001-1D-Project/gridView2/app/src/main/AndroidManifest.xml
