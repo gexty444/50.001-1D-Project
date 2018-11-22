@@ -53,8 +53,9 @@ public class RecommendationsActivity extends AppCompatActivity {
         while(recommendationsList.size()<3 && count< generatedList.size()){
             if(mPreferences.getString("FormalAttire"+Integer.toString(count),"like").equals("like")){
                 recommendationsList.add(generatedList.get(count));
-                count+=1;
             }
+            count+=1;
+            Log.i("logcat", Integer.toString(count));
         }
 
         adapter = new Adapter(recommendationsList, this);
@@ -75,7 +76,7 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(scaleAnimation);
-                recommendationsPreferences.put(Integer.valueOf(viewPager.getCurrentItem()),"dislike");
+                recommendationsPreferences.put(viewPager.getCurrentItem(),"dislike");
                 Toast.makeText(getApplicationContext(),"I don't like this",Toast.LENGTH_SHORT).show();
                 Log.i("PrefStatus",recommendationsPreferences.toString());
             }
@@ -84,7 +85,7 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(scaleAnimation);
-                recommendationsPreferences.put(Integer.valueOf(viewPager.getCurrentItem()),"like");
+                recommendationsPreferences.put(viewPager.getCurrentItem(),"like");
                 Toast.makeText(getApplicationContext(),"I like this",Toast.LENGTH_SHORT).show();
                 Log.i("PrefStatus",recommendationsPreferences.toString());
             }
