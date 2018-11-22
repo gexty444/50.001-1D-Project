@@ -1,4 +1,4 @@
-package com.example.dominic.cody;
+package com.example.me.croppertest;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.dominic.cody;
+package com.example.me.javatest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.dominic.cody", appContext.getPackageName());
+        assertEquals("com.example.me.javatest", appContext.getPackageName());
     }
 }
