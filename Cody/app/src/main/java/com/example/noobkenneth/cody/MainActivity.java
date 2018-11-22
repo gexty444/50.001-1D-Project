@@ -1,5 +1,6 @@
 package com.example.noobkenneth.cody;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -97,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         LoadJson();
+
+        //starts calendar activity by default for debugging
+//        Intent start_calendar = new Intent(this, Calendar.class);
+//        startActivity(start_calendar);
      }
 
     public void LoadJson() {

@@ -5,4 +5,5 @@
     <string name="title_wardrobe">Photos</string>
     <string name="title_customize">Customize</string>
     <string name="title_profile">Profile</string>
+    <string name="title_activity_calendar">Calendar</string>
 </resources>
