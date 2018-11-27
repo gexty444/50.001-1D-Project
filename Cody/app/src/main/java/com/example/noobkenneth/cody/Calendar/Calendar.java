@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Calendar;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CalendarView;
 import android.widget.ImageView;
+
+import com.example.noobkenneth.cody.R;
+
 import java.text.SimpleDateFormat;
 
 public class Calendar extends AppCompatActivity {

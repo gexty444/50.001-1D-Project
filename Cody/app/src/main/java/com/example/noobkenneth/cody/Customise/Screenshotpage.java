@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Customise;
 
 
 import android.graphics.Bitmap;
@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import com.example.noobkenneth.cody.R;
 
 public class Screenshotpage extends AppCompatActivity {
 

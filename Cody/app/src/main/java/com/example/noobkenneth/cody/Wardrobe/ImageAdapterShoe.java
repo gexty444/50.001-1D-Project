@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Wardrobe;
 
 import android.content.Context;
 import android.view.View;
@@ -7,10 +7,12 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-public class ImageAdapter extends BaseAdapter {
+import com.example.noobkenneth.cody.R;
+
+public class ImageAdapterShoe extends BaseAdapter {
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapterShoe(Context c) {
         mContext = c;
     }
 
@@ -51,6 +53,12 @@ public class ImageAdapter extends BaseAdapter {
 
     // reference all Images from an array, index of items starts from 0
     public Integer[] mThumbIds = {
-            R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,  R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,
+            R.drawable.shoe,
+            R.drawable.shoe,
+            R.drawable.shoe,
+            R.drawable.shoe,
+            R.drawable.shoe,
+            R.drawable.shoe,
+
     };
 }

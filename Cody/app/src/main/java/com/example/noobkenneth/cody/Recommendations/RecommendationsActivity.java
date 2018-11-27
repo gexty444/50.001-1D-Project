@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Recommendations;
 
 import android.animation.ArgbEvaluator;
 import android.content.SharedPreferences;
@@ -12,6 +12,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.example.noobkenneth.cody.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

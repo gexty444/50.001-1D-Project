@@ -1,6 +1,7 @@
 package com.example.noobkenneth.cody.api;
 
-import com.example.noobkenneth.cody.models.News;
+import com.example.noobkenneth.cody.Home.News;
+import com.example.noobkenneth.cody.Home.models.Home.News;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -1,6 +1,5 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,10 +15,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Utils;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
-import com.example.noobkenneth.cody.models.Article;
-import com.example.noobkenneth.cody.models.News;
+import com.example.noobkenneth.cody.Home.Article;
+import com.example.noobkenneth.cody.Home.News;
 
 import java.util.ArrayList;
 import java.util.List;

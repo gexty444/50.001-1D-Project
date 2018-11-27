@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Recommendations;
 
 public class Recommendations {
     private int image;

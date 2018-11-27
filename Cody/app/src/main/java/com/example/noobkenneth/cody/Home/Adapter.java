@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Home;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -21,7 +20,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
-import com.example.noobkenneth.cody.models.Article;
+import com.example.noobkenneth.cody.Home.Article;
+import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Utils;
 
 import java.util.List;
 

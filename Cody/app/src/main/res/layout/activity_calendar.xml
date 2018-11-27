@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Calendar">
+    tools:context=".Calendar.Calendar">
 
     <CalendarView
         android:id="@+id/calendarCalendarView"

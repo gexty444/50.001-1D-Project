@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody.models;
+package com.example.noobkenneth.cody.Home;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

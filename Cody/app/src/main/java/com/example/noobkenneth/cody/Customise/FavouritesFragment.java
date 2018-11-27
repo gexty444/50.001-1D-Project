@@ -1,6 +1,5 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Customise;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,12 +13,11 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
+import com.example.noobkenneth.cody.Outfit;
+import com.example.noobkenneth.cody.R;
 
 import java.util.ArrayList;
-
-import static android.content.Intent.getIntent;
-import static android.content.Intent.getIntentOld;
 
 public class FavouritesFragment extends Fragment {
 
