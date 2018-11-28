@@ -1,7 +1,9 @@
 package com.example.noobkenneth.cody;
 
 import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.content.Context;
 
 
 /**
@@ -14,4 +16,20 @@ import android.arch.persistence.room.RoomDatabase;
 public abstract class WardrobeDb extends RoomDatabase {
 
     public abstract WardrobeDao wardrobeDao();
+
+    //makes the WardrobeDb a Singleton to prevent multiple instances being opened at the same time
+    private static volatile WardrobeDb INSTANCE;
+    static WardrobeDb getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (WardrobeDb.class) {
+                if (INSTANCE == null) {
+                    // Create database here
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            WardrobeDb.class, "word_database")
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
 }
