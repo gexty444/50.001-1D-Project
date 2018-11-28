@@ -98,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         LoadJson();
+
+        //created new activity to test Database
+        Intent startDbTest = new Intent(MainActivity.this, TestDb.class);
+        startActivity(startDbTest);
      }
 
     public void LoadJson() {
