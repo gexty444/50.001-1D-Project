@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import java.util.Date;
 import java.util.Locale;
@@ -13,9 +14,10 @@ import java.util.Locale;
 //enforce unique key with "indices = {@Index(value = {"id"}, unique = true)}"
 // you can also embed java object in a database with @embed
 
-@Entity(tableName = "wardrobe_entity", indices = {@Index(value = {"id"}, unique = true)})
+@Entity(tableName = "WARDROBE_ENTITY", indices = {@Index(value = {"id"}, unique = true)})
 public class WardrobeEntity {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true) //auto generate creates unique key
+    @NonNull
     private int id;
 
 //    private Date date_created;
