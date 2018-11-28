@@ -19,56 +19,14 @@ public class WardrobeEntity {
     private int id;
 
 //    private Date date_created;
-
-    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-    private byte[] image;
-
-    private String category;
-
-    private String dress_code;
-
-    private boolean ootd;
+//    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+//    private byte[] image;
+//    private String category;
+//    private String dress_code;
+//    private boolean ootd;
 
 
-    //getters
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setDress_code(String dress_code) {
-        this.dress_code = dress_code;
-    }
-
-    public void setOotd(boolean ootd) {
-        this.ootd = ootd;
-    }
-
-    //various getters
-    public int getId() {
-        return id;
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getDress_code() {
-        return dress_code;
-    }
-
-    public boolean isOotd() {
-        return ootd;
-    }
+    public int getId() { return id;}
+    public void setId(int id) {this.id = id;}
 }
+
