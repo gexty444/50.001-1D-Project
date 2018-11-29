@@ -7,7 +7,7 @@ public class Outfit {
     private Bitmap image;
     private String textthing;
 
-    Outfit(){
+    public Outfit(){
     }
 
     Outfit(Bitmap image, String text){
