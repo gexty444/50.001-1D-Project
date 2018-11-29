@@ -32,7 +32,7 @@ public class WardrobeViewModel extends AndroidViewModel {
     public WardrobeViewModel (Application application) {
         super(application);
         mRepository = new WardrobeRepository(application);
-        mAllWords = mRepository.getAllWords();
+        mAllWords = mRepository.repositoryGetAllCothes();
     }
 
     //Add a "getter" method for all the words. This completely hides the implementation from the UI.

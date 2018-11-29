@@ -11,19 +11,19 @@ public class WardrobeRepository {
 
     //initialize the dao and the list of ids using a method from WardrobeDao
     private WardrobeDao mWardrobeDao;
-    private LiveData<List<WardrobeEntity>> mAllCothes;
+    private LiveData<List<WardrobeEntity>> mAllClothes;
 
     //Add a constructor that gets a handle to the database and initializes the member variables
     WardrobeRepository(Application application) {
         WardrobeDb db = WardrobeDb.getDatabase(application);
         mWardrobeDao = db.wardrobeDao();
-        mAllCothes = mWardrobeDao.getAllClothes();
+        mAllClothes = mWardrobeDao.getAllClothes();
     }
 
     //Add a wrapper for getAllClothes(). Room executes all queries on a separate thread.
     //Observed LiveData will notify the observer when the data has changed
-    LiveData<List<WardrobeEntity>> getAllWords() {
-        return mAllCothes;
+    LiveData<List<WardrobeEntity>> repositoryGetAllCothes() {
+        return mAllClothes;
     }
 
     //Add a wrapper for the insert() method. You must call this on a non-UI thread or your app will crash.

@@ -25,7 +25,11 @@ public abstract class WardrobeDb extends RoomDatabase {
                 if (INSTANCE == null) {
                     // Create database here
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            WardrobeDb.class, "word_database")
+                            WardrobeDb.class, "wardrobe_database")
+                            // Wipes and rebuilds instead of migrating
+                            // if no Migration object.
+                            // Migration is not part of this practical.
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }

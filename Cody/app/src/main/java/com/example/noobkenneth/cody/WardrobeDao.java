@@ -25,7 +25,7 @@ public interface WardrobeDao {
     @Query("SELECT * FROM WARDROBE_ENTITY ORDER BY id desc")
 //  this method is for reading stuff without ViewModel
 //  List<WardrobeEntity> getAllClothes();
-
+//  This one reads stuff with view model
     LiveData<List<WardrobeEntity>> getAllClothes();
 
 }

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -29,6 +31,12 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(getApplicationContext(), "Add new category when clicked?", Toast.LENGTH_LONG).show();
             }
         });
+
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final ClothesListAdapter adapter = new ClothesListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
