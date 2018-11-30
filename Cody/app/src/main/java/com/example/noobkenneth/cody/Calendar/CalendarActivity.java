@@ -1,13 +1,19 @@
 package com.example.noobkenneth.cody.Calendar;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 
+import com.example.noobkenneth.cody.Customise.CustomiseActivity;
+import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 
 import java.text.SimpleDateFormat;
 
@@ -23,6 +29,40 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        //This part dictates the behaviour of the bottom navigation bar
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_home:
+                        Log.i("Logcat", "home pressed from MainActivity");
+                        Intent intent_home = new Intent(CalendarActivity.this, MainActivity.class);
+                        startActivity(intent_home);
+                        break;
+                    case R.id.navigation_wardrobe:
+                        Log.i("Logcat", "wardrobe pressed from MainActivity");
+                        Intent intent_wardrobe = new Intent(CalendarActivity.this, WardrobeActivity.class);
+                        startActivity(intent_wardrobe);
+                        break;
+                    case R.id.navigation_ootds:
+                        Log.i("Logcat", "ootds pressed from MainActivity");
+//                        Intent intent_ootds = new Intent(CalendarActivity.this, CalendarActivity.class);
+//                        startActivity(intent_ootds);
+                        break;
+                    case R.id.navigation_customise:
+                        Log.i("Logcat", "customise pressed from MainActivity");
+                        Intent intent_customise = new Intent(CalendarActivity.this, CustomiseActivity.class);
+                        startActivity(intent_customise);
+                        break;
+                    case R.id.navigation_profile:
+                        Log.i("Logcat", "profile pressed from MainActivity");
+                        break;
+                }
+                return false;
+            }
+        });
 
         //developer defined widgets
         calendarView = findViewById(R.id.calendarCalendarView);
