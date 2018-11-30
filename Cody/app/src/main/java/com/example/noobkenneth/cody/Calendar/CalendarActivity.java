@@ -11,7 +11,7 @@ import com.example.noobkenneth.cody.R;
 
 import java.text.SimpleDateFormat;
 
-public class Calendar extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity {
 
     CalendarView calendarView;
     ImageView imageView;
