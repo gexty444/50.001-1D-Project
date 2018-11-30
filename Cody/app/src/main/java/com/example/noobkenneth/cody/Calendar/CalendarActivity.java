@@ -40,30 +40,30 @@ public class CalendarActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_home:
-                        Log.i("Logcat", "home pressed from MainActivity");
+                        Log.i("Logcat", "home pressed from CalendarActivity");
                         Intent intent_home = new Intent(CalendarActivity.this, MainActivity.class);
                         intent_home.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_home);
                         break;
                     case R.id.navigation_wardrobe:
-                        Log.i("Logcat", "wardrobe pressed from MainActivity");
+                        Log.i("Logcat", "wardrobe pressed from CalendarActivity");
                         Intent intent_wardrobe = new Intent(CalendarActivity.this, WardrobeActivity.class);
                         intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;
                     case R.id.navigation_ootds:
-                        Log.i("Logcat", "ootds pressed from MainActivity");
+                        Log.i("Logcat", "ootds pressed from CalendarActivity");
 //                        Intent intent_ootds = new Intent(CalendarActivity.this, CalendarActivity.class);
 //                        startActivity(intent_ootds);
                         break;
                     case R.id.navigation_customise:
-                        Log.i("Logcat", "customise pressed from MainActivity");
+                        Log.i("Logcat", "customise pressed from CalendarActivity");
                         Intent intent_customise = new Intent(CalendarActivity.this, CustomiseActivity.class);
                         intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_customise);
                         break;
                     case R.id.navigation_profile:
-                        Log.i("Logcat", "profile pressed from MainActivity");
+                        Log.i("Logcat", "profile pressed from CalendarActivity");
                         break;
                 }
                 return false;
