@@ -12,12 +12,12 @@
         android:title="@string/title_wardrobe" />
 
     <item
-        android:id="@+id/navigation_photo"
+        android:id="@+id/navigation_ootds"
         android:icon="@drawable/photo_navigation"
-        android:title="@string/title_photo" />
+        android:title="@string/title_ootds" />
 
     <item
-        android:id="@+id/navigation_customize"
+        android:id="@+id/navigation_customise"
         android:icon="@drawable/customize_navigation"
         android:title="@string/title_customize" />
 
@@ -25,10 +25,6 @@
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profile_navigation"
         android:title="@string/title_profile" />
-
-
-
-
 
 
 </menu>
