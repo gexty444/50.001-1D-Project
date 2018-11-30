@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        //sets the selected bottom bar item
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -94,16 +96,19 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_wardrobe:
                         Log.i("Logcat", "wardrobe pressed from MainActivity");
                         Intent intent_wardrobe = new Intent(MainActivity.this, WardrobeActivity.class);
+                        intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;
                     case R.id.navigation_ootds:
                         Log.i("Logcat", "ootds pressed from MainActivity");
                         Intent intent_ootds = new Intent(MainActivity.this, CalendarActivity.class);
+                        intent_ootds.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_ootds);
                         break;
                     case R.id.navigation_customise:
                         Log.i("Logcat", "customise pressed from MainActivity");
                         Intent intent_customise = new Intent(MainActivity.this, CustomiseActivity.class);
+                        intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_customise);
                         break;
                     case R.id.navigation_profile:
