@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,11 +20,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
 import com.example.noobkenneth.cody.Utils;
+import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
+import com.example.noobkenneth.cody.Calendar.CalendarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,43 +44,79 @@ public class MainActivity extends AppCompatActivity {
     private List<Article> articles = new ArrayList<>();
     private Adapter adapter;
     private String TAG = MainActivity.class.getSimpleName();
+
+//    private TextView mTextMessage;
+//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//
+//        @Override
+//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            switch (item.getItemId()) {
+//                case R.id.navigation_home:
+//                    mTextMessage.setText(R.string.title_home);
+//                    return true;
+//                case R.id.navigation_wardrobe:
+//                    mTextMessage.setText(R.string.title_wardrobe);
+//                    return true;
+//                case R.id.navigation_photo:
+//                    mTextMessage.setText(R.string.title_photo);
+//                    return true;
+//                case R.id.navigation_customize:
+//                    mTextMessage.setText(R.string.title_customize);
+//                    return true;
+//                case R.id.navigation_profile:
+//                    mTextMessage.setText(R.string.title_profile);
+//                    return true;
+//            }
+//            return false;
+//        }
+//    };
     private TextView toRecommendations;
     public static final String selectedStyleKey = "SELECTED_STYLE";
     private TextView mTextMessage;
     private String selectedStyle = "";
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_wardrobe:
-                    mTextMessage.setText(R.string.title_wardrobe);
-                    return true;
-                case R.id.navigation_photo:
-                    mTextMessage.setText(R.string.title_photo);
-                    return true;
-                case R.id.navigation_customize:
-                    mTextMessage.setText(R.string.title_customize);
-                case R.id.navigation_profile:
-                    mTextMessage.setText(R.string.title_profile);
-            }
-            return false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        //This part dictates the behaviour of the bottom navigation bar
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_home:
+                        Log.i("Logcat", "home pressed from MainActivity");
+                        break;
+                    case R.id.navigation_wardrobe:
+                        Log.i("Logcat", "wardrobe pressed from MainActivity");
+                        Intent intent_wardrobe = new Intent(MainActivity.this, WardrobeActivity.class);
+                        startActivity(intent_wardrobe);
+                        break;
+                    case R.id.navigation_ootds:
+                        Log.i("Logcat", "ootds pressed from MainActivity");
+                        Intent intent_ootds = new Intent(MainActivity.this, CalendarActivity.class);
+                        startActivity(intent_ootds);
+                        break;
+                    case R.id.navigation_customise:
+                        Log.i("Logcat", "customise pressed from MainActivity");
+                        Intent intent_customise = new Intent(MainActivity.this, CustomiseActivity.class);
+                        startActivity(intent_customise);
+                        break;
+                    case R.id.navigation_profile:
+                        Log.i("Logcat", "profile pressed from MainActivity");
+                        break;
+                }
+                return false;
+            }
+        });
+
+//        mTextMessage = (TextView) findViewById(R.id.message);
+//        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         LinearLayout gallery = findViewById(R.id.gallery);
 
@@ -119,10 +159,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setNestedScrollingEnabled(false);
 
-
-
         LoadJson();
-     }
+    }
 
     public void LoadJson() {
 
@@ -150,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "No Result!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<News> call, Throwable t) {
 
