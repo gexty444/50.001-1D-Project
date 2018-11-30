@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Cody</string>
-    <string name="title_home"></string>
+    <string name="title_home">Home</string>
     <string name="title_photo">Dashboard</string>
     <string name="title_wardrobe">Photos</string>
     <string name="title_customize">Customize</string>
