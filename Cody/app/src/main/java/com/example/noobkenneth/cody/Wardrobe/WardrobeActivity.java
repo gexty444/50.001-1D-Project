@@ -2,13 +2,20 @@ package com.example.noobkenneth.cody.Wardrobe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Calendar.CalendarActivity;
+import com.example.noobkenneth.cody.Customise.CustomiseActivity;
+import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 
 public class WardrobeActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -32,6 +39,47 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
+        //This part dictates the behaviour of the bottom navigation bar
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        //sets the selected bottom bar item
+        bottomNavigationView.setSelectedItemId(R.id.navigation_wardrobe);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_home:
+                        Log.i("Logcat", "home pressed from WardrobeActivity");
+                        Intent intent_home = new Intent(WardrobeActivity.this, MainActivity.class);
+                        intent_home.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_home);
+                        break;
+                    case R.id.navigation_wardrobe:
+                        Log.i("Logcat", "wardrobe pressed from WardrobeActivity");
+//                        Intent intent_wardrobe = new Intent(WardrobeActivity.this, WardrobeActivity.class);
+//                        intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                        startActivity(intent_wardrobe);
+                        break;
+                    case R.id.navigation_ootds:
+                        Log.i("Logcat", "ootds pressed from WardrobeActivity");
+                        Intent intent_ootds = new Intent(WardrobeActivity.this, CalendarActivity.class);
+                        intent_ootds.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_ootds);
+                        break;
+                    case R.id.navigation_customise:
+                        Log.i("Logcat", "customise pressed from WardrobeActivity");
+                        Intent intent_customise = new Intent(WardrobeActivity.this, CustomiseActivity.class);
+                        intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_customise);
+                        break;
+                    case R.id.navigation_profile:
+                        Log.i("Logcat", "profile pressed from WardrobeActivity");
+                        break;
+                }
+                return false;
+            }
+        });
+
     }
 
 
@@ -39,7 +87,6 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-
     }
 
     /*
