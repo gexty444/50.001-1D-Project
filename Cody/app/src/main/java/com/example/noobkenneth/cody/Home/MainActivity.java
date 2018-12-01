@@ -44,33 +44,6 @@ public class MainActivity extends AppCompatActivity {
     private List<Article> articles = new ArrayList<>();
     private Adapter adapter;
     private String TAG = MainActivity.class.getSimpleName();
-
-//    private TextView mTextMessage;
-//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-//
-//        @Override
-//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//            switch (item.getItemId()) {
-//                case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.title_home);
-//                    return true;
-//                case R.id.navigation_wardrobe:
-//                    mTextMessage.setText(R.string.title_wardrobe);
-//                    return true;
-//                case R.id.navigation_photo:
-//                    mTextMessage.setText(R.string.title_photo);
-//                    return true;
-//                case R.id.navigation_customize:
-//                    mTextMessage.setText(R.string.title_customize);
-//                    return true;
-//                case R.id.navigation_profile:
-//                    mTextMessage.setText(R.string.title_profile);
-//                    return true;
-//            }
-//            return false;
-//        }
-//    };
     private TextView toRecommendations;
     public static final String selectedStyleKey = "SELECTED_STYLE";
     private TextView mTextMessage;
@@ -84,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+
         //sets the selected bottom bar item
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -119,10 +93,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        mTextMessage = (TextView) findViewById(R.id.message);
-//        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         LinearLayout gallery = findViewById(R.id.gallery);
 
         LayoutInflater galleryInflater = LayoutInflater.from(this);
@@ -139,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
             gallery.addView(view);
         }
+
+        // Spinner
         final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -154,9 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // Spinner
-
-
 
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(MainActivity.this);

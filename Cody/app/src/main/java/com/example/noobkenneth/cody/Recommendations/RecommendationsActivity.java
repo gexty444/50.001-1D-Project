@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -25,7 +26,6 @@ public class RecommendationsActivity extends AppCompatActivity {
 
     private final String sharedPrefFile = "com.example.android.mainsharedprefs";
     SharedPreferences mPreferences;
-
     ViewPager viewPager;
     RecAdapter recAdapter;
     List<Recommendations> recommendationsList;
@@ -33,14 +33,29 @@ public class RecommendationsActivity extends AppCompatActivity {
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     List<Recommendations> generatedList = new ArrayList<>();
+    ImageButton closeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rec_activity_main);
 
-        Intent intent = getIntent();
-        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
+        //make recommendations a pop-up
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        closeBtn = findViewById(R.id.closeRecommendations);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+//        Intent intent = getIntent();
+//        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
 
         //TODO: Generate attires based on selectedStyle
 
