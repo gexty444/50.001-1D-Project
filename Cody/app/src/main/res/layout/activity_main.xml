@@ -25,7 +25,8 @@
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <LinearLayout
@@ -33,6 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/homespinner"
+                android:layout_width="268dp"
+                android:layout_marginRight="0dp"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,19 +50,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="16dp"
                     android:fontFamily="Roboto-Regular"
                     android:text="My Wardrobe"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/toRecommendations"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="195dp"
-                    android:layout_marginRight="0dp"
+                    android:layout_marginLeft="120dp"
                     android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:fontFamily="Roboto-Light"
+                    android:text="Generate"
+                    android:textColor="#2D2DC7" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="0dp"
                     android:fontFamily="Roboto-Light"
                     android:text="See All"
                     android:textColor="#2D2DC7"
@@ -68,9 +86,9 @@
                 android:id="@+id/horizontalScrollView3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -86,9 +104,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1.5dp"
-                android:layout_marginEnd="0dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginEnd="0dp"
                 android:background="#DFDFE0"
                 app:layout_constraintBottom_toTopOf="@+id/navigation"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,24 +123,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="16dp"
                     android:fontFamily="Roboto-Regular"
                     android:text="Fashion News"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="115dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
                     android:fontFamily="Roboto-Regular"
                     android:text="Business News"
                     android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

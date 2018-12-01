@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.noobkenneth.cody.Outfit;
 import com.example.noobkenneth.cody.R;
 
 import java.util.List;

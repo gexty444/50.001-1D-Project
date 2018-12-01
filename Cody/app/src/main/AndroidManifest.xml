@@ -35,6 +35,10 @@
             android:label="Tagging"
             >
         </activity>
+
+        <activity android:name=".Recommendations.RecommendationsActivity"
+            android:parentActivityName=".Home.MainActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.noobkenneth.cody.Recommendations;
 
 import android.animation.ArgbEvaluator;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 
 import java.util.ArrayList;
@@ -37,11 +39,12 @@ public class RecommendationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rec_activity_main);
 
-        mPreferences = getSharedPreferences(sharedPrefFile,MODE_PRIVATE);
+        Intent intent = getIntent();
+        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
 
-        //TODO: Generate attires based on a certain tag
-        //TODO: Figure out why preferences not saved after app closed
-        //TODO: Implement drop-down filter
+        //TODO: Generate attires based on selectedStyle
+
+        mPreferences = getSharedPreferences(sharedPrefFile,MODE_PRIVATE);
 
         generatedList.add(new Recommendations(R.drawable.formal,"Formal Attire " + Integer.toString(generatedList.size()+1)));
         generatedList.add(new Recommendations(R.drawable.business,"Formal Attire " + Integer.toString(generatedList.size()+1)));

@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.noobkenneth.cody.Outfit;
 import com.example.noobkenneth.cody.R;
 
 import java.util.ArrayList;

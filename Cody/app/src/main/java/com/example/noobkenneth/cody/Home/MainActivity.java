@@ -1,5 +1,6 @@
 package com.example.noobkenneth.cody.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,17 +11,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
 import com.example.noobkenneth.cody.Utils;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
-import com.example.noobkenneth.cody.Home.Article;
-import com.example.noobkenneth.cody.Home.News;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private List<Article> articles = new ArrayList<>();
     private Adapter adapter;
     private String TAG = MainActivity.class.getSimpleName();
-
+    private TextView toRecommendations;
+    public static final String selectedStyleKey = "SELECTED_STYLE";
     private TextView mTextMessage;
+    private String selectedStyle = "";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -89,6 +94,24 @@ public class MainActivity extends AppCompatActivity {
 
             gallery.addView(view);
         }
+        final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        homeSpinner.setAdapter(adapter);
+
+        //textView (serving as button) to Recommendations activity on Home page
+        toRecommendations = findViewById(R.id.toRecommendations);
+        toRecommendations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),RecommendationsActivity.class);
+                intent.putExtra(selectedStyleKey, homeSpinner.getSelectedItem().toString());
+                startActivity(intent);
+            }
+        });
+        // Spinner
+
+
 
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(MainActivity.this);
