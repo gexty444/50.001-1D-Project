@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.view.MotionEvent;
@@ -174,7 +175,7 @@ class SwipeController extends Callback {
 //        drawText("EDIT", c, leftButton, p);
 
         RectF rightButton = new RectF(itemView.getRight() - buttonWidthWithoutPadding, itemView.getTop(), itemView.getRight(), itemView.getBottom());
-        p.setColor(Color.RED);
+        p.setColor(0xFFEA474A);
         c.drawRoundRect(rightButton, corners, corners, p);
         drawText("DELETE", c, rightButton, p);
 
