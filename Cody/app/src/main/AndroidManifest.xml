@@ -59,8 +59,6 @@
         <activity android:name=".Customise.Screenshotpage"
             android:parentActivityName=".Customise.CustomiseActivity"/>
 
-        <activity android:name=".database.DbMainActivity"/>
-
         <activity android:name=".database.RecylerViewActivity" />
 
         <activity android:name=".database.DataEntryActivity" />
