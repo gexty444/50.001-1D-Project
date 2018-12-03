@@ -44,7 +44,10 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         charaViewHolder.textViewName.setText(charaData.getName());
         charaViewHolder.textViewDescription.setText(charaData.getDescription());
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
-        Log.i("Logcat", "CharaAdapter category called: " + charaData.getCategory());
+        Log.i("Logcat", "CharaAdapter formality called: " + charaData.getFormality());
+        charaViewHolder.textViewFormality.setText(String.valueOf(charaData.getFormality()));
+        charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
+        charaViewHolder.textViewOotd.setText(String.valueOf(charaData.getOotd()));
         charaViewHolder.textViewPosition.setText(Integer.toString(i));
         charaViewHolder.imageViewChara.setImageBitmap(charaData.getBitmap());
     }
@@ -65,6 +68,9 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         public TextView textViewDescription;
         public TextView textViewPosition;
         public TextView textViewCategory;
+        public TextView textViewFormality;
+        public TextView textViewLastUsed;
+        public TextView textViewOotd;
         public ImageView imageViewChara;
 
         public CharaViewHolder(View view){
@@ -74,6 +80,9 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
             textViewPosition = view.findViewById(R.id.cardViewTextCount);
             imageViewChara = view.findViewById(R.id.cardViewImage);
             textViewCategory = view.findViewById(R.id.cardViewTextCategory);
+            textViewFormality = view.findViewById(R.id.cardViewTextFormality);
+            textViewLastUsed = view.findViewById(R.id.cardViewTextLastUsed);
+            textViewOotd = view.findViewById(R.id.cardViewTextOotd);
         }
     }
 }

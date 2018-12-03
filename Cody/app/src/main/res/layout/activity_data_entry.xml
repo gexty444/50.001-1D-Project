@@ -25,6 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <EditText
+        android:id="@+id/editTextFormalityEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter Formality"
+        android:inputType="number" />
+
     <Button
         android:id="@+id/buttonSelectImage"
         android:text="select image"

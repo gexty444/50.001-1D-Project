@@ -30,7 +30,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 20;
+    private static final int DATABASE_VERSION = 26;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -99,6 +99,9 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         String name=null;
         String description =null;
         String category =null;
+        int formality = 0;
+        String last_used = null;
+        Boolean ootd = null;
         Bitmap bitmap =null;
 
         cursor.moveToPosition(position);
@@ -112,19 +115,33 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
         category = cursor.getString(categoryIndex);
 
+        int formalityIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FORMALITY);
+        formality = Integer.parseInt(cursor.getString(formalityIndex));
+
+        int last_usedIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_LAST_USED);
+        last_used = cursor.getString(last_usedIndex);
+
+        int ootdIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_OOTD);
+        ootd = Boolean.getBoolean(cursor.getString(ootdIndex));
+
         int bitmapIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FILE);
         byte[] bitmapByteArray = cursor.getBlob(bitmapIndex);
         bitmap = BitmapFactory.decodeByteArray(bitmapByteArray,
                 0,
                 bitmapByteArray.length);
 
-        return new CharaData(name, description, category,  bitmap);
+        return new CharaData(name, description, category, formality, last_used, ootd,  bitmap);
     }
 
     //TODO 7.10 Insert one row when data is passed to it
     public void insertOneRow(CharaData charaData){
 
-        Log.i("Logcat", "CharaDbHelper: insertOneRow called");
+        Log.i("Logcat", "CharaDbHelper.insertOneRow  " +
+                charaData.getName() + " " + charaData.getDescription() + " " +
+                charaData.getCategory() + " " + charaData.getFormality() + " " +
+                charaData.getLastUsed() + " " + charaData.getOotd()
+        );
+
         if( writeableDb == null){
             writeableDb = getWritableDatabase();
         }
@@ -140,7 +157,18 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         contentValues.put(
                 CharaContract.CharaEntry.COL_CATEGORY,
                 charaData.getCategory());
-        Log.i("Logcat", "charaData.category: "+ charaData.getCategory());
+
+        contentValues.put(
+                CharaContract.CharaEntry.COL_FORMALITY,
+                charaData.getFormality());
+
+        contentValues.put(
+                CharaContract.CharaEntry.COL_LAST_USED,
+                charaData.getLastUsed());
+
+        contentValues.put(
+                CharaContract.CharaEntry.COL_OOTD,
+                charaData.getOotd());
 
         byte[] bitmapdata = Utils.convertBitmapToByteArray(
                 charaData.getBitmap());
@@ -186,6 +214,9 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         private String name;
         private String description;
         private String category;
+        private int formality;
+        private String last_used;
+        private Boolean ootd;
         private String file;
         private Bitmap bitmap;
 
@@ -199,9 +230,28 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             this.name = name;
             this.description = description;
             this.category = category;
-            Log.i("Logcat", "CharaData constructor called, category: " + category);
             this.bitmap = bitmap;
         }
+
+        public CharaData(String name, String description, String category, Integer formality,
+                         String last_used, Boolean ootd, Bitmap bitmap) {
+            Log.i("Logcat", "CharaData constructor called " + name + " " +
+                    description + " " +
+                    category + " " +
+                    formality + " " +
+                    last_used + " " +
+                    ootd
+            );
+
+            this.name = name;
+            this.description = description;
+            this.category = category;
+            this.formality = formality;
+            this.last_used = last_used;
+            this.ootd = ootd;
+            this.bitmap = bitmap;
+        }
+
 
         public CharaData(String name, String description, Bitmap bitmap){
             this.name = name;
@@ -218,6 +268,12 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         }
 
         public String getCategory(){return category;}
+
+        public Integer getFormality(){return formality;}
+
+        public String getLastUsed(){return last_used;}
+
+        public Boolean getOotd(){return ootd;}
 
         public String getFile() {
             return file;

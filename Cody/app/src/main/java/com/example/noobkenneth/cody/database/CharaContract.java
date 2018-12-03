@@ -19,6 +19,9 @@ public class CharaContract {
         public static final String COL_NAME = "name";
         public static final String COL_DESCRIPTION = "description";
         public static final String COL_CATEGORY = "category";
+        public static final String COL_FORMALITY = "formality";
+        public static final String COL_LAST_USED= "last_used";
+        public static final String COL_OOTD= "ootd";
         public static final String COL_FILE = "file";
     }
 
@@ -33,6 +36,9 @@ public class CharaContract {
                 + CharaEntry.COL_NAME + SPACE + "TEXT NOT NULL" + COMMA
                 + CharaEntry.COL_DESCRIPTION + SPACE + "TEXT NOT NULL" + COMMA
                 + CharaEntry.COL_CATEGORY + SPACE + "TEXT NOT NULL" + COMMA
+                + CharaEntry.COL_FORMALITY + SPACE + "INT NOT NULL" + COMMA
+                + CharaEntry.COL_LAST_USED + SPACE + "DATE NOT NULL" + COMMA
+                + CharaEntry.COL_OOTD + SPACE + "BOOLEAN NOT NULL" + COMMA
                 + CharaEntry.COL_FILE + SPACE + "BLOB NOT NULL" +
                 ");" ;
 

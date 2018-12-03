@@ -7,16 +7,21 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.example.noobkenneth.cody.R;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 
 public class DataEntryActivity extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class DataEntryActivity extends AppCompatActivity {
     EditText editTextName;
     EditText editTextDescription;
     EditText editTextCategory;
+    EditText editTextFormality;
     Bitmap bitmapSelected = null;
     SQLiteDatabase db;
     int REQUEST_CODE_IMAGE = 2000;
@@ -41,6 +47,7 @@ public class DataEntryActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.editTextNameEntry);
         editTextDescription = findViewById(R.id.editTextDescriptionEntry);
         editTextCategory = findViewById(R.id.editTextCategoryEntry);
+        editTextFormality = findViewById(R.id.editTextFormalityEntry);
         Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
         imageViewSelected = findViewById(R.id.imageViewSelected);
 
@@ -64,6 +71,13 @@ public class DataEntryActivity extends AppCompatActivity {
                 String name = editTextName.getText().toString();
                 String description = editTextDescription.getText().toString();
                 String category = editTextCategory.getText().toString();
+                int formality = Integer.parseInt(editTextFormality.getText().toString());
+                Log.i("Logcat", "formality: " + formality);
+                Log.i("Logcat", "formality raw: " + editTextFormality.getText().toString());
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                String last_used = formatter.format(date);
+                Boolean ootd = Boolean.FALSE;
 
                 if( bitmapSelected == null){
                     Toast.makeText(DataEntryActivity.this,
@@ -72,7 +86,9 @@ public class DataEntryActivity extends AppCompatActivity {
                 }else{
 
                     CharaDbHelper.CharaData charaData
-                            = new CharaDbHelper.CharaData(name,description, category, bitmapSelected);
+                            = new CharaDbHelper.CharaData(name,description, category, formality,
+                            last_used, ootd, bitmapSelected);
+
                     charaDbHelper.insertOneRow( charaData );
 
                     Toast.makeText(DataEntryActivity.this,
