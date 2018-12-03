@@ -24,6 +24,7 @@ public class DataEntryActivity extends AppCompatActivity {
     CharaDbHelper charaDbHelper;
     EditText editTextName;
     EditText editTextDescription;
+    EditText editTextCategory;
     Bitmap bitmapSelected = null;
     SQLiteDatabase db;
     int REQUEST_CODE_IMAGE = 2000;
@@ -39,6 +40,7 @@ public class DataEntryActivity extends AppCompatActivity {
         //TODO 8.5 Get references to the widgets
         editTextName = findViewById(R.id.editTextNameEntry);
         editTextDescription = findViewById(R.id.editTextDescriptionEntry);
+        editTextCategory = findViewById(R.id.editTextCategoryEntry);
         Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
         imageViewSelected = findViewById(R.id.imageViewSelected);
 
@@ -61,6 +63,7 @@ public class DataEntryActivity extends AppCompatActivity {
 
                 String name = editTextName.getText().toString();
                 String description = editTextDescription.getText().toString();
+                String category = editTextCategory.getText().toString();
 
                 if( bitmapSelected == null){
                     Toast.makeText(DataEntryActivity.this,
@@ -69,7 +72,7 @@ public class DataEntryActivity extends AppCompatActivity {
                 }else{
 
                     CharaDbHelper.CharaData charaData
-                            = new CharaDbHelper.CharaData(name,description,bitmapSelected);
+                            = new CharaDbHelper.CharaData(name,description, category, bitmapSelected);
                     charaDbHelper.insertOneRow( charaData );
 
                     Toast.makeText(DataEntryActivity.this,

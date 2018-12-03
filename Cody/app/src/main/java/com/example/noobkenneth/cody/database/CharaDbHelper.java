@@ -30,7 +30,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 18;
+    private static final int DATABASE_VERSION = 20;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -64,7 +64,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CharaContract.CharaSql.SQL_DROP_TABLE);
         onCreate(sqLiteDatabase);
     }
-    
+
 
     //TODO 7.8 query one row at random
     public CharaData queryOneRowRandom(){
@@ -110,7 +110,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         description = cursor.getString(descriptionIndex);
 
         int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
-        description = cursor.getString(descriptionIndex);
+        category = cursor.getString(categoryIndex);
 
         int bitmapIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FILE);
         byte[] bitmapByteArray = cursor.getBlob(bitmapIndex);
@@ -123,6 +123,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     //TODO 7.10 Insert one row when data is passed to it
     public void insertOneRow(CharaData charaData){
+
+        Log.i("Logcat", "CharaDbHelper: insertOneRow called");
         if( writeableDb == null){
             writeableDb = getWritableDatabase();
         }
@@ -138,6 +140,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         contentValues.put(
                 CharaContract.CharaEntry.COL_CATEGORY,
                 charaData.getCategory());
+        Log.i("Logcat", "charaData.category: "+ charaData.getCategory());
 
         byte[] bitmapdata = Utils.convertBitmapToByteArray(
                 charaData.getBitmap());
@@ -196,6 +199,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             this.name = name;
             this.description = description;
             this.category = category;
+            Log.i("Logcat", "CharaData constructor called, category: " + category);
             this.bitmap = bitmap;
         }
 

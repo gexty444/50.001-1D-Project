@@ -3,6 +3,7 @@ package com.example.noobkenneth.cody.database;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,10 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
         charaViewHolder.textViewName.setText(charaData.getName());
         charaViewHolder.textViewDescription.setText(charaData.getDescription());
+        charaViewHolder.textViewCategory.setText(charaData.getCategory());
+        Log.i("Logcat", "CharaAdapter category called: " + charaData.getCategory());
         charaViewHolder.textViewPosition.setText(Integer.toString(i));
         charaViewHolder.imageViewChara.setImageBitmap(charaData.getBitmap());
-
     }
 
     //TODO 9.6 this method controls the number of cardviews in the recyclerview
@@ -62,6 +64,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         public TextView textViewName;
         public TextView textViewDescription;
         public TextView textViewPosition;
+        public TextView textViewCategory;
         public ImageView imageViewChara;
 
         public CharaViewHolder(View view){
@@ -70,10 +73,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
             textViewDescription = view.findViewById(R.id.cardViewTextDescription);
             textViewPosition = view.findViewById(R.id.cardViewTextCount);
             imageViewChara = view.findViewById(R.id.cardViewImage);
-
+            textViewCategory = view.findViewById(R.id.cardViewTextCategory);
         }
-
-
-
     }
 }
