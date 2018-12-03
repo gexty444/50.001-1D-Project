@@ -77,7 +77,7 @@ public class DataEntryActivity extends AppCompatActivity {
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String last_used = formatter.format(date);
-                Boolean ootd = Boolean.FALSE;
+                boolean ootd = false;
 
                 if( bitmapSelected == null){
                     Toast.makeText(DataEntryActivity.this,

@@ -101,7 +101,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         String category =null;
         int formality = 0;
         String last_used = null;
-        Boolean ootd = null;
+        boolean ootd = false;
         Bitmap bitmap =null;
 
         cursor.moveToPosition(position);
@@ -122,7 +122,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         last_used = cursor.getString(last_usedIndex);
 
         int ootdIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_OOTD);
-        ootd = Boolean.getBoolean(cursor.getString(ootdIndex));
+        ootd = Boolean.parseBoolean(cursor.getString(ootdIndex));
 
         int bitmapIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FILE);
         byte[] bitmapByteArray = cursor.getBlob(bitmapIndex);
@@ -216,7 +216,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         private String category;
         private int formality;
         private String last_used;
-        private Boolean ootd;
+        private boolean ootd;
         private String file;
         private Bitmap bitmap;
 
@@ -234,7 +234,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         }
 
         public CharaData(String name, String description, String category, Integer formality,
-                         String last_used, Boolean ootd, Bitmap bitmap) {
+                         String last_used, boolean ootd, Bitmap bitmap) {
             Log.i("Logcat", "CharaData constructor called " + name + " " +
                     description + " " +
                     category + " " +
@@ -269,11 +269,11 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         public String getCategory(){return category;}
 
-        public Integer getFormality(){return formality;}
+        public int getFormality(){return formality;}
 
         public String getLastUsed(){return last_used;}
 
-        public Boolean getOotd(){return ootd;}
+        public boolean getOotd(){return ootd;}
 
         public String getFile() {
             return file;
