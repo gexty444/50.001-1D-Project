@@ -41,7 +41,8 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     public void onBindViewHolder(@NonNull CharaViewHolder charaViewHolder, int i) {
         // i is the position in the recyclerview
         charaViewHolder.textViewPosition.setText(Integer.toString(i));
-        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
+//        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
+        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRowClothes(i);
         charaViewHolder.textViewId.setText(""+charaData.getId());
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
         charaViewHolder.textViewFormality.setText(String.valueOf(charaData.getFormality()));

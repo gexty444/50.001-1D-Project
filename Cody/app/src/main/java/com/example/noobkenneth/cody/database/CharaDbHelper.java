@@ -30,7 +30,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 27;
+    private static final int DATABASE_VERSION = 28;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -89,7 +89,26 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 null);
 
         return getDataFromCursor(position, cursor);
+    }
 
+    public CharaData queryOneRowClothes(int position){
+        if( readableDb == null){
+            readableDb = getReadableDatabase();
+        }
+        Cursor cursor = readableDb.rawQuery(
+                CharaContract.CharaSql.SQL_QUERY_OOTD,
+                new String[]{"0"});
+        return getDataFromCursor(position, cursor);
+    }
+
+    public CharaData queryOneRowOotd(int position){
+        if( readableDb == null){
+            readableDb = getReadableDatabase();
+        }
+        Cursor cursor = readableDb.rawQuery(
+                CharaContract.CharaSql.SQL_QUERY_OOTD,
+                new String[]{"1"});
+        return getDataFromCursor(position, cursor);
     }
 
     //TODO 7.8 Get the data from cursor
