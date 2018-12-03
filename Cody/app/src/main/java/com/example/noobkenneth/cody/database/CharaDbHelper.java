@@ -54,7 +54,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CharaContract.CharaSql.SQL_CREATE_TABLE);
-        fillTable(sqLiteDatabase);
+//        fillTable(sqLiteDatabase);
 
     }
 

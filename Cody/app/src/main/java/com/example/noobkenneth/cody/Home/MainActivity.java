@@ -25,7 +25,6 @@ import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
 import com.example.noobkenneth.cody.Calendar.CalendarActivity;
 import com.example.noobkenneth.cody.database.DataEntryActivity;
-import com.example.noobkenneth.cody.database.DbMainActivity;
 import com.example.noobkenneth.cody.database.RecylerViewActivity;
 
 import java.util.ArrayList;
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_wardrobe:
                         Log.i("Logcat", "wardrobe pressed from MainActivity");
-                        Intent intent_wardrobe = new Intent(MainActivity.this, WardrobeActivity.class);
+                        Intent intent_wardrobe = new Intent(MainActivity.this, RecylerViewActivity.class);
                         intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;
