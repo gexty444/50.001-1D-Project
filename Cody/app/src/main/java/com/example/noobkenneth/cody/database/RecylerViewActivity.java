@@ -43,8 +43,8 @@ public class RecylerViewActivity extends AppCompatActivity {
                 CharaAdapter.CharaViewHolder charaViewHolder
                         = (CharaAdapter.CharaViewHolder) viewHolder;
 
-//                String name = charaViewHolder.textViewName.getText().toString();
-//                charaDbHelper.deleteOneRow(name);
+                String id = charaViewHolder.textViewId.getText().toString();
+                charaDbHelper.deleteOneRow(id);
                 Toast.makeText(RecylerViewActivity.this, "Deleting Row", Toast.LENGTH_LONG).show();
                 charaAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
 

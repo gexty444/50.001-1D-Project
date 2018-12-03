@@ -42,6 +42,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         // i is the position in the recyclerview
         charaViewHolder.textViewPosition.setText(Integer.toString(i));
         CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
+        charaViewHolder.textViewId.setText(""+charaData.getId());
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
         charaViewHolder.textViewFormality.setText(String.valueOf(charaData.getFormality()));
         charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
@@ -61,6 +62,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     //TODO ATTENTION SVP we had to make this class static
     static class CharaViewHolder extends RecyclerView.ViewHolder{
 
+        public TextView textViewId;
         public TextView textViewPosition;
         public TextView textViewCategory;
         public TextView textViewFormality;
@@ -70,6 +72,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
 
         public CharaViewHolder(View view){
             super(view);
+            textViewId = view.findViewById(R.id.cardViewTextId);
             textViewPosition = view.findViewById(R.id.cardViewTextCount);
             imageViewChara = view.findViewById(R.id.cardViewImage);
             textViewCategory = view.findViewById(R.id.cardViewTextCategory);

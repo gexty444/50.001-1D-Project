@@ -37,10 +37,19 @@
                 android:text="Count position" />
 
             <TextView
-                android:id="@+id/cardViewTextCategory"
+                android:id="@+id/cardViewTextId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cardViewTextCount"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="Id position" />
+
+            <TextView
+                android:id="@+id/cardViewTextCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardViewTextId"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="1dp"

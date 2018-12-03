@@ -95,6 +95,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     //TODO 7.8 Get the data from cursor
     private CharaData getDataFromCursor(int position, Cursor cursor){
 
+        int id = 0;
         String category =null;
         int formality = 0;
         String last_used = null;
@@ -102,6 +103,10 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         Bitmap bitmap =null;
 
         cursor.moveToPosition(position);
+
+        int idIndex = cursor.getColumnIndex(CharaContract.CharaEntry._ID);
+        id = Integer.parseInt(cursor.getString(idIndex));
+        Log.i("Logcat", "getDataFromCursor: id: " + id);
 
         int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
         category = cursor.getString(categoryIndex);
@@ -121,7 +126,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 0,
                 bitmapByteArray.length);
 
-        return new CharaData(category, formality, last_used, ootd,  bitmap);
+        return new CharaData(id, category, formality, last_used, ootd,  bitmap);
     }
 
     //TODO 7.10 Insert one row when data is passed to it
@@ -166,18 +171,18 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
 
     //TODO 7.11 Delete one row given the name field
-//    public int deleteOneRow(String name){
-//        if( writeableDb == null){
-//            writeableDb = getWritableDatabase();
-//        }
-//        String WHERE_CLAUSE
-//                = CharaContract.CharaEntry.COL_NAME + " = ?";
-//        String[] WHERE_ARGS = {name};
-//        int rowsDeleted = writeableDb.delete(CharaContract.CharaEntry.TABLE_NAME,
-//                WHERE_CLAUSE, WHERE_ARGS);
-//        Log.i("Logcat", "rows deleted: " + rowsDeleted);
-//        return rowsDeleted;
-//    }
+    public int deleteOneRow(String id){
+        if( writeableDb == null){
+            writeableDb = getWritableDatabase();
+        }
+        String WHERE_CLAUSE
+                = CharaContract.CharaEntry._ID + " = ?";
+        String[] WHERE_ARGS = {id};
+        int rowsDeleted = writeableDb.delete(CharaContract.CharaEntry.TABLE_NAME,
+                WHERE_CLAUSE, WHERE_ARGS);
+        Log.i("Logcat", "rows deleted: " + rowsDeleted);
+        return rowsDeleted;
+    }
 
     //TODO 7.7 return the number of rows in the database
     public long queryNumRows(){
@@ -196,13 +201,13 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     //TODO 7.3 Create a model class to represent our data
     static class CharaData{
 
+        private int id;
         private String category;
         private int formality;
         private String last_used;
         private boolean ootd;
         private String file;
         private Bitmap bitmap;
-
 
         public CharaData(String category, Integer formality,
                          String last_used, boolean ootd, Bitmap bitmap) {
@@ -212,6 +217,23 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                     last_used + " " +
                     ootd
             );
+            this.category = category;
+            this.formality = formality;
+            this.last_used = last_used;
+            this.ootd = ootd;
+            this.bitmap = bitmap;
+        }
+
+        public CharaData(int id, String category, Integer formality,
+                         String last_used, boolean ootd, Bitmap bitmap) {
+            Log.i("Logcat", "CharaData constructor called " +
+                    id + " " +
+                    category + " " +
+                    formality + " " +
+                    last_used + " " +
+                    ootd
+            );
+            this.id = id;
             this.category = category;
             this.formality = formality;
             this.last_used = last_used;
@@ -235,6 +257,10 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         public String getFile() {
             return file;
         }
+
+        public int getId() {
+            Log.i("Logcat", "getId() with value of: " + id);
+            return id;}
 
 
     }
