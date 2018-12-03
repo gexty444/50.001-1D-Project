@@ -8,18 +8,6 @@
     tools:context=".database.DataEntryActivity">
 
     <EditText
-        android:id="@+id/editTextNameEntry"
-        android:hint="enter name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/editTextDescriptionEntry"
-        android:hint="enter Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
         android:id="@+id/editTextCategoryEntry"
         android:hint="enter Category"
         android:layout_width="match_parent"

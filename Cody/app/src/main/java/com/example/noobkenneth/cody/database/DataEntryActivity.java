@@ -27,8 +27,6 @@ public class DataEntryActivity extends AppCompatActivity {
 
     ImageView imageViewSelected;
     CharaDbHelper charaDbHelper;
-    EditText editTextName;
-    EditText editTextDescription;
     EditText editTextCategory;
     EditText editTextFormality;
     Bitmap bitmapSelected = null;
@@ -44,8 +42,6 @@ public class DataEntryActivity extends AppCompatActivity {
         charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
 
         //TODO 8.5 Get references to the widgets
-        editTextName = findViewById(R.id.editTextNameEntry);
-        editTextDescription = findViewById(R.id.editTextDescriptionEntry);
         editTextCategory = findViewById(R.id.editTextCategoryEntry);
         editTextFormality = findViewById(R.id.editTextFormalityEntry);
         Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
@@ -68,8 +64,6 @@ public class DataEntryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String name = editTextName.getText().toString();
-                String description = editTextDescription.getText().toString();
                 String category = editTextCategory.getText().toString();
                 int formality = Integer.parseInt(editTextFormality.getText().toString());
                 Log.i("Logcat", "formality: " + formality);
@@ -86,7 +80,7 @@ public class DataEntryActivity extends AppCompatActivity {
                 }else{
 
                     CharaDbHelper.CharaData charaData
-                            = new CharaDbHelper.CharaData(name,description, category, formality,
+                            = new CharaDbHelper.CharaData(category, formality,
                             last_used, ootd, bitmapSelected);
 
                     charaDbHelper.insertOneRow( charaData );
