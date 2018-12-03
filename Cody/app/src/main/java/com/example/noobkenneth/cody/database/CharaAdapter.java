@@ -40,13 +40,12 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     @Override
     public void onBindViewHolder(@NonNull CharaViewHolder charaViewHolder, int i) {
         // i is the position in the recyclerview
+        charaViewHolder.textViewPosition.setText(Integer.toString(i));
         CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
-        Log.i("Logcat", "CharaAdapter formality called: " + charaData.getFormality());
         charaViewHolder.textViewFormality.setText(String.valueOf(charaData.getFormality()));
         charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
         charaViewHolder.textViewOotd.setText(String.valueOf(charaData.getOotd()));
-        charaViewHolder.textViewPosition.setText(Integer.toString(i));
         charaViewHolder.imageViewChara.setImageBitmap(charaData.getBitmap());
     }
 

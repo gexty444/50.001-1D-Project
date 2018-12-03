@@ -47,7 +47,6 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             charaDbHelper = new CharaDbHelper(context.getApplicationContext());
         }
         return charaDbHelper;
-
     }
 
     //TODO 7.5 Complete onCreate. You may make use of fillTable below
