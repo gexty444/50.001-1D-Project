@@ -65,57 +65,57 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    //TODO 7.5 --- written for you
-    private void fillTable(SQLiteDatabase sqLiteDatabase){
-
-        ArrayList<CharaData> arrayList = new ArrayList<>();
-        PACKAGE_NAME = context.getPackageName();
-
-        //open the Json file pictures stored in the res/raw folder
-        InputStream inputStream = context.getResources().openRawResource(R.raw.pictures);
-        String string = Utils.convertStreamToString(inputStream);
-
-        //parse the Json file and store data in the ArrayList using the CharaData class
-        try{
-            JSONArray jsonArray = new JSONArray(string);
-            for(int i = 0; i <= jsonArray.length(); i++){
-                String name = jsonArray.getJSONObject(i).getString("name");
-                String description = jsonArray.getJSONObject(i).getString("description");
-                String file = jsonArray.getJSONObject(i).getString("file");
-
-                arrayList.add(new CharaDbHelper.CharaData(name, description, file));
-            }
-        }catch(JSONException e){
-            e.printStackTrace();
-        }
-
-        //Each entry in the arrayList is stored as a ContentValues object
-        //Then this ContentValues object is inserted to the sqLiteDatabase to create a new row
-        for(int i = 0; i< arrayList.size(); i++){
-            Log.i("Norman","" + arrayList.get(i).getDescription());
-            ContentValues cv = new ContentValues();
-
-            cv.put(CharaContract.CharaEntry.COL_NAME, arrayList.get(i).getName());
-            cv.put(CharaContract.CharaEntry.COL_DESCRIPTION, arrayList.get(i).getDescription());
-
-            String fname = arrayList.get(i).getFile();
-            int resId = context.getResources().getIdentifier(fname, "drawable", PACKAGE_NAME);
-            Drawable drawable = context.getResources().getDrawable(resId);
-            Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-            byte[] bitMapData = stream.toByteArray();
-
-            cv.put(CharaContract.CharaEntry.COL_FILE,bitMapData);
-
-            sqLiteDatabase.insert(CharaContract.CharaEntry.TABLE_NAME,null,cv);
-        }
-
-        Cursor cursor = sqLiteDatabase.rawQuery(CharaContract.CharaSql.SQL_QUERY_ALL_ROWS, null);
-        Log.i("Norman","Table Filled. Rows = " + cursor.getCount());
-
-
-    }
+//    //TODO 7.5 --- written for you
+//    private void fillTable(SQLiteDatabase sqLiteDatabase){
+//
+//        ArrayList<CharaData> arrayList = new ArrayList<>();
+//        PACKAGE_NAME = context.getPackageName();
+//
+//        //open the Json file pictures stored in the res/raw folder
+//        InputStream inputStream = context.getResources().openRawResource(R.raw.pictures);
+//        String string = Utils.convertStreamToString(inputStream);
+//
+//        //parse the Json file and store data in the ArrayList using the CharaData class
+//        try{
+//            JSONArray jsonArray = new JSONArray(string);
+//            for(int i = 0; i <= jsonArray.length(); i++){
+//                String name = jsonArray.getJSONObject(i).getString("name");
+//                String description = jsonArray.getJSONObject(i).getString("description");
+//                String file = jsonArray.getJSONObject(i).getString("file");
+//
+//                arrayList.add(new CharaDbHelper.CharaData(name, description, file));
+//            }
+//        }catch(JSONException e){
+//            e.printStackTrace();
+//        }
+//
+//        //Each entry in the arrayList is stored as a ContentValues object
+//        //Then this ContentValues object is inserted to the sqLiteDatabase to create a new row
+//        for(int i = 0; i< arrayList.size(); i++){
+//            Log.i("Norman","" + arrayList.get(i).getDescription());
+//            ContentValues cv = new ContentValues();
+//
+//            cv.put(CharaContract.CharaEntry.COL_NAME, arrayList.get(i).getName());
+//            cv.put(CharaContract.CharaEntry.COL_DESCRIPTION, arrayList.get(i).getDescription());
+//
+//            String fname = arrayList.get(i).getFile();
+//            int resId = context.getResources().getIdentifier(fname, "drawable", PACKAGE_NAME);
+//            Drawable drawable = context.getResources().getDrawable(resId);
+//            Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
+//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//            byte[] bitMapData = stream.toByteArray();
+//
+//            cv.put(CharaContract.CharaEntry.COL_FILE,bitMapData);
+//
+//            sqLiteDatabase.insert(CharaContract.CharaEntry.TABLE_NAME,null,cv);
+//        }
+//
+//        Cursor cursor = sqLiteDatabase.rawQuery(CharaContract.CharaSql.SQL_QUERY_ALL_ROWS, null);
+//        Log.i("Norman","Table Filled. Rows = " + cursor.getCount());
+//
+//
+//    }
 
     //TODO 7.8 query one row at random
     public CharaData queryOneRowRandom(){
@@ -149,6 +149,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         String name=null;
         String description =null;
+        String category =null;
         Bitmap bitmap =null;
 
         cursor.moveToPosition(position);
@@ -159,13 +160,16 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         int descriptionIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_DESCRIPTION);
         description = cursor.getString(descriptionIndex);
 
+        int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
+        description = cursor.getString(descriptionIndex);
+
         int bitmapIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FILE);
         byte[] bitmapByteArray = cursor.getBlob(bitmapIndex);
         bitmap = BitmapFactory.decodeByteArray(bitmapByteArray,
                 0,
                 bitmapByteArray.length);
 
-        return new CharaData(name, description, bitmap);
+        return new CharaData(name, description, category,  bitmap);
     }
 
     //TODO 7.10 Insert one row when data is passed to it
@@ -181,6 +185,11 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         contentValues.put(
                 CharaContract.CharaEntry.COL_DESCRIPTION,
                 charaData.getDescription());
+
+        contentValues.put(
+                CharaContract.CharaEntry.COL_CATEGORY,
+                charaData.getCategory());
+
         byte[] bitmapdata = Utils.convertBitmapToByteArray(
                 charaData.getBitmap());
         contentValues.put(
@@ -224,6 +233,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         private String name;
         private String description;
+        private String category;
         private String file;
         private Bitmap bitmap;
 
@@ -233,7 +243,14 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             this.file = file;
         }
 
-        public CharaData( String name, String description, Bitmap bitmap){
+        public CharaData(String name, String description, String category, Bitmap bitmap) {
+            this.name = name;
+            this.description = description;
+            this.category = category;
+            this.bitmap = bitmap;
+        }
+
+        public CharaData(String name, String description, Bitmap bitmap){
             this.name = name;
             this.description = description;
             this.bitmap = bitmap;
@@ -246,6 +263,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         public String getDescription() {
             return description;
         }
+
+        public String getCategory(){return category;}
 
         public String getFile() {
             return file;
