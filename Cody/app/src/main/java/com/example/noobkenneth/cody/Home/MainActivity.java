@@ -24,6 +24,9 @@ import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
 import com.example.noobkenneth.cody.Calendar.CalendarActivity;
+import com.example.noobkenneth.cody.database.DataEntryActivity;
+import com.example.noobkenneth.cody.database.DbMainActivity;
+import com.example.noobkenneth.cody.database.RecylerViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from MainActivity");
+                        Intent intent_temp = new Intent(MainActivity.this, DataEntryActivity.class);
+                        startActivity(intent_temp);
                         break;
                 }
                 return false;

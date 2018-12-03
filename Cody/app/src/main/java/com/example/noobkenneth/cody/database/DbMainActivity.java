@@ -131,7 +131,7 @@ public class DbMainActivity extends AppCompatActivity {
 
                 //My choice is to display a Toast that says how many rows our database has
                 long numberOfRows = charaDbHelper.queryNumRows();
-                Toast.makeText(MainActivity.this,
+                Toast.makeText(DbMainActivity.this,
                         "Number of rows: " + numberOfRows,
                         Toast.LENGTH_LONG).show();
                 }
