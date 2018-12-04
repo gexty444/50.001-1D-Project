@@ -14,6 +14,7 @@ import com.example.noobkenneth.cody.Calendar.CalendarActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
+import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 public class CustomiseActivity extends AppCompatActivity {
     private static final String TAG = "CustomiseActivity";
@@ -51,7 +52,7 @@ public class CustomiseActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_wardrobe:
                         Log.i("Logcat", "wardrobe pressed from CustomiseActivity");
-                        Intent intent_wardrobe = new Intent(CustomiseActivity.this, WardrobeActivity.class);
+                        Intent intent_wardrobe = new Intent(CustomiseActivity.this, RecyclerViewActivity.class);
                         intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;

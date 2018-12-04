@@ -14,6 +14,7 @@ import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
+import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 import java.text.SimpleDateFormat;
 
@@ -47,7 +48,7 @@ public class CalendarActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_wardrobe:
                         Log.i("Logcat", "wardrobe pressed from CalendarActivity");
-                        Intent intent_wardrobe = new Intent(CalendarActivity.this, WardrobeActivity.class);
+                        Intent intent_wardrobe = new Intent(CalendarActivity.this, RecyclerViewActivity.class);
                         intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;
