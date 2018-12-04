@@ -106,8 +106,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from MainActivity");
-                        Intent intent_temp = new Intent(MainActivity.this, DataEntryActivity.class);
-                        startActivity(intent_temp);
                         break;
                 }
                 return false;
