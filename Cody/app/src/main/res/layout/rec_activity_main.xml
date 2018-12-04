@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/like"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="84dp"
+        android:layout_marginLeft="75dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/thumbs_down_black"
         android:contentDescription="dislike"
@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/ic_thumbsup_black"
         android:contentDescription="like"
         android:padding="20dp"
@@ -66,6 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/dislike"
         android:layout_centerHorizontal="true"
-        android:text="Wear This" />
+        android:layout_marginTop="-3dp"
+        android:background="@color/colorPrimary"
+        android:text="Wear This"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

@@ -13,10 +13,16 @@
         android:layout_margin="8dp"
         app:cardCornerRadius="20dp">
 
-        <RelativeLayout
+        <GridLayout
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:layout_weight="8"
             android:layout_width="match_parent"
             android:layout_height="400dp">
 
+            <RelativeLayout>
 
             <ImageView
                 android:id="@+id/rec_imageView2"
@@ -89,7 +95,8 @@
                 android:layout_toEndOf="@+id/rec_imageView4"
                 app:srcCompat="@drawable/example_shoes" />
 
-        </RelativeLayout>
+            </RelativeLayout>
+        </GridLayout>
 
     </android.support.v7.widget.CardView>
 </LinearLayout>
