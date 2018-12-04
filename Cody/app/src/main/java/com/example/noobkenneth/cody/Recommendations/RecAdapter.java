@@ -41,13 +41,10 @@ public class RecAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.rec_item, container, false);
 
         ImageView imageView;
-        TextView title;
 
         imageView = view.findViewById(R.id.image);
-        title = view.findViewById(R.id.title);
 
         imageView.setImageResource(recommendationsList.get(position).getImage());
-        title.setText(recommendationsList.get(position).getTitle());
 
         container.addView(view, 0);
         return view;

@@ -2,7 +2,7 @@ package com.example.noobkenneth.cody.Recommendations;
 
 public class Recommendations {
     private int image;
-    private String title;
+    private String title = "No Title Set Yet";
 
     public Recommendations(int image, String title) {
         this.image = image;
@@ -11,7 +11,6 @@ public class Recommendations {
 
     public Recommendations(int image) {
         this.image = image;
-        this.title = "Default Title";
     }
 
     public int getImage(){

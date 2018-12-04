@@ -29,35 +29,23 @@ public class RecommendationsActivity extends AppCompatActivity {
     ViewPager viewPager;
     RecAdapter recAdapter;
     List<Recommendations> recommendationsList;
-    HashMap<Integer,String> recommendationsPreferences;
+    HashMap<Integer,String> recommendationsPreferences; //store user preferences
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
-    List<Recommendations> generatedList = new ArrayList<>();
+    List<Recommendations> generatedList = new ArrayList<>(); //store generated outfits
     ImageButton closeBtn;
+    private String LogCatTAG = "Recommendations";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("Recommendations","Created RecommendationsActivity");
         setContentView(R.layout.rec_activity_main);
 
-        //make recommendations a pop-up
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        closeBtn = findViewById(R.id.closeRecommendations);
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        Intent intent = getIntent();
+        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
 
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-//        Intent intent = getIntent();
-//        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
-
-        //TODO: Generate attires based on selectedStyle
+        //TODO: Generate attires based on selectedStyleKey
 
         mPreferences = getSharedPreferences(sharedPrefFile,MODE_PRIVATE);
 
@@ -73,7 +61,6 @@ public class RecommendationsActivity extends AppCompatActivity {
                 recommendationsList.add(generatedList.get(count));
             }
             count+=1;
-            Log.i("logcat", Integer.toString(count));
         }
 
         recAdapter = new RecAdapter(recommendationsList, this);
@@ -108,43 +95,8 @@ public class RecommendationsActivity extends AppCompatActivity {
                 Log.i("PrefStatus",recommendationsPreferences.toString());
             }
         });
-
-
-        // setting background colors
-        //right now colors set, in the future can take the color of the outfit/show blurred outfit
-        Integer[] formal_colors = {
-                getResources().getColor(R.color.black),
-                getResources().getColor(R.color.dark_brown),
-                getResources().getColor(R.color.wineRed)
-//                getResources().getColor(R.color.white)
-        };
-
-        colors = formal_colors;
-
-        final RelativeLayout recommendationsMain = findViewById(R.id.recommendationsMain);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (position < (recAdapter.getCount() -1) && position < (colors.length -1)){
-                    recommendationsMain.setBackgroundColor(
-                            (Integer) argbEvaluator.evaluate(
-                                    positionOffset,
-                                    colors[position],
-                                    colors[position+1]
-                            ));
-                }else{
-                    recommendationsMain.setBackgroundColor(colors[colors.length-1]);
-                }
-            }
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-            }
-        });
     }
+
     @Override
     protected void onPause() {
         super.onPause();

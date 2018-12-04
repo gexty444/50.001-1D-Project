@@ -34,11 +34,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/homespinner"
-                android:layout_width="268dp"
-                android:layout_marginRight="0dp"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/homespinner"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="218dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="77dp" />
+
+                <TextView
+                    android:id="@+id/toRecommendations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:fontFamily="Roboto-Light"
+                    android:text="Generate"
+                    android:textColor="#2D2DC7"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,17 +73,6 @@
                     android:text="My Wardrobe"
                     android:textSize="15sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/toRecommendations"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginTop="8dp"
-                    android:clickable="true"
-                    android:fontFamily="Roboto-Light"
-                    android:text="Generate"
-                    android:textColor="#2D2DC7" />
 
                 <TextView
                     android:layout_width="wrap_content"
