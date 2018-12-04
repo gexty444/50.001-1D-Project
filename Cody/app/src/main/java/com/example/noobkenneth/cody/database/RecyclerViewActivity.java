@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.noobkenneth.cody.Calendar.CalendarActivity;
@@ -34,6 +36,18 @@ public class RecyclerViewActivity extends AppCompatActivity {
         charaAdapter = new CharaAdapter(this, charaDbHelper);
         recyclerView.setAdapter(charaAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //TODO 8.3 When the fab is clicked, launch DataEntryActivity and invoke startActivityForResult
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_DataEntry = new Intent(RecyclerViewActivity.this, DataEntryActivity.class);
+                intent_DataEntry.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_DataEntry);
+            }
+        });
+
 
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
