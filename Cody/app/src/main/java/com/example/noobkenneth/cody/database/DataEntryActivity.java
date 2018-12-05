@@ -9,12 +9,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import com.example.noobkenneth.cody.R;
@@ -22,8 +29,9 @@ import com.example.noobkenneth.cody.R;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
-public class DataEntryActivity extends AppCompatActivity {
+public class DataEntryActivity extends AppCompatActivity implements OnItemSelectedListener {
 
     ImageView imageViewSelected;
     CharaDbHelper charaDbHelper;
@@ -32,6 +40,8 @@ public class DataEntryActivity extends AppCompatActivity {
     Bitmap bitmapSelected = null;
     SQLiteDatabase db;
     int REQUEST_CODE_IMAGE = 2000;
+    String category = "";
+    String formality = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,22 @@ public class DataEntryActivity extends AppCompatActivity {
 
         //TODO 8.4 Get a reference to the CharaDbHelper
         charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
+
+        //Category spinner stuff here
+        final Spinner spinnerCategory = findViewById(R.id.spinnerCategory);
+        final Spinner spinnerFormality = findViewById(R.id.spinnerFormality);
+        spinnerCategory.setOnItemSelectedListener(this);
+        spinnerFormality.setOnItemSelectedListener(this);
+        List<String> categories = new ArrayList<String>(Arrays.asList("Tops", "Bottoms", "Shoes", "One-piece", "Accessories")){};
+        List<String> formality = new ArrayList<String>(Arrays.asList("Casual", "Smart Casual", "Business Formal", "Formal")){};
+        ArrayAdapter<String> dataAdapterCategories = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapterFormality = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, formality);
+        dataAdapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapterFormality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(dataAdapterCategories);
+        spinnerFormality.setAdapter(dataAdapterFormality);
 
         //TODO 8.5 Get references to the widgets
         editTextCategory = findViewById(R.id.editTextCategoryEntry);
@@ -65,7 +91,7 @@ public class DataEntryActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String category = editTextCategory.getText().toString();
-                int formality = Integer.parseInt(editTextFormality.getText().toString());
+                String formality = editTextFormality.getText().toString();
                 Log.i("Logcat", "formality: " + formality);
                 Log.i("Logcat", "formality raw: " + editTextFormality.getText().toString());
                 Date date = new Date();
@@ -98,8 +124,26 @@ public class DataEntryActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+        // Toast selected category
 
+        switch (parent.getId()) {
+            case R.id.spinnerCategory:
+                category = item;
+                Toast.makeText(parent.getContext(), "Category: " + item, Toast.LENGTH_LONG).show();
+            case R.id.spinnerFormality:
+                formality = item;
+                Toast.makeText(parent.getContext(), "Formality: " + item, Toast.LENGTH_LONG).show();
+        }
+        category = item;
+    }
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
     }
 
     //TODO 8.7 Complete OnActivityResult so that the selected image is displayed in the imageView
