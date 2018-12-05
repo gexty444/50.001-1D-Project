@@ -18,6 +18,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     LayoutInflater mInflater;
     Context context;
     CharaDbHelper charaDbHelper;
+    String category_getExtra;
 
 
     //TODO 9.3 Constructor takes in a context object and a CharaDbHelper object
@@ -42,7 +43,31 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         // i is the position in the recyclerview
         charaViewHolder.textViewPosition.setText(Integer.toString(i));
 //        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
-        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRowClothes(i);
+        CharaDbHelper.CharaData charaData;
+        charaData = charaDbHelper.queryOneRowClothes(i);
+        category_getExtra = RecyclerViewActivity.category_getExtra;
+//        Log.i("Logcat", category_getExtra);
+        switch (category_getExtra) {
+            case "Tops":
+                Log.i("Logcat", "CharaAdapter querying Tops from database to RecyclerView");
+                break;
+            case "Bottoms":
+                Log.i("Logcat", "CharaAdapter querying Bottoms from database to RecyclerView");
+                break;
+            case "One-piece":
+                Log.i("Logcat", "CharaAdapter querying One-piece from database to RecyclerView");
+                break;
+            case "Shoes":
+                Log.i("Logcat", "CharaAdapter querying Shoes from database to RecyclerView");
+                break;
+            case "Bags":
+                Log.i("Logcat", "CharaAdapter querying Bags from database to RecyclerView");
+                break;
+            case "Accessories":
+                Log.i("Logcat", "CharaAdapter querying Accessories from database to RecyclerView");
+                break;
+        }
+
         charaViewHolder.textViewId.setText(""+charaData.getId());
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
         charaViewHolder.textViewFormality.setText(charaData.getFormality());
