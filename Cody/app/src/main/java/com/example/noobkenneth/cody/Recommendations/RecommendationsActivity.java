@@ -29,7 +29,7 @@ public class RecommendationsActivity extends AppCompatActivity {
     ViewPager viewPager;
     RecAdapter recAdapter;
     ArrayList<Recommendations> recommendationsList;
-    HashMap<int[],String> recommendationsPreferences; //store user preferences
+    HashMap<int[], String> recommendationsPreferences; //store user preferences
     ArrayList<Recommendations> generatedOutfit = new ArrayList<>(); //store generated outfits
     ImageButton closeBtn;
     String LogCatTAG = "RecommendationsLog";
@@ -37,7 +37,8 @@ public class RecommendationsActivity extends AppCompatActivity {
     boolean chosen = false;
     Animation scale;
     ImageButton reGenerate;
-
+    int pageChosen;
+    int currentPageChosen = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Log.i(LogCatTAG,"Closed recommendationsActivity");
+                Log.i(LogCatTAG, "Closed recommendationsActivity");
             }
         });
 
@@ -66,12 +67,10 @@ public class RecommendationsActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(recAdapter);
         viewPager.setPadding(130, 0, 130, 0); //the reason we see other cards
-        Log.i(LogCatTAG,"finished setting up viewPager!");
+        Log.i(LogCatTAG, "finished setting up viewPager!");
 
-        PageListener pageListener = new PageListener();
-        viewPager.setOnPageChangeListener(pageListener);
 
-        scale  = AnimationUtils.loadAnimation(this,R.anim.scale_animation);
+        scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
 
         reGenerate = findViewById(R.id.generate);
         reGenerate.setOnClickListener(new View.OnClickListener() {
@@ -82,39 +81,48 @@ public class RecommendationsActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0); //so activity won't blink when it's refreshed
                 startActivity(getIntent());
                 overridePendingTransition(0, 0);
-                Toast.makeText(RecommendationsActivity.this,R.string.rec_regenerate,Toast.LENGTH_SHORT);
+                Toast.makeText(RecommendationsActivity.this, R.string.rec_regenerate, Toast.LENGTH_SHORT);
             }
         });
 
         final Button chooseOutfit = findViewById(R.id.chooseOutfit);
-        final CardView cardView = findViewById(R.id.rec_cardView);
-
+        final RelativeLayout mainLayout = findViewById(R.id.recommendationsMain);
 
         chooseOutfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!chosen) {
-                    cardView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
-                    chosen = true;
-                }
 
-                else{
-                    cardView.setBackgroundColor(getResources().getColor(R.color.white));
-                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                    chosen = false;
+               currentPageChosen = viewPager.getCurrentItem();
+               if (pageChosen == currentPageChosen){ //un-select
+                   pageChosen = -1;
+                   mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                   chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+               }
+               else if (pageChosen != currentPageChosen){ //select
+                   pageChosen = currentPageChosen;
+                   mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                   chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
+               }
+            }
+        });
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                if (pageChosen != viewPager.getCurrentItem()) {
+                    mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
                 }
+                else{
+                    mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
             }
         });
     }
-
-    private class PageListener extends ViewPager.SimpleOnPageChangeListener{
-
-        public void onPageSelected(int position){
-            Log.i("RecommendationsLog", "page selected " + position);
-        }
-    }
-
-
-
 }
