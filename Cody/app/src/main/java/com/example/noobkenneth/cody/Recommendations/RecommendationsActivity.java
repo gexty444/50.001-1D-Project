@@ -37,7 +37,7 @@ public class RecommendationsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("Recommendations","Created RecommendationsActivity");
+        Log.i("Recommendations", "Created RecommendationsActivity");
         setContentView(R.layout.rec_activity_main);
 
         Intent intent = getIntent();
@@ -56,14 +56,13 @@ public class RecommendationsActivity extends AppCompatActivity {
         // Change Hardcoded strings to strings in resources later
 
 
-
-        int count =0;
+        int count = 0;
         recommendationsList = new ArrayList<>();
-        while(recommendationsList.size()<3 && count< generatedOutfits.size()){
-            if(mPreferences.getString("FormalAttire"+Integer.toString(count),"like").equals("like")){
+        while (recommendationsList.size() < 3 && count < generatedOutfits.size()) {
+            if (mPreferences.getString("FormalAttire" + Integer.toString(count), "like").equals("like")) {
                 recommendationsList.add(generatedOutfits.get(count));
             }
-            count+=1;
+            count += 1;
         }
 
         recAdapter = new RecAdapter(recommendationsList, this);
@@ -71,8 +70,22 @@ public class RecommendationsActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
 
         viewPager.setAdapter(recAdapter);
-        viewPager.setPadding(130,0,130,0);
+        viewPager.setPadding(130, 0, 130, 0);
 
+        ImageButton reGenerate = findViewById(R.id.generate);
+        reGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(0, 0); //so activity won't blink when it's refreshed
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
+            }
+        });
+
+    }
+}
+        /* Commented out like and dislike functions
         final Animation scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
 
         recommendationsPreferences = new HashMap<>();
@@ -110,3 +123,4 @@ public class RecommendationsActivity extends AppCompatActivity {
         preferencesEditor.apply();
     }
 }
+*/

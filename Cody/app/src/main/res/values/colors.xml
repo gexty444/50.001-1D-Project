@@ -16,4 +16,6 @@
 
     <color name="darkGreen">#4d942a</color>
 
+    <color name="transparent">#00000</color>
+
 </resources>
