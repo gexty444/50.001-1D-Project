@@ -67,7 +67,7 @@ public class RecGenerateOutfit {
         generatedOutfits.add(new Recommendations(shoes));
         generatedOutfits.add(new Recommendations(bag));
         generatedOutfits.add(new Recommendations(accessories));
-        generatedOutfits.add(new Recommendations(accessories2));
+        generatedOutfits.add(new Recommendations(R.drawable.transparent));
 
         apparelIDs[2] = shoes;
         apparelIDs[3] = bag;

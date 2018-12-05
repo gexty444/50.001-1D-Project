@@ -13,8 +13,6 @@
         android:layout_margin="8dp"
         app:cardCornerRadius="20dp">
 
-
-
             <RelativeLayout
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal"
@@ -27,6 +25,8 @@
                     android:layout_height="115dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
                     app:srcCompat="@drawable/example_top" />
 
                 <ImageView
@@ -37,6 +37,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="137dp"
+                    android:paddingLeft="5dp"
                     app:srcCompat="@drawable/example_bottom" />
 
                 <ImageView
@@ -46,6 +47,7 @@
                     android:layout_alignStart="@+id/rec_imageView2"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="11dp"
+                    android:paddingLeft="5dp"
                     app:srcCompat="@drawable/example_shoes" />
 
                 <ImageView
@@ -53,8 +55,10 @@
                     android:layout_width="115dp"
                     android:layout_height="115dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="3dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
                     android:layout_toEndOf="@+id/rec_imageView2"
                     app:srcCompat="@drawable/blackcap" />
 
@@ -68,6 +72,7 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginEnd="-1dp"
+                    android:paddingRight="5dp"
                     android:layout_marginRight="0dp"
                     app:srcCompat="@drawable/example_bag" />
 
@@ -80,6 +85,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="0dp"
                     android:layout_marginBottom="13dp"
+                    android:paddingRight="5dp"
                     app:srcCompat="@drawable/example_shoes" />
 
             </RelativeLayout>

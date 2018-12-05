@@ -39,6 +39,7 @@ public class RecommendationsActivity extends AppCompatActivity {
     RecGenerateOutfit recGenerateOutfit;
     boolean chosen = false;
     Animation scale;
+    ImageButton reGenerate;
 
 
     @Override
@@ -58,18 +59,11 @@ public class RecommendationsActivity extends AppCompatActivity {
                 Log.i(LogCatTAG,"Closed recommendationsActivity");
             }
         });
-        LayoutInflater layoutInflater;
 
         recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
         generatedOutfit = recGenerateOutfit.getGeneratedOutfit();
- /*       for(Recommendations recommendations: generatedOutfit){
-            Log.i(LogCatTAG,recommendations.toString());
-        }*/
-
 
         recAdapter = new RecAdapter(generatedOutfit,this);
-
-        Log.i(LogCatTAG,"returned from recAdapter");
 
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(recAdapter);
@@ -78,7 +72,7 @@ public class RecommendationsActivity extends AppCompatActivity {
 
         scale  = AnimationUtils.loadAnimation(this,R.anim.scale_animation);
 
-        final ImageButton reGenerate = findViewById(R.id.generate);
+        reGenerate = findViewById(R.id.generate);
         reGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //refresh activity upon click
@@ -92,7 +86,6 @@ public class RecommendationsActivity extends AppCompatActivity {
 
         final Button chooseOutfit = findViewById(R.id.chooseOutfit);
         final RelativeLayout mainLayout = findViewById(R.id.recommendationsMain);
-
 
 
         chooseOutfit.setOnClickListener(new View.OnClickListener() {
