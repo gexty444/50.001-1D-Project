@@ -91,39 +91,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
-    public CharaData queryOneRowClothes(int position) {
-        if (readableDb == null) {
-            readableDb = getReadableDatabase();
-        }
-        Cursor cursor = readableDb.rawQuery(
-                CharaContract.CharaSql.SQL_QUERY_OOTD,
-                new String[]{"0"});
-        return getDataFromCursor(position, cursor);
-    }
 
-    public CharaData queryOneRowOotd(int position) {
-        if (readableDb == null) {
-            readableDb = getReadableDatabase();
-        }
-        Cursor cursor = readableDb.rawQuery(
-                CharaContract.CharaSql.SQL_QUERY_OOTD,
-                new String[]{"1"});
-        return getDataFromCursor(position, cursor);
-    }
-
-    public CharaData queryOneRowCategory(int position, String category) {
-        if (readableDb == null) {
-            readableDb = getReadableDatabase();
-        }
-//        String[] categoryArray = new String[1];
-//        categoryArray[0] = category;
-//        Log.i("Logcat", "Query: " + CharaContract.CharaSql.SQL_QUERY_CATEGORY + category);
-        Cursor cursor = readableDb.rawQuery(
-                CharaContract.CharaSql.SQL_QUERY_CATEGORY,
-                null);
-
-        return getDataFromCursor(position, cursor);
-    }
 
     public CharaData queryOneRowWhereCatOotd(int position, String category, String ootd) {
         if (readableDb == null) {

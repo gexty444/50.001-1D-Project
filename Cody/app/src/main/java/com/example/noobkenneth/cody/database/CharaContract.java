@@ -46,12 +46,6 @@ public class CharaContract {
 
         public static String SQL_QUERY_ALL_ROWS = "SELECT * FROM " + CharaEntry.TABLE_NAME;
 
-        public static String SQL_QUERY_OOTD = "SELECT * FROM " + CharaEntry.TABLE_NAME +
-                " WHERE ootd = ?";
-
-        public static String SQL_QUERY_CATEGORY = "SELECT * FROM " + CharaEntry.TABLE_NAME +
-                " WHERE category = 'Tops'";
-
         public static String SQL_QUERY_WHERE = "SELECT * FROM " + CharaEntry.TABLE_NAME +
                 " WHERE ";
 
