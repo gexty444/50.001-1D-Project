@@ -56,7 +56,7 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
         final Spinner spinnerFormality = findViewById(R.id.spinnerFormality);
         spinnerCategory.setOnItemSelectedListener(this);
         spinnerFormality.setOnItemSelectedListener(this);
-        List<String> categories = new ArrayList<String>(Arrays.asList("Tops", "Bottoms", "Shoes", "One-piece", "Accessories")){};
+        List<String> categories = new ArrayList<String>(Arrays.asList("Tops", "Bottoms", "One-piece", "Shoes", "Bags", "Accessories")){};
         List<String> formalities = new ArrayList<String>(Arrays.asList("Casual", "Smart Casual", "Business Formal", "Formal")){};
         ArrayAdapter<String> dataAdapterCategories = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, categories);
