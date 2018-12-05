@@ -125,7 +125,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
-    public CharaData queryOneRowWhere(int position, String category, String ootd) {
+    public CharaData queryOneRowWhereCatOotd(int position, String category, String ootd) {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
@@ -257,7 +257,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 CharaContract.CharaEntry.TABLE_NAME);
     }
 
-    public long queryNumRows(String category, String ootd) {
+    public long queryNumRowsCatOotd(String category, String ootd) {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
         }

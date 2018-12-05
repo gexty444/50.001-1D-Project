@@ -46,46 +46,34 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
 //        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
         CharaDbHelper.CharaData charaData = null;
 //        charaData = charaDbHelper.queryOneRowClothes(i);
-        charaData = charaDbHelper.queryOneRowWhere(i, null, null);
+        charaData = charaDbHelper.queryOneRowWhereCatOotd(i, null, null);
         if (category_query == null) {
-            charaData = charaDbHelper.queryOneRowWhere(i, null, null);
+            charaData = charaDbHelper.queryOneRowWhereCatOotd(i, null, null);
         } else {
             switch (category_query) {
                 case "Tops":
                     Log.i("Logcat", "CharaAdapter querying Tops from database to RecyclerView");
-                    category_query = "'Tops'";
-                    ootd_query = "0";
-                    charaData = charaDbHelper.queryOneRowWhere(i, "'Tops'", "0");
+                    charaData = charaDbHelper.queryOneRowWhereCatOotd(i, category_query, ootd_query);
                     break;
                 case "Bottoms":
                     Log.i("Logcat", "CharaAdapter querying Bottoms from database to RecyclerView");
-                    charaData = charaDbHelper.queryOneRowCategory(i, "Bottoms");
-                    category_query = "'Bottoms'";
-                    ootd_query = "0";
+                    charaData = charaDbHelper.queryOneRowWhereCatOotd(i, category_query, ootd_query);
                     break;
                 case "One-piece":
                     Log.i("Logcat", "CharaAdapter querying One-piece from database to RecyclerView");
-                    charaData = charaDbHelper.queryOneRowCategory(i, "One-piece");
-                    category_query = "'One-piece'";
-                    ootd_query = "0";
+                    charaData = charaDbHelper.queryOneRowWhereCatOotd(i, category_query, ootd_query);
                     break;
                 case "Shoes":
                     Log.i("Logcat", "CharaAdapter querying Shoes from database to RecyclerView");
-                    charaData = charaDbHelper.queryOneRowCategory(i, "Shoes");
-                    category_query = "'Shoes'";
-                    ootd_query = "0";
+                    charaData = charaDbHelper.queryOneRowWhereCatOotd(i, category_query, ootd_query);
                     break;
                 case "Bags":
                     Log.i("Logcat", "CharaAdapter querying Bags from database to RecyclerView");
-                    charaData = charaDbHelper.queryOneRowCategory(i, "Bags");
-                    category_query = "'Bags'";
-                    ootd_query = "0";
+                    charaData = charaDbHelper.queryOneRowWhereCatOotd(i, category_query, ootd_query);
                     break;
                 case "Accessories":
                     Log.i("Logcat", "CharaAdapter querying Accessories from database to RecyclerView");
-                    charaData = charaDbHelper.queryOneRowCategory(i, "Accessories");
-                    category_query = "'Accessories'";
-                    ootd_query = "0";
+                    charaData = charaDbHelper.queryOneRowWhereCatOotd(i, category_query, ootd_query);
                     break;
                 default:
                     break;
@@ -104,9 +92,8 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     //TODO 9.6 this method controls the number of cardviews in the recyclerview
     @Override
     public int getItemCount() {
-        int numberOfRows = (int) charaDbHelper.queryNumRows(category_query, ootd_query);
+        int numberOfRows = (int) charaDbHelper.queryNumRowsCatOotd(category_query, ootd_query);
         Log.i("Logcat", "numberOfRows: " + numberOfRows);
-//        int numberOfRows = 1;
         return numberOfRows;
     }
 
