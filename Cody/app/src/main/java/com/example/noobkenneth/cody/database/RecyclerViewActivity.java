@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -41,7 +42,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
         charaAdapter = new CharaAdapter(this, charaDbHelper);
         recyclerView.setAdapter(charaAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         //TODO 8.3 When the fab is clicked, launch DataEntryActivity and invoke startActivityForResult
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
