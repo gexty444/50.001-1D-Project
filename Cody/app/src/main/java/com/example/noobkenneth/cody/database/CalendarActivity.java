@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody.Calendar;
+package com.example.noobkenneth.cody.database;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -13,23 +13,26 @@ import android.widget.ImageView;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
-import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
-import com.example.noobkenneth.cody.database.RecyclerViewActivity;
-
-import java.text.SimpleDateFormat;
 
 public class CalendarActivity extends AppCompatActivity {
 
     CalendarView calendarView;
     ImageView imageView;
     int imageResource;
-    int today;
+    String today;
     String TAG = "Logcat";
+
+    CharaDbHelper charaDbHelper;
+    CharaDbHelper.CharaData charaData = null;
+    
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
 
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
@@ -76,25 +79,28 @@ public class CalendarActivity extends AppCompatActivity {
         imageView = findViewById(R.id.calendarImageView);
 
         //get today's date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
-        today = Integer.parseInt(dateFormat.format(calendarView.getDate()));
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+//        today = dateFormat.format(calendarView.getDate());
 
         //this sets the imageView image to the OOTD taken today
-        imageResource = getResources().getIdentifier("@drawable/ootd" + today, null, ""+getApplicationContext().getPackageName());
-        Log.i(TAG,"imageResource: "+ imageResource);
-        imageView.setImageResource(imageResource);
+//        imageResource = getResources().getIdentifier("@drawable/ootd" + today, null, ""+getApplicationContext().getPackageName());
+//        Log.i(TAG,"imageResource: "+ imageResource);
+//        imageView.setImageResource(imageResource);
 
         //when a date on the calendar is selected
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
-                String date = String.format("%d%02d%02d", year, month+1, dayOfMonth); //ISO 8601 compliant
+                String date = String.format("%d-%02d-%02d", year, month+1, dayOfMonth); //ISO 8601 compliant
                 Log.i(TAG, "Date selected: " +date); //Logcat for the date selected
 
                 //this sets the imageView image to a file with the date selected
-                imageResource = getResources().getIdentifier("@drawable/ootd" + date, null, ""+getApplicationContext().getPackageName());
-                Log.i(TAG,"imageResource: "+ imageResource);
-                imageView.setImageResource(imageResource);
+//                imageResource = getResources().getIdentifier("@drawable/ootd" + date, null, ""+getApplicationContext().getPackageName());
+//                Log.i(TAG,"imageResource: "+ imageResource);
+//                imageView.setImageResource(imageResource);
+                charaData = charaDbHelper.queryOneRowDate(date);
+                imageView.setImageBitmap(charaData.getBitmap());
+
             }
         });
     }

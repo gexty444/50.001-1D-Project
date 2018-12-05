@@ -91,6 +91,22 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
+    public CharaData queryOneRowDate(String date) {
+        Log.i("Logcat", CharaContract.CharaSql.SQL_QUERY_ONE_DATE + date);
+        if (readableDb == null) {
+            readableDb = getReadableDatabase();
+        }
+        Cursor cursor = readableDb.rawQuery(
+                CharaContract.CharaSql.SQL_QUERY_ONE_DATE + "'"+date+"'"+ "and ootd = '1'",
+                null);
+        int count = cursor.getCount();
+        if (count == 0) {
+            return null;
+        }
+        return getDataFromCursor(0, cursor);
+    }
+
+
 
 
     public CharaData queryOneRowWhereCatOotd(int position, String category, String ootd) {
@@ -265,7 +281,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
 
     //TODO 7.3 Create a model class to represent our data
-    static class CharaData {
+    public static class CharaData {
 
         private int id;
         private String category;

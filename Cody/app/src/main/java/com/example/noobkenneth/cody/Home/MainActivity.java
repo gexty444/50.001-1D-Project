@@ -23,8 +23,7 @@ import com.example.noobkenneth.cody.Utils;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
-import com.example.noobkenneth.cody.Calendar.CalendarActivity;
-import com.example.noobkenneth.cody.database.DataEntryActivity;
+import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 import java.util.ArrayList;

@@ -49,6 +49,8 @@ public class CharaContract {
         public static String SQL_QUERY_WHERE = "SELECT * FROM " + CharaEntry.TABLE_NAME +
                 " WHERE ";
 
+        public static String SQL_QUERY_ONE_DATE = "SELECT * FROM " + CharaEntry.TABLE_NAME +
+                " WHERE last_used = ";
 
     }
 }

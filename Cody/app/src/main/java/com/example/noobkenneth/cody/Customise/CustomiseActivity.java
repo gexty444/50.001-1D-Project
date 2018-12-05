@@ -10,10 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.noobkenneth.cody.Calendar.CalendarActivity;
+import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
-import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 public class CustomiseActivity extends AppCompatActivity {
