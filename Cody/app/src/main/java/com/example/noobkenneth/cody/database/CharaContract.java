@@ -52,6 +52,9 @@ public class CharaContract {
         public static String SQL_QUERY_CATEGORY = "SELECT * FROM " + CharaEntry.TABLE_NAME +
                 " WHERE category = 'Tops'";
 
+        public static String SQL_QUERY_WHERE = "SELECT * FROM " + CharaEntry.TABLE_NAME +
+                " WHERE ";
+
 
     }
 }

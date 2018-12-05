@@ -111,7 +111,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                    Toast.makeText(getApplicationContext(), "This toast is for tops!!", Toast.LENGTH_LONG).show();
                     Log.i("Logcat", "Wardrobe activity requesting for tops from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "Tops");
+                    intent.putExtra("CATEGORY", "'Tops'");
                     startActivity(intent);
                     break;
                 }
@@ -122,7 +122,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                    Toast.makeText(getApplicationContext(), "This toast is for bottoms!!", Toast.LENGTH_LONG).show();
                     Log.i("Logcat", "WardrobeActivity requesting for Bottoms from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "Bottoms");
+                    intent.putExtra("CATEGORY", "'Bottoms'");
                     startActivity(intent);
                     break;
                 }
@@ -133,7 +133,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                    Toast.makeText(getApplicationContext(), "This toast is for onepiece!!", Toast.LENGTH_LONG).show();
                     Log.i("Logcat", "WardrobeActivity requesting for One-piece from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "One-piece");
+                    intent.putExtra("CATEGORY", "'One-piece'");
                     startActivity(intent);
                     break;
                 }
@@ -144,7 +144,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
                     Log.i("Logcat", "WardrobeActivity requesting for Shoes from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "Shoes");
+                    intent.putExtra("CATEGORY", "'Shoes'");
                     startActivity(intent);
                     break;
                 }
@@ -155,7 +155,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                    Toast.makeText(getApplicationContext(), "This toast is for bags!!", Toast.LENGTH_LONG).show();
                     Log.i("Logcat", "WardrobeActivity requesting for Bags from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "Bags");
+                    intent.putExtra("CATEGORY", "'Bags'");
                     startActivity(intent);
                     break;
                 }
@@ -165,7 +165,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
 //                    Toast.makeText(getApplicationContext(), "This toast is for accessories!!", Toast.LENGTH_LONG).show();
                     Log.i("Logcat", "WardrobeActivity requesting for Accessories from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "Accessories");
+                    intent.putExtra("CATEGORY", "'Accessories'");
                     startActivity(intent);
                     break;
                 }
@@ -174,7 +174,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
                 {
                     Toast.makeText(getApplicationContext(), "No action associated with this item", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
-                    intent.putExtra("CATEGORY", "none");
+                    intent.putExtra("CATEGORY", "");
                     startActivity(intent);
                     break;
                 }

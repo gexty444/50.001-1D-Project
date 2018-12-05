@@ -25,7 +25,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     CharaAdapter charaAdapter;
     CharaDbHelper charaDbHelper;
-    static String category_getExtra = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         //receives the intent from Wardrobe activity
         Intent intent_fromWardrobe = getIntent();
-        String category_getExtraFromIntent = intent_fromWardrobe.getStringExtra("CATEGORY");
-        category_getExtra = category_getExtraFromIntent;
+        CharaAdapter.category_query = intent_fromWardrobe.getStringExtra("CATEGORY");
 
         //TODO 9.7 The standard code to fill the recyclerview with data
         recyclerView = findViewById(R.id.charaRecyclerView);

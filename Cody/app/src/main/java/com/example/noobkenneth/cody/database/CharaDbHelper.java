@@ -30,20 +30,20 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 41;
+    private static final int DATABASE_VERSION = 45;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
     private static CharaDbHelper charaDbHelper;
 
     //TODO 7.4 Create the Constructor and make it a singleton
-    private CharaDbHelper(Context context){
-        super(context, CharaContract.CharaEntry.TABLE_NAME, null, DATABASE_VERSION );
+    private CharaDbHelper(Context context) {
+        super(context, CharaContract.CharaEntry.TABLE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
 
     static CharaDbHelper createCharaDbHelper(Context context) {
-        if( charaDbHelper == null){
+        if (charaDbHelper == null) {
             charaDbHelper = new CharaDbHelper(context.getApplicationContext());
         }
         return charaDbHelper;
@@ -66,8 +66,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
 
     //TODO 7.8 query one row at random
-    public CharaData queryOneRowRandom(){
-        if( readableDb == null){
+    public CharaData queryOneRowRandom() {
+        if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
         Cursor cursor = readableDb.rawQuery(
@@ -80,8 +80,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     //TODO 7.9 queryOneRow gets the entire database
     // TODO and returns the row in position as a CharaData object
-    public CharaData queryOneRow(int position){
-        if( readableDb == null){
+    public CharaData queryOneRow(int position) {
+        if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
         Cursor cursor = readableDb.rawQuery(
@@ -91,8 +91,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
-    public CharaData queryOneRowClothes(int position){
-        if( readableDb == null){
+    public CharaData queryOneRowClothes(int position) {
+        if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
         Cursor cursor = readableDb.rawQuery(
@@ -101,8 +101,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
-    public CharaData queryOneRowOotd(int position){
-        if( readableDb == null){
+    public CharaData queryOneRowOotd(int position) {
+        if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
         Cursor cursor = readableDb.rawQuery(
@@ -111,8 +111,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
-    public CharaData queryOneRowCategory(int position, String category){
-        if( readableDb == null){
+    public CharaData queryOneRowCategory(int position, String category) {
+        if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
 //        String[] categoryArray = new String[1];
@@ -125,16 +125,46 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
+    public CharaData queryOneRowWhere(int position, String category, String ootd) {
+        if (readableDb == null) {
+            readableDb = getReadableDatabase();
+        }
+        Cursor cursor = null;
+        if (category == null && ootd == null) {
+            Log.i("Logcat", "SQL_QUERY_CAT_OOTD: null, null");
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            "category is not null and ootd is not null",
+                    null);
+        } else if (category != null && ootd != null) {
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            "category = " + category + " and ootd = " + ootd,
+                    null);
+        } else if (category == null) {
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            " ootd = " + ootd,
+                    null);
+        } else {
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            " category = " + category,
+                    null);
+        }
+        return getDataFromCursor(position, cursor);
+    }
+
 
     //TODO 7.8 Get the data from cursor
-    private CharaData getDataFromCursor(int position, Cursor cursor){
+    private CharaData getDataFromCursor(int position, Cursor cursor) {
 
         int id = 0;
-        String category =null;
+        String category = null;
         String formality = null;
         String last_used = null;
         boolean ootd = false;
-        Bitmap bitmap =null;
+        Bitmap bitmap = null;
 
         cursor.moveToPosition(position);
 
@@ -160,19 +190,19 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 0,
                 bitmapByteArray.length);
 
-        return new CharaData(id, category, formality, last_used, ootd,  bitmap);
+        return new CharaData(id, category, formality, last_used, ootd, bitmap);
     }
 
     //TODO 7.10 Insert one row when data is passed to it
-    public void insertOneRow(CharaData charaData){
+    public void insertOneRow(CharaData charaData) {
 
         Log.i("Logcat", "CharaDbHelper.insertOneRow  " +
 //                charaData.getName() + " " + charaData.getDescription() + " " +
-                charaData.getCategory() + " " + charaData.getFormality() + " " +
-                charaData.getLastUsed() + " " + charaData.getOotd()
+                        charaData.getCategory() + " " + charaData.getFormality() + " " +
+                        charaData.getLastUsed() + " " + charaData.getOotd()
         );
 
-        if( writeableDb == null){
+        if (writeableDb == null) {
             writeableDb = getWritableDatabase();
         }
         ContentValues contentValues
@@ -205,8 +235,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
 
     //TODO 7.11 Delete one row given the name field
-    public int deleteOneRow(String id){
-        if( writeableDb == null){
+    public int deleteOneRow(String id) {
+        if (writeableDb == null) {
             writeableDb = getWritableDatabase();
         }
         String WHERE_CLAUSE
@@ -219,21 +249,55 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     }
 
     //TODO 7.7 return the number of rows in the database
-    public long queryNumRows(){
-        if( readableDb == null){
+    public long queryNumRows() {
+        if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
         return DatabaseUtils.queryNumEntries(readableDb,
                 CharaContract.CharaEntry.TABLE_NAME);
     }
 
-    public Context getContext(){
+    public long queryNumRows(String category, String ootd) {
+        if (readableDb == null) {
+            readableDb = getReadableDatabase();
+        }
+        Log.i("Logcat", "queryNumRows: "+category + ootd);
+        Cursor cursor = null;
+        if (category == null && ootd == null) {
+
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            "category is not null and ootd is not null",
+                    null);
+        } else if (category != null && ootd != null) {
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            "category = " + category + " and ootd = " + ootd,
+                    null);
+        } else if (category == null) {
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            " ootd = " + ootd,
+                    null);
+        } else {
+            cursor = readableDb.rawQuery(
+                    CharaContract.CharaSql.SQL_QUERY_WHERE +
+                            " category = " + category,
+                    null);
+        }
+        int count = cursor.getCount();
+        Log.i("Logcat", "queryNumRows:" + "Category: " + category + "ootd: " + ootd + "count: " + count);
+//        cursor.close();
+        return count;
+    }
+
+    public Context getContext() {
         return context;
     }
 
 
     //TODO 7.3 Create a model class to represent our data
-    static class CharaData{
+    static class CharaData {
 
         private int id;
         private String category;
@@ -280,13 +344,21 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             return bitmap;
         }
 
-        public String getCategory(){return category;}
+        public String getCategory() {
+            return category;
+        }
 
-        public String getFormality(){return formality;}
+        public String getFormality() {
+            return formality;
+        }
 
-        public String getLastUsed(){return last_used;}
+        public String getLastUsed() {
+            return last_used;
+        }
 
-        public boolean getOotd(){return ootd;}
+        public boolean getOotd() {
+            return ootd;
+        }
 
         public String getFile() {
             return file;
@@ -294,7 +366,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         public int getId() {
             Log.i("Logcat", "getId() with value of: " + id);
-            return id;}
+            return id;
+        }
 
 
     }

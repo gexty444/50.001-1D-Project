@@ -18,7 +18,8 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     LayoutInflater mInflater;
     Context context;
     CharaDbHelper charaDbHelper;
-    String category_getExtra = "";
+    static String category_query = null;
+    static String ootd_query = null;
 
 
     //TODO 9.3 Constructor takes in a context object and a CharaDbHelper object
@@ -43,55 +44,69 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         // i is the position in the recyclerview
         charaViewHolder.textViewPosition.setText(Integer.toString(i));
 //        CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRow(i);
-        CharaDbHelper.CharaData charaData;
-        charaData = charaDbHelper.queryOneRowClothes(i);
-        category_getExtra = RecyclerViewActivity.category_getExtra;
-        Log.i("Logcat", "category_getExtra: " + category_getExtra);
-        if (category_getExtra == null) {
-        }else {
-            switch (category_getExtra) {
+        CharaDbHelper.CharaData charaData = null;
+//        charaData = charaDbHelper.queryOneRowClothes(i);
+        charaData = charaDbHelper.queryOneRowWhere(i, null, null);
+        if (category_query == null) {
+            charaData = charaDbHelper.queryOneRowWhere(i, null, null);
+        } else {
+            switch (category_query) {
                 case "Tops":
                     Log.i("Logcat", "CharaAdapter querying Tops from database to RecyclerView");
-                    charaData = charaDbHelper.queryOneRowCategory(i, "Tops");
+                    category_query = "'Tops'";
+                    ootd_query = "0";
+                    charaData = charaDbHelper.queryOneRowWhere(i, "'Tops'", "0");
                     break;
                 case "Bottoms":
                     Log.i("Logcat", "CharaAdapter querying Bottoms from database to RecyclerView");
                     charaData = charaDbHelper.queryOneRowCategory(i, "Bottoms");
+                    category_query = "'Bottoms'";
+                    ootd_query = "0";
                     break;
                 case "One-piece":
                     Log.i("Logcat", "CharaAdapter querying One-piece from database to RecyclerView");
                     charaData = charaDbHelper.queryOneRowCategory(i, "One-piece");
+                    category_query = "'One-piece'";
+                    ootd_query = "0";
                     break;
                 case "Shoes":
                     Log.i("Logcat", "CharaAdapter querying Shoes from database to RecyclerView");
                     charaData = charaDbHelper.queryOneRowCategory(i, "Shoes");
+                    category_query = "'Shoes'";
+                    ootd_query = "0";
                     break;
                 case "Bags":
                     Log.i("Logcat", "CharaAdapter querying Bags from database to RecyclerView");
                     charaData = charaDbHelper.queryOneRowCategory(i, "Bags");
+                    category_query = "'Bags'";
+                    ootd_query = "0";
                     break;
                 case "Accessories":
                     Log.i("Logcat", "CharaAdapter querying Accessories from database to RecyclerView");
                     charaData = charaDbHelper.queryOneRowCategory(i, "Accessories");
+                    category_query = "'Accessories'";
+                    ootd_query = "0";
                     break;
                 default:
                     break;
             }
         }
-
-        charaViewHolder.textViewId.setText("" + charaData.getId());
-        charaViewHolder.textViewCategory.setText(charaData.getCategory());
-        charaViewHolder.textViewFormality.setText(charaData.getFormality());
-        charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
-        charaViewHolder.textViewOotd.setText(String.valueOf(charaData.getOotd()));
-        charaViewHolder.imageViewChara.setImageBitmap(charaData.getBitmap());
+        if (charaData != null) {
+            charaViewHolder.textViewId.setText("" + charaData.getId());
+            charaViewHolder.textViewCategory.setText(charaData.getCategory());
+            charaViewHolder.textViewFormality.setText(charaData.getFormality());
+            charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
+            charaViewHolder.textViewOotd.setText(String.valueOf(charaData.getOotd()));
+            charaViewHolder.imageViewChara.setImageBitmap(charaData.getBitmap());
+        }
     }
 
     //TODO 9.6 this method controls the number of cardviews in the recyclerview
     @Override
     public int getItemCount() {
-
-        int numberOfRows = (int) charaDbHelper.queryNumRows();
+        int numberOfRows = (int) charaDbHelper.queryNumRows(category_query, ootd_query);
+        Log.i("Logcat", "numberOfRows: " + numberOfRows);
+//        int numberOfRows = 1;
         return numberOfRows;
     }
 
