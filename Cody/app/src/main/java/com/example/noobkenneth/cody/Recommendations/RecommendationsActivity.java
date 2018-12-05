@@ -29,16 +29,20 @@ public class RecommendationsActivity extends AppCompatActivity {
     SharedPreferences mPreferences;
     ViewPager viewPager;
     RecAdapter recAdapter;
-    List<Recommendations> recommendationsList;
+    ArrayList<Recommendations> recommendationsList;
     HashMap<int[],String> recommendationsPreferences; //store user preferences
-    List<Recommendations> generatedOutfits = new ArrayList<>(); //store generated outfits
+    ArrayList<Recommendations> generatedOutfit = new ArrayList<>(); //store generated outfits
     ImageButton closeBtn;
-    private String LogCatTAG = "Recommendations";
+    private String LogCatTAG = "RecommendationsLog";
+    RecGenerateOutfit generateOutfit;
+    boolean chosen = false;
+    Animation scale;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("Recommendations", "Created RecommendationsActivity");
+        Log.i(LogCatTAG, "Created RecommendationsActivity");
         setContentView(R.layout.rec_activity_main);
 
         Intent intent = getIntent();
@@ -49,34 +53,24 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                Log.i(LogCatTAG,"Closed recommendationsActivity");
             }
         });
 
-        //TODO: find out why this has an error :(
-        generatedOutfits = RecGenerateOutfits(selectedStyle);
-        // Change Hardcoded strings to strings in resources later
-
-
-        int count = 0;
-        recommendationsList = new ArrayList<>();
-        while (recommendationsList.size() < 3 && count < generatedOutfits.size()) {
-            if (mPreferences.getString("FormalAttire" + Integer.toString(count), "like").equals("like")) {
-                recommendationsList.add(generatedOutfits.get(count));
-            }
-            count += 1;
-        }
-
-        recAdapter = new RecAdapter(recommendationsList, this);
+        recAdapter = new RecAdapter(generatedOutfit, this);
 
         viewPager = findViewById(R.id.viewPager);
 
         viewPager.setAdapter(recAdapter);
         viewPager.setPadding(130, 0, 130, 0);
 
-        ImageButton reGenerate = findViewById(R.id.generate);
+        scale  = AnimationUtils.loadAnimation(this,R.anim.scale_animation);
+
+        final ImageButton reGenerate = findViewById(R.id.generate);
         reGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //refresh activity upon click
+                reGenerate.startAnimation(scale);
                 finish();
                 overridePendingTransition(0, 0); //so activity won't blink when it's refreshed
                 startActivity(getIntent());
@@ -87,51 +81,23 @@ public class RecommendationsActivity extends AppCompatActivity {
         final Button chooseOutfit = findViewById(R.id.chooseOutfit);
         final RelativeLayout mainLayout = findViewById(R.id.recommendationsMain);
 
+
+
         chooseOutfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                chooseOutfit.setBackgroundColor(getResources().getColor(R.color.black));
+                if(!chosen) {
+                    mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
+                    chosen = true;
+                }
+                else{
+                    mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    chosen = false;
+                }
             }
         });
     }
+
 }
-        /* Commented out like and dislike functions
-        final Animation scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
-
-        recommendationsPreferences = new HashMap<>();
-
-        ImageButton mReject = findViewById(R.id.dislike);
-        ImageButton mAccept = findViewById(R.id.like);
-
-        mReject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                v.startAnimation(scaleAnimation);
-                recommendationsPreferences.put(RecGenerateOutfits.apparelIDs,"dislike");
-                Toast.makeText(getApplicationContext(),"I don't like this",Toast.LENGTH_SHORT).show();
-                Log.i("PrefStatus",recommendationsPreferences.toString());
-            }
-        });
-        mAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                v.startAnimation(scaleAnimation);
-                recommendationsPreferences.put(RecGenerateOutfits.apparelIDs,"like");
-                Toast.makeText(getApplicationContext(),"I like this",Toast.LENGTH_SHORT).show();
-                Log.i("PrefStatus",recommendationsPreferences.toString());
-            }
-        });
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        for(int i =0; i<recommendationsPreferences.size(); i++){
-            preferencesEditor.putString(recommendationsPreferences.toString(),recommendationsPreferences.get(i));
-        }
-        preferencesEditor.apply();
-    }
-}
-*/

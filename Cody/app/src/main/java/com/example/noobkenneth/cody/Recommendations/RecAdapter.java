@@ -15,23 +15,23 @@ import java.util.List;
 
 public class RecAdapter extends PagerAdapter {
 
-    private List<Recommendations> recommendationsList;
+    private List<Recommendations> generatedOutfit;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public RecAdapter(List<Recommendations> recommendationsList, Context context) {
-        this.recommendationsList = recommendationsList;
+    public RecAdapter(List<Recommendations> generatedOutfit, Context context) {
+        this.generatedOutfit = generatedOutfit;
         this.context = context;
-    }
-
-    @Override
-    public int getCount() {
-        return recommendationsList.size();
     }
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view.equals(object);
+    }
+
+    @Override
+    public int getCount() {
+        return 0;
     }
 
     @NonNull //denotes that a parameter/field/method can never return null
@@ -54,9 +54,13 @@ public class RecAdapter extends PagerAdapter {
         apparel4 = view.findViewById(R.id.rec_imageView6);
         apparel5 = view.findViewById(R.id.rec_imageView7);
 
+        apparel0.setImageResource(generatedOutfit.get(0).getImage());
+        apparel1.setImageResource(generatedOutfit.get(1).getImage());
+        apparel2.setImageResource(generatedOutfit.get(2).getImage());
+        apparel3.setImageResource(generatedOutfit.get(3).getImage());
+        apparel4.setImageResource(generatedOutfit.get(4).getImage());
+        apparel5.setImageResource(generatedOutfit.get(5).getImage());
 
-        // TODO: get images from database
-        apparel0.setImageResource(recommendationsList.get(position).getImage());
 
         container.addView(view, 0);
         return view;
