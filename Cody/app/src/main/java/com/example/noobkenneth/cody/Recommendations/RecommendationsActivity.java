@@ -29,10 +29,8 @@ public class RecommendationsActivity extends AppCompatActivity {
     ViewPager viewPager;
     RecAdapter recAdapter;
     List<Recommendations> recommendationsList;
-    HashMap<Integer,String> recommendationsPreferences; //store user preferences
-    Integer[] colors = null;
-    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
-    List<Recommendations> generatedList = new ArrayList<>(); //store generated outfits
+    HashMap<int[],String> recommendationsPreferences; //store user preferences
+    List<Recommendations> generatedOutfits = new ArrayList<>(); //store generated outfits
     ImageButton closeBtn;
     private String LogCatTAG = "Recommendations";
 
@@ -45,20 +43,25 @@ public class RecommendationsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
 
-        //TODO: Generate attires based on selectedStyleKey
+        closeBtn = findViewById(R.id.closeRecommendations);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        mPreferences = getSharedPreferences(sharedPrefFile,MODE_PRIVATE);
+        //TODO: find out why this has an error :(
+        generatedOutfits = RecGenerateOutfits(selectedStyle);
+        // Change Hardcoded strings to strings in resources later
 
-        generatedList.add(new Recommendations(R.drawable.formal,"Formal Attire " + Integer.toString(generatedList.size()+1)));
-        generatedList.add(new Recommendations(R.drawable.business,"Formal Attire " + Integer.toString(generatedList.size()+1)));
-        generatedList.add(new Recommendations(R.drawable.menformalred,"Formal Attire " + Integer.toString(generatedList.size()+1)));
-        generatedList.add(new Recommendations(R.drawable.menformal,"Formal Attire " + Integer.toString(generatedList.size()+1))); //when there are >3 items, app will crash
+
 
         int count =0;
         recommendationsList = new ArrayList<>();
-        while(recommendationsList.size()<3 && count< generatedList.size()){
+        while(recommendationsList.size()<3 && count< generatedOutfits.size()){
             if(mPreferences.getString("FormalAttire"+Integer.toString(count),"like").equals("like")){
-                recommendationsList.add(generatedList.get(count));
+                recommendationsList.add(generatedOutfits.get(count));
             }
             count+=1;
         }
@@ -81,7 +84,7 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(scaleAnimation);
-                recommendationsPreferences.put(viewPager.getCurrentItem(),"dislike");
+                recommendationsPreferences.put(RecGenerateOutfits.apparelIDs,"dislike");
                 Toast.makeText(getApplicationContext(),"I don't like this",Toast.LENGTH_SHORT).show();
                 Log.i("PrefStatus",recommendationsPreferences.toString());
             }
@@ -90,7 +93,7 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.startAnimation(scaleAnimation);
-                recommendationsPreferences.put(viewPager.getCurrentItem(),"like");
+                recommendationsPreferences.put(RecGenerateOutfits.apparelIDs,"like");
                 Toast.makeText(getApplicationContext(),"I like this",Toast.LENGTH_SHORT).show();
                 Log.i("PrefStatus",recommendationsPreferences.toString());
             }
@@ -102,7 +105,7 @@ public class RecommendationsActivity extends AppCompatActivity {
         super.onPause();
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         for(int i =0; i<recommendationsPreferences.size(); i++){
-            preferencesEditor.putString("FormalAttire"+Integer.toString(i),recommendationsPreferences.get(i));
+            preferencesEditor.putString(recommendationsPreferences.toString(),recommendationsPreferences.get(i));
         }
         preferencesEditor.apply();
     }
