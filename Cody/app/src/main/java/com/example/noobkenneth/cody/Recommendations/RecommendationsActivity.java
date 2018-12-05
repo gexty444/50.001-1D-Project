@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -75,7 +76,7 @@ public class RecommendationsActivity extends AppCompatActivity {
         ImageButton reGenerate = findViewById(R.id.generate);
         reGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //refresh activity upon click
                 finish();
                 overridePendingTransition(0, 0); //so activity won't blink when it's refreshed
                 startActivity(getIntent());
@@ -83,6 +84,16 @@ public class RecommendationsActivity extends AppCompatActivity {
             }
         });
 
+        final Button chooseOutfit = findViewById(R.id.chooseOutfit);
+        final RelativeLayout mainLayout = findViewById(R.id.recommendationsMain);
+
+        chooseOutfit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                chooseOutfit.setBackgroundColor(getResources().getColor(R.color.black));
+            }
+        });
     }
 }
         /* Commented out like and dislike functions
