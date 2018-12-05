@@ -28,12 +28,14 @@ public class RecQueryDB {
 
     public int queryOverallsFromDB(String selectedStyle) {
         //TODO
+        Log.i(LogCatTAG,"queried Overalls");
 
         return R.drawable.formal;
     }
 
     public int queryShoesFromDB(String selectedStyle) {
         //TODO
+        Log.i(LogCatTAG,"queried Shoes");
 
         return R.drawable.whiteshoes;
     }
@@ -41,12 +43,16 @@ public class RecQueryDB {
     public int queryBagFromDB(String selectedStyle) {
         //TODO
 
+        Log.i(LogCatTAG,"queried Bag");
+
         return R.drawable.example_bag;
     }
 
 
     public int queryAccessoriesFromDB(String selectedStyle) {
         //TODO
+
+        Log.i(LogCatTAG,"queried accessories");
 
         return R.drawable.cap;
     }

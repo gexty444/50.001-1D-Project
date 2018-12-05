@@ -12,7 +12,7 @@ import com.example.noobkenneth.cody.Recommendations.RecQueryDB;
 public class RecGenerateOutfit {
 
     String selectedStyle;
-    ArrayList<Recommendations> generatedOutfits;
+    ArrayList<Recommendations> generatedOutfits = new ArrayList<>();
     private String LogCatTAG = "RecommendationsLog";
 
     RecQueryDB recQueryDB = new RecQueryDB();
@@ -48,9 +48,14 @@ public class RecGenerateOutfit {
     }
 
     private void generateCasual(){
+        Log.i(LogCatTAG,"entered generateCasual");
+
         if (randInt==0){
+
             generatedOutfits.add(new Recommendations(top));
             generatedOutfits.add(new Recommendations(bottom));
+
+
             apparelIDs[0] = top;
             apparelIDs[1] = bottom;
         }
@@ -101,11 +106,17 @@ public class RecGenerateOutfit {
             generateCasual();
         }
 
-        if (selectedStyle.equals("Smart Casual")){}
+        if (selectedStyle.equals("Smart Casual")){
+            generateSmartCasual();
+        }
 
-        if (selectedStyle.equals("Formal")){}
+        if (selectedStyle.equals("Formal")){
+            generateFormal();
+        }
 
-        if (selectedStyle.equals("Business Formal")){}
+        if (selectedStyle.equals("Business Formal")){
+            generateBusinessFormal();
+        }
     }
 
 

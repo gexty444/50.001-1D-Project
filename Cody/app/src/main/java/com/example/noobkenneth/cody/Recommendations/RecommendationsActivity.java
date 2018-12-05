@@ -57,12 +57,17 @@ public class RecommendationsActivity extends AppCompatActivity {
             }
         });
 
+        RecGenerateOutfit recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
+        generatedOutfit = recGenerateOutfit.getGeneratedOutfit();
+        Log.i(LogCatTAG,"the apparels are "+generatedOutfit.toString());
+
         recAdapter = new RecAdapter(generatedOutfit, this);
+        Log.i(LogCatTAG,"returned from recAdapter");
 
         viewPager = findViewById(R.id.viewPager);
-
         viewPager.setAdapter(recAdapter);
-        viewPager.setPadding(130, 0, 130, 0);
+        viewPager.setPadding(130, 0, 130, 0); //the reason we see other cards
+        Log.i(LogCatTAG,"finished setting up viewPager!");
 
         scale  = AnimationUtils.loadAnimation(this,R.anim.scale_animation);
 
