@@ -38,12 +38,10 @@ public class RecGenerateOutfit {
 
 
     public int[] getApparelIDs() {
-        Log.i(LogCatTAG,apparelIDs.toString());
         return apparelIDs;
     }
 
     public ArrayList<Recommendations> getGeneratedOutfit() {
-        Log.i(LogCatTAG,generatedOutfits.toString());
         return generatedOutfits;
     }
 
@@ -54,7 +52,6 @@ public class RecGenerateOutfit {
 
             generatedOutfits.add(new Recommendations(top));
             generatedOutfits.add(new Recommendations(bottom));
-
 
             apparelIDs[0] = top;
             apparelIDs[1] = bottom;
@@ -98,7 +95,7 @@ public class RecGenerateOutfit {
         this.selectedStyle = selectedStyle;
         if (selectedStyle.equals("Select Dress Code")){
             Random rand = new Random();
-            int randStyle = rand.nextInt(1);
+            int randStyle = rand.nextInt(2);
             if(randStyle == 0){generateCasual();}
             if(randStyle == 1){generateFormal();}
         }

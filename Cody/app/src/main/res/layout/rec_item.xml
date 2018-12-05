@@ -11,21 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardCornerRadius="20dp"
-        android:adjustViewBounds="true">
+        app:cardCornerRadius="20dp">
 
-        <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
-            android:layout_weight="8"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:adjustViewBounds="true">
 
-            <RelativeLayout android:layout_gravity="center_horizontal|center_vertical"
-                android:adjustViewBounds="true">
+
+            <RelativeLayout
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="400dp"
+                android:layout_width="match_parent">
 
                 <ImageView
                     android:id="@+id/rec_imageView2"
@@ -92,7 +86,6 @@
                     app:srcCompat="@drawable/example_shoes" />
 
             </RelativeLayout>
-        </GridLayout>
 
     </android.support.v7.widget.CardView>
 </LinearLayout>

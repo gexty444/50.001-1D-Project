@@ -3,6 +3,7 @@ package com.example.noobkenneth.cody.Recommendations;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,10 @@ public class RecAdapter extends PagerAdapter {
     private List<Recommendations> generatedOutfit;
     private LayoutInflater layoutInflater;
     private Context context;
+    String LogCatTag = "Recommendationslog";
 
     public RecAdapter(List<Recommendations> generatedOutfit, Context context) {
+        Log.i(LogCatTag,"Entered RecAdapter Constructor");
         this.generatedOutfit = generatedOutfit;
         this.context = context;
     }
@@ -37,6 +40,8 @@ public class RecAdapter extends PagerAdapter {
     @NonNull //denotes that a parameter/field/method can never return null
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position){
+
+        Log.i(LogCatTag,"Enter RecAdapter's instantiateItem");
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.rec_item, container, false);
 
@@ -61,6 +66,7 @@ public class RecAdapter extends PagerAdapter {
         apparel4.setImageResource(generatedOutfit.get(4).getImage());
         apparel5.setImageResource(generatedOutfit.get(5).getImage());
 
+        Log.i(LogCatTag,"Exited RecAdapter's instantiateItem");
 
         container.addView(view, 0);
         return view;

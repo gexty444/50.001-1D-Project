@@ -8,11 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -34,7 +36,7 @@ public class RecommendationsActivity extends AppCompatActivity {
     ArrayList<Recommendations> generatedOutfit = new ArrayList<>(); //store generated outfits
     ImageButton closeBtn;
     private String LogCatTAG = "RecommendationsLog";
-    RecGenerateOutfit generateOutfit;
+    RecGenerateOutfit recGenerateOutfit;
     boolean chosen = false;
     Animation scale;
 
@@ -56,12 +58,17 @@ public class RecommendationsActivity extends AppCompatActivity {
                 Log.i(LogCatTAG,"Closed recommendationsActivity");
             }
         });
+        LayoutInflater layoutInflater;
 
-        RecGenerateOutfit recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
+        recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
         generatedOutfit = recGenerateOutfit.getGeneratedOutfit();
-        Log.i(LogCatTAG,"the apparels are "+generatedOutfit.toString());
+ /*       for(Recommendations recommendations: generatedOutfit){
+            Log.i(LogCatTAG,recommendations.toString());
+        }*/
 
-        recAdapter = new RecAdapter(generatedOutfit, this);
+
+        recAdapter = new RecAdapter(generatedOutfit,this);
+
         Log.i(LogCatTAG,"returned from recAdapter");
 
         viewPager = findViewById(R.id.viewPager);
