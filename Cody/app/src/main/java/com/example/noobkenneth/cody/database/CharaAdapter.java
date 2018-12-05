@@ -45,7 +45,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         CharaDbHelper.CharaData charaData = charaDbHelper.queryOneRowClothes(i);
         charaViewHolder.textViewId.setText(""+charaData.getId());
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
-        charaViewHolder.textViewFormality.setText(String.valueOf(charaData.getFormality()));
+        charaViewHolder.textViewFormality.setText(charaData.getFormality());
         charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
         charaViewHolder.textViewOotd.setText(String.valueOf(charaData.getOotd()));
         charaViewHolder.imageViewChara.setImageBitmap(charaData.getBitmap());

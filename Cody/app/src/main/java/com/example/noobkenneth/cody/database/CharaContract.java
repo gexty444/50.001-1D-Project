@@ -32,7 +32,7 @@ public class CharaContract {
                 + CharaEntry.TABLE_NAME + SPACE + "("
                 + CharaEntry._ID + SPACE + "INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA
                 + CharaEntry.COL_CATEGORY + SPACE + "TEXT NOT NULL" + COMMA
-                + CharaEntry.COL_FORMALITY + SPACE + "INT NOT NULL" + COMMA
+                + CharaEntry.COL_FORMALITY + SPACE + "TEXT NOT NULL" + COMMA
                 + CharaEntry.COL_LAST_USED + SPACE + "DATE NOT NULL" + COMMA
                 + CharaEntry.COL_OOTD + SPACE + "BOOLEAN NOT NULL" + COMMA
                 + CharaEntry.COL_FILE + SPACE + "BLOB NOT NULL" +

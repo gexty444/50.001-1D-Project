@@ -30,7 +30,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 28;
+    private static final int DATABASE_VERSION = 29;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -116,7 +116,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         int id = 0;
         String category =null;
-        int formality = 0;
+        String formality = null;
         String last_used = null;
         boolean ootd = false;
         Bitmap bitmap =null;
@@ -131,7 +131,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         category = cursor.getString(categoryIndex);
 
         int formalityIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FORMALITY);
-        formality = Integer.parseInt(cursor.getString(formalityIndex));
+        formality = cursor.getString(formalityIndex);
 
         int last_usedIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_LAST_USED);
         last_used = cursor.getString(last_usedIndex);
@@ -222,13 +222,13 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         private int id;
         private String category;
-        private int formality;
+        private String formality;
         private String last_used;
         private boolean ootd;
         private String file;
         private Bitmap bitmap;
 
-        public CharaData(String category, Integer formality,
+        public CharaData(String category, String formality,
                          String last_used, boolean ootd, Bitmap bitmap) {
             Log.i("Logcat", "CharaData constructor called " +
                     category + " " +
@@ -243,7 +243,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             this.bitmap = bitmap;
         }
 
-        public CharaData(int id, String category, Integer formality,
+        public CharaData(int id, String category, String formality,
                          String last_used, boolean ootd, Bitmap bitmap) {
             Log.i("Logcat", "CharaData constructor called " +
                     id + " " +
@@ -267,7 +267,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         public String getCategory(){return category;}
 
-        public int getFormality(){return formality;}
+        public String getFormality(){return formality;}
 
         public String getLastUsed(){return last_used;}
 
