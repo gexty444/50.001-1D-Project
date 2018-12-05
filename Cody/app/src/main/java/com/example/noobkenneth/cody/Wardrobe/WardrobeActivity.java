@@ -108,48 +108,68 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
                 case 0:
                 {
                     // onclick, start new intent to go to another activity
-                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "This toast is for tops!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "tops");
+                    startActivity(intent);
                     break;
                 }
 
                 case 1:
                 {
                     // onclick, start new intent to go to another activity
-                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "This toast is for bottoms!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "bottoms");
+                    startActivity(intent);
                     break;
                 }
 
                 case 2:
                 {
                     // onclick, start new intent to go to another activity
-                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "This toast is for onepiece!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "onepiece");
+                    startActivity(intent);
                     break;
                 }
 
                 case 3: {
                     // onclick, start new intent to go to another activity
+
                     Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "shoes");
+                    startActivity(intent);Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
                     break;
                 }
 
                 case 4:
                 {
                     // onclick, start new intent to go to another activity
-                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "This toast is for bags!!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "bags");
                     startActivity(intent);
                     break;
                 }
                 case 5:
                 {
                     // onclick, start new intent to go to another activity
-                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "This toast is for accessories!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "accessories");
+                    startActivity(intent);
                     break;
                 }
 
                 default:
                 {
                     Toast.makeText(getApplicationContext(), "No action associated with this item", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "none");
+                    startActivity(intent);
                     break;
                 }
             }
