@@ -35,8 +35,6 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
 
     ImageView imageViewSelected;
     CharaDbHelper charaDbHelper;
-    EditText editTextCategory;
-    EditText editTextFormality;
     Bitmap bitmapSelected = null;
     SQLiteDatabase db;
     int REQUEST_CODE_IMAGE = 2000;
@@ -68,8 +66,6 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
         spinnerFormality.setAdapter(dataAdapterFormality);
 
         //TODO 8.5 Get references to the widgets
-        editTextCategory = findViewById(R.id.editTextCategoryEntry);
-        editTextFormality = findViewById(R.id.editTextFormalityEntry);
         Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
         imageViewSelected = findViewById(R.id.imageViewSelected);
 
@@ -90,10 +86,6 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
             @Override
             public void onClick(View v) {
 
-//                String category = editTextCategory.getText().toString();
-//                String formality = editTextFormality.getText().toString();
-                Log.i("Logcat", "formality: " + formality);
-                Log.i("Logcat", "formality raw: " + editTextFormality.getText().toString());
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String last_used = formatter.format(date);
