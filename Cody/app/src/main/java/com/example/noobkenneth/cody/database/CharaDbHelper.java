@@ -30,7 +30,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 29;
+    private static final int DATABASE_VERSION = 41;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -110,6 +110,21 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 new String[]{"1"});
         return getDataFromCursor(position, cursor);
     }
+
+    public CharaData queryOneRowCategory(int position, String category){
+        if( readableDb == null){
+            readableDb = getReadableDatabase();
+        }
+//        String[] categoryArray = new String[1];
+//        categoryArray[0] = category;
+//        Log.i("Logcat", "Query: " + CharaContract.CharaSql.SQL_QUERY_CATEGORY + category);
+        Cursor cursor = readableDb.rawQuery(
+                CharaContract.CharaSql.SQL_QUERY_CATEGORY,
+                null);
+
+        return getDataFromCursor(position, cursor);
+    }
+
 
     //TODO 7.8 Get the data from cursor
     private CharaData getDataFromCursor(int position, Cursor cursor){

@@ -13,12 +13,12 @@ import android.widget.TextView;
 import com.example.noobkenneth.cody.R;
 
 
-public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHolder>{
+public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHolder> {
 
     LayoutInflater mInflater;
     Context context;
     CharaDbHelper charaDbHelper;
-    String category_getExtra;
+    String category_getExtra = "";
 
 
     //TODO 9.3 Constructor takes in a context object and a CharaDbHelper object
@@ -46,29 +46,40 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         CharaDbHelper.CharaData charaData;
         charaData = charaDbHelper.queryOneRowClothes(i);
         category_getExtra = RecyclerViewActivity.category_getExtra;
-//        Log.i("Logcat", category_getExtra);
-        switch (category_getExtra) {
-            case "Tops":
-                Log.i("Logcat", "CharaAdapter querying Tops from database to RecyclerView");
-                break;
-            case "Bottoms":
-                Log.i("Logcat", "CharaAdapter querying Bottoms from database to RecyclerView");
-                break;
-            case "One-piece":
-                Log.i("Logcat", "CharaAdapter querying One-piece from database to RecyclerView");
-                break;
-            case "Shoes":
-                Log.i("Logcat", "CharaAdapter querying Shoes from database to RecyclerView");
-                break;
-            case "Bags":
-                Log.i("Logcat", "CharaAdapter querying Bags from database to RecyclerView");
-                break;
-            case "Accessories":
-                Log.i("Logcat", "CharaAdapter querying Accessories from database to RecyclerView");
-                break;
+        Log.i("Logcat", "category_getExtra: " + category_getExtra);
+        if (category_getExtra == null) {
+        }else {
+            switch (category_getExtra) {
+                case "Tops":
+                    Log.i("Logcat", "CharaAdapter querying Tops from database to RecyclerView");
+                    charaData = charaDbHelper.queryOneRowCategory(i, "Tops");
+                    break;
+                case "Bottoms":
+                    Log.i("Logcat", "CharaAdapter querying Bottoms from database to RecyclerView");
+                    charaData = charaDbHelper.queryOneRowCategory(i, "Bottoms");
+                    break;
+                case "One-piece":
+                    Log.i("Logcat", "CharaAdapter querying One-piece from database to RecyclerView");
+                    charaData = charaDbHelper.queryOneRowCategory(i, "One-piece");
+                    break;
+                case "Shoes":
+                    Log.i("Logcat", "CharaAdapter querying Shoes from database to RecyclerView");
+                    charaData = charaDbHelper.queryOneRowCategory(i, "Shoes");
+                    break;
+                case "Bags":
+                    Log.i("Logcat", "CharaAdapter querying Bags from database to RecyclerView");
+                    charaData = charaDbHelper.queryOneRowCategory(i, "Bags");
+                    break;
+                case "Accessories":
+                    Log.i("Logcat", "CharaAdapter querying Accessories from database to RecyclerView");
+                    charaData = charaDbHelper.queryOneRowCategory(i, "Accessories");
+                    break;
+                default:
+                    break;
+            }
         }
 
-        charaViewHolder.textViewId.setText(""+charaData.getId());
+        charaViewHolder.textViewId.setText("" + charaData.getId());
         charaViewHolder.textViewCategory.setText(charaData.getCategory());
         charaViewHolder.textViewFormality.setText(charaData.getFormality());
         charaViewHolder.textViewLastUsed.setText(charaData.getLastUsed());
@@ -86,7 +97,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
 
     //TODO 9.2 Complete the constructor to initialize the widgets
     //TODO ATTENTION SVP we had to make this class static
-    static class CharaViewHolder extends RecyclerView.ViewHolder{
+    static class CharaViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textViewId;
         public TextView textViewPosition;
@@ -96,7 +107,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         public TextView textViewOotd;
         public ImageView imageViewChara;
 
-        public CharaViewHolder(View view){
+        public CharaViewHolder(View view) {
             super(view);
             textViewId = view.findViewById(R.id.cardViewTextId);
             textViewPosition = view.findViewById(R.id.cardViewTextCount);
