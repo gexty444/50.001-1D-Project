@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.Utils;
+import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
 import com.example.noobkenneth.cody.Calendar.CalendarActivity;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_wardrobe:
                         Log.i("Logcat", "wardrobe pressed from MainActivity");
-                        Intent intent_wardrobe = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                        Intent intent_wardrobe = new Intent(MainActivity.this, WardrobeActivity.class);
                         intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;
@@ -106,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from MainActivity");
+                        Intent intent_RecyclerView = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                        intent_RecyclerView.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_RecyclerView);
                         break;
                 }
                 return false;
