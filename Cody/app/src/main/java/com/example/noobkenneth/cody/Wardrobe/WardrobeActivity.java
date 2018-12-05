@@ -17,6 +17,7 @@ import com.example.noobkenneth.cody.Calendar.CalendarActivity;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 public class WardrobeActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -104,14 +105,48 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
             switch (position)
             {
                 // each case for a different item on gridView, where case number is item index in thumbnail array (in ImageAdapter.java)
+                case 0:
+                {
+                    // onclick, start new intent to go to another activity
+                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+
+                case 1:
+                {
+                    // onclick, start new intent to go to another activity
+                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+
+                case 2:
+                {
+                    // onclick, start new intent to go to another activity
+                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+
+                case 3: {
+                    // onclick, start new intent to go to another activity
+                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+
                 case 4:
                 {
                     // onclick, start new intent to go to another activity
                     Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(WardrobeActivity.this, ShoeActivity.class);
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
                     startActivity(intent);
                     break;
                 }
+                case 5:
+                {
+                    // onclick, start new intent to go to another activity
+                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    break;
+                }
+
                 default:
                 {
                     Toast.makeText(getApplicationContext(), "No action associated with this item", Toast.LENGTH_LONG).show();
