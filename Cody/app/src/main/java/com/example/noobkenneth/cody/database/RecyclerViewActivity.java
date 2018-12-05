@@ -25,7 +25,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     CharaAdapter charaAdapter;
     CharaDbHelper charaDbHelper;
-    static String category_getExtra = "";
+    static String category_getExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

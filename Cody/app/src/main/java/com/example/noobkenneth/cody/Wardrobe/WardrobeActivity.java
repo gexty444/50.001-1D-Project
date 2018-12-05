@@ -145,7 +145,7 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
                     Log.i("Logcat", "WardrobeActivity requesting for Shoes from RecyclerViewActivity");
                     Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
                     intent.putExtra("CATEGORY", "Shoes");
-                    startActivity(intent);
+                    startActivity(intent);Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
                     break;
                 }
 
