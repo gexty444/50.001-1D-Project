@@ -45,6 +45,11 @@ public class RecGenerateOutfit {
         return generatedOutfits;
     }
 
+    public ArrayList<Recommendations> getAnotherOutfit(){
+        RecGenerateOutfit anotherOutfit = new RecGenerateOutfit(selectedStyle);
+        return anotherOutfit.getGeneratedOutfit();
+    }
+
     private void generateCasual(){
         Log.i(LogCatTAG,"entered generateCasual");
 
@@ -91,8 +96,19 @@ public class RecGenerateOutfit {
 
 
     public RecGenerateOutfit(String selectedStyle) {
+
+        top = recQueryDB.queryRandTopFromDB(selectedStyle);
+        bottom = recQueryDB.queryBottomFromDB(selectedStyle);
+        overalls = recQueryDB.queryOverallsFromDB(selectedStyle);
+        shoes = recQueryDB.queryShoesFromDB(selectedStyle);
+        bag = recQueryDB.queryBagFromDB(selectedStyle);
+        accessories = recQueryDB.queryAccessoriesFromDB(selectedStyle);
+        accessories2 = recQueryDB.queryAccessoriesFromDB(selectedStyle);
+
         Log.i(LogCatTAG,selectedStyle);
         this.selectedStyle = selectedStyle;
+        int randInt = rand.nextInt(1);
+
         if (selectedStyle.equals("Select Dress Code")){
             Random rand = new Random();
             int randStyle = rand.nextInt(2);

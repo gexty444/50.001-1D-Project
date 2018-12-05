@@ -19,17 +19,31 @@ import java.util.List;
 public class RecAdapter extends PagerAdapter {
 
     private List<Recommendations> generatedOutfit;
+    private List<Recommendations> generatedOutfit2;
+    private List<Recommendations> generatedOutfit3;
+    private List<Recommendations> generatedOutfit4;
+    private List<Recommendations> generatedOutfit5;
+
+
     private LayoutInflater layoutInflater;
     private Context context;
     String LogCatTag = "Recommendationslog";
     ImageView apparel;
+    RecGenerateOutfit recGenerateOutfit;
 
-
-    public RecAdapter(List<Recommendations> generatedOutfit, Context context) {
+    public RecAdapter(Context context, String selectedStyle) {
         Log.i(LogCatTag,"Entered RecAdapter Constructor");
+
+        recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
+        generatedOutfit = recGenerateOutfit.getGeneratedOutfit();
+        generatedOutfit2 = recGenerateOutfit.getAnotherOutfit();
+        generatedOutfit3 = recGenerateOutfit.getAnotherOutfit();
+        generatedOutfit4 = recGenerateOutfit.getAnotherOutfit();
+        generatedOutfit5 = recGenerateOutfit.getAnotherOutfit();
+
+
         layoutInflater = LayoutInflater.from(context);
         this.context = context;
-        this.generatedOutfit = generatedOutfit;
     }
 
     @Override
@@ -59,6 +73,7 @@ public class RecAdapter extends PagerAdapter {
         ImageView apparel5 = view.findViewById(R.id.rec_imageView7);
 
         int count = 0;
+
         while(count!=6){
             switch(count){
                 case 0: apparel = apparel0; break;
@@ -68,7 +83,25 @@ public class RecAdapter extends PagerAdapter {
                 case 4: apparel = apparel4; break;
                 case 5: apparel = apparel5; break;
             }
-            apparel.setImageResource(generatedOutfit.get(count).getImage());
+
+            switch(position) {
+                case 0:
+                    apparel.setImageResource(generatedOutfit.get(count).getImage());
+                    break;
+                case 1:
+                    apparel.setImageResource(generatedOutfit2.get(count).getImage());
+                    break;
+                case 2:
+                    apparel.setImageResource(generatedOutfit3.get(count).getImage());
+                    break;
+                case 3:
+                    apparel.setImageResource(generatedOutfit4.get(count).getImage());
+                    break;
+                case 4:
+                    apparel.setImageResource(generatedOutfit5.get(count).getImage());
+                    break;
+            }
+
             count += 1;
         }
 
