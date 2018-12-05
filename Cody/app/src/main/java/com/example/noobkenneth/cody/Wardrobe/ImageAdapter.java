@@ -53,6 +53,6 @@ public class ImageAdapter extends BaseAdapter {
 
     // reference all Images from an array, index of items starts from 0
     public Integer[] mThumbIds = {
-            R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,  R.drawable.shirt, R.drawable.hoodie, R.drawable.jeans, R.drawable.cap, R.drawable.shoe,
+            R.drawable.category_tops, R.drawable.category_bottoms, R.drawable.category_onepiece, R.drawable.category_shoes, R.drawable.category_bags,  R.drawable.category_accessories
     };
 }
