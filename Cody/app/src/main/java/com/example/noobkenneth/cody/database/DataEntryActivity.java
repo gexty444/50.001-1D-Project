@@ -40,8 +40,8 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
     Bitmap bitmapSelected = null;
     SQLiteDatabase db;
     int REQUEST_CODE_IMAGE = 2000;
-    String category = "";
-    String formality = "";
+    String category = null;
+    String formality = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +57,11 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
         spinnerCategory.setOnItemSelectedListener(this);
         spinnerFormality.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>(Arrays.asList("Tops", "Bottoms", "Shoes", "One-piece", "Accessories")){};
-        List<String> formality = new ArrayList<String>(Arrays.asList("Casual", "Smart Casual", "Business Formal", "Formal")){};
+        List<String> formalities = new ArrayList<String>(Arrays.asList("Casual", "Smart Casual", "Business Formal", "Formal")){};
         ArrayAdapter<String> dataAdapterCategories = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, categories);
         ArrayAdapter<String> dataAdapterFormality = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, formality);
+                android.R.layout.simple_spinner_item, formalities);
         dataAdapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dataAdapterFormality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(dataAdapterCategories);
@@ -90,8 +90,8 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
             @Override
             public void onClick(View v) {
 
-                String category = editTextCategory.getText().toString();
-                String formality = editTextFormality.getText().toString();
+//                String category = editTextCategory.getText().toString();
+//                String formality = editTextFormality.getText().toString();
                 Log.i("Logcat", "formality: " + formality);
                 Log.i("Logcat", "formality raw: " + editTextFormality.getText().toString());
                 Date date = new Date();
@@ -106,8 +106,7 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
                 }else{
 
                     CharaDbHelper.CharaData charaData
-                            = new CharaDbHelper.CharaData(category, formality,
-                            last_used, ootd, bitmapSelected);
+                            = new CharaDbHelper.CharaData(category, formality, last_used, ootd, bitmapSelected);
 
                     charaDbHelper.insertOneRow( charaData );
 
@@ -136,11 +135,12 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
             case R.id.spinnerCategory:
                 category = item;
                 Toast.makeText(parent.getContext(), "Category: " + item, Toast.LENGTH_LONG).show();
+                break;
             case R.id.spinnerFormality:
                 formality = item;
                 Toast.makeText(parent.getContext(), "Formality: " + item, Toast.LENGTH_LONG).show();
+                break;
         }
-        category = item;
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
