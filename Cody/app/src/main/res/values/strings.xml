@@ -4,7 +4,7 @@
     <string name="title_wardrobe">Wardrobe</string>
     <string name="title_ootds">OOTDs</string>
     <string name="title_customize">Customise</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_profile">Generate</string>
 
     <string name="rec_regenerate">Refreshed recommended outfits!</string>
 </resources>

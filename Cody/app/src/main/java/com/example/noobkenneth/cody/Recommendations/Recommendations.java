@@ -1,19 +1,20 @@
 package com.example.noobkenneth.cody.Recommendations;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
 public class Recommendations {
-    private int image;
+    private Bitmap image;
 
-    public Recommendations(int image) {
+    public Recommendations(Bitmap image) {
         this.image = image;
     }
 
-    public int getImage(){
+    public Bitmap getImage(){
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Bitmap image) {
         this.image = image;
     }
 }

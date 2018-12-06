@@ -86,19 +86,19 @@ public class RecAdapter extends PagerAdapter {
 
             switch(position) {
                 case 0:
-                    apparel.setImageResource(generatedOutfit.get(count).getImage());
+                    apparel.setImageBitmap(generatedOutfit.get(count).getImage());
                     break;
                 case 1:
-                    apparel.setImageResource(generatedOutfit2.get(count).getImage());
+                    apparel.setImageBitmap(generatedOutfit2.get(count).getImage());
                     break;
                 case 2:
-                    apparel.setImageResource(generatedOutfit3.get(count).getImage());
+                    apparel.setImageBitmap(generatedOutfit3.get(count).getImage());
                     break;
                 case 3:
-                    apparel.setImageResource(generatedOutfit4.get(count).getImage());
+                    apparel.setImageBitmap(generatedOutfit4.get(count).getImage());
                     break;
                 case 4:
-                    apparel.setImageResource(generatedOutfit5.get(count).getImage());
+                    apparel.setImageBitmap(generatedOutfit5.get(count).getImage());
                     break;
             }
 

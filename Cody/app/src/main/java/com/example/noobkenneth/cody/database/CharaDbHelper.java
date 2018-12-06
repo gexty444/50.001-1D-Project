@@ -74,9 +74,19 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         Cursor cursor = readableDb.rawQuery(
                 CharaContract.CharaSql.SQL_QUERY_ONE_RANDOM_ROW,
                 null);
-
         return getDataFromCursor(0, cursor);
+    }
 
+    //query one row at random based on category
+    public CharaData queryOneRowRandom(String category) {
+        if (readableDb == null) {
+            readableDb = getReadableDatabase();
+        }
+        Cursor cursor = readableDb.rawQuery(
+                CharaContract.CharaSql.SQL_QUERY_ONE_RANDOM_ROW_CAT
+                + category,// + " ORDER BY RANDOM() LIMIT 1",
+                null);
+        return getDataFromCursor(0, cursor);
     }
 
     //queryOneRow gets the entire database returns the row in position as a CharaData object
