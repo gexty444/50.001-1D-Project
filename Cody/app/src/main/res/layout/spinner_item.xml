@@ -6,4 +6,5 @@
     android:textAlignment="center"
     android:fontFamily="Roboto-Regular"
     android:layout_margin="16dp"
+    android:padding="5dp"
     android:textSize="15sp" />
