@@ -68,8 +68,8 @@ public class CustomiseActivity extends AppCompatActivity {
 //                        intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 //                        startActivity(intent_customise);
                         break;
-                    case R.id.navigation_profile:
-                        Log.i("Logcat", "profile pressed from CalendarActivity");
+                    case R.id.navigation_generate:
+                        Log.i("Logcat", "generate pressed from CalendarActivity");
                         Intent intent_recommendations = new Intent(CustomiseActivity.this, RecommendationsActivity.class);
                         intent_recommendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_recommendations);

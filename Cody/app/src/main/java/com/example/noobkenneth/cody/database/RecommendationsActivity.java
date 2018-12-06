@@ -3,10 +3,13 @@ package com.example.noobkenneth.cody.database;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,11 +18,13 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.Recommendations.RecAdapter;
 import com.example.noobkenneth.cody.Recommendations.RecGenerateOutfit;
 import com.example.noobkenneth.cody.Recommendations.Recommendations;
+import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,12 +60,44 @@ public class RecommendationsActivity extends AppCompatActivity {
         setContentView(R.layout.rec_activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        closeBtn = findViewById(R.id.closeRecommendations);
-        closeBtn.setOnClickListener(new View.OnClickListener() {
+
+        //This part dictates the behaviour of the bottom navigation bar
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        //sets the selected bottom bar item
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                finish();
-                Log.i(LogCatTAG, "Closed recommendationsActivity");
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_home:
+                        Log.i("Logcat", "home pressed from RecommendationsActivity");
+                        Intent intent_home = new Intent(RecommendationsActivity.this, MainActivity.class);
+                        intent_home.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_home);
+                        break;
+                    case R.id.navigation_wardrobe:
+                        Log.i("Logcat", "wardrobe pressed from MainActivity");
+                        Intent intent_wardrobe = new Intent(RecommendationsActivity.this, WardrobeActivity.class);
+                        intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_wardrobe);
+                        break;
+                    case R.id.navigation_ootds:
+                        Log.i("Logcat", "ootds pressed from MainActivity");
+                        Intent intent_ootds = new Intent(RecommendationsActivity.this, CalendarActivity.class);
+                        intent_ootds.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_ootds);
+                        break;
+                    case R.id.navigation_customise:
+                        Log.i("Logcat", "customise pressed from MainActivity");
+                        Intent intent_customise = new Intent(RecommendationsActivity.this, CustomiseActivity.class);
+                        intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_customise);
+                        break;
+                    case R.id.navigation_generate:
+                        Log.i("Logcat", "generate pressed from Generate");
+                        break;
+                }
+                return false;
             }
         });
 
