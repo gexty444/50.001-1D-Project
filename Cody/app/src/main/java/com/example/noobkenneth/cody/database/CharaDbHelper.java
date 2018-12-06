@@ -29,10 +29,9 @@ import java.util.ArrayList;
 
 public class CharaDbHelper extends SQLiteOpenHelper {
 
-
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 56;
+    private static final int DATABASE_VERSION = 61;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -187,7 +186,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         } else if (category != null && ootd != null) {
             cursor = readableDb.rawQuery(
                     CharaContract.CharaSql.SQL_QUERY_WHERE +
-                            "category = " + category + " and ootd = " + ootd,
+                            "category = '" + category + "' and ootd = " + ootd,
                     null);
         } else if (category == null) {
             cursor = readableDb.rawQuery(
@@ -200,6 +199,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                             " category = " + category,
                     null);
         }
+
         return getDataFromCursor(position, cursor);
     }
 
@@ -239,7 +239,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                     0,
                     bitmapByteArray.length);
 
-            Log.i("Logcat", "CharaDbHelper.getDataFromCursor" +
+            Log.i("Logcat", "CharaDbHelper.getDataFromCursor " +
                     category + " " + formality + " " +
                     last_used + " " + ootd);
 
@@ -316,10 +316,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
-        Log.i("Logcat", "queryNumRows: " + category + ootd);
-        Cursor cursor = null;
+        Cursor cursor;
         if (category == null && ootd == null) {
-
             cursor = readableDb.rawQuery(
                     CharaContract.CharaSql.SQL_QUERY_WHERE +
                             "category is not null and ootd is not null",
@@ -341,8 +339,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                     null);
         }
         int count = cursor.getCount();
-        Log.i("Logcat", "CharaDbHelper.queryNumRows: " + " Category: " + category +
-                " ootd: " + ootd + " count: " + count);
+//        Log.i("Logcat", "CharaDbHelper.queryNumRows: " + " Category: " + category +
+//                " ootd: " + ootd + " count: " + count);
         return count;
     }
 
