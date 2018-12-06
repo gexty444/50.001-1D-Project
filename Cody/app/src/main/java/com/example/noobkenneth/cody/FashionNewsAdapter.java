@@ -39,7 +39,7 @@ public class FashionNewsAdapter extends RecyclerView.Adapter<FashionNewsAdapter.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.news_view, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item2, parent, false);
         return new MyViewHolder(view, onItemClickListener);
     }
 
@@ -53,6 +53,8 @@ public class FashionNewsAdapter extends RecyclerView.Adapter<FashionNewsAdapter.
         requestOptions.error(Utils.getRandomDrawbleColor());
         requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
         requestOptions.centerCrop();
+
+        //System.out.println("IMAGE  " + model.getUrlToImage());
 
 
         Glide.with(context)
