@@ -113,10 +113,11 @@ public class RecommendationsActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 if (pageChosen != viewPager.getCurrentItem()) {
                     mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 }
                 else{
                     mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
                 }
             }
 
