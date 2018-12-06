@@ -4,8 +4,6 @@ import android.util.Log;
 
 public class Recommendations {
     private int image;
-    private String title = "No Title Set Yet";
-    String LogCatTag = "RecommendationsLog";
 
     public Recommendations(int image) {
         this.image = image;

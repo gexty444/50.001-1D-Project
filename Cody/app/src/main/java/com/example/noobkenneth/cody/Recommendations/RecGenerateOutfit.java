@@ -25,13 +25,13 @@ public class RecGenerateOutfit {
     // if we can pass a style parameter in the following methods
     // so that it can just be written once at the start, that would be good
 
-    int top = recQueryDB.queryRandTopFromDB(selectedStyle);
-    int bottom = recQueryDB.queryBottomFromDB(selectedStyle);
-    int overalls = recQueryDB.queryOverallsFromDB(selectedStyle);
-    int shoes = recQueryDB.queryShoesFromDB(selectedStyle);
-    int bag = recQueryDB.queryBagFromDB(selectedStyle);
-    int accessories = recQueryDB.queryAccessoriesFromDB(selectedStyle);
-    int accessories2 = recQueryDB.queryAccessoriesFromDB(selectedStyle);
+    int top;
+    int bottom;
+    int overalls;
+    int shoes;
+    int bag;
+    int accessories;
+    int accessories2;
 
     Random rand = new Random();
     int randInt = rand.nextInt(1);
@@ -109,7 +109,7 @@ public class RecGenerateOutfit {
         this.selectedStyle = selectedStyle;
         int randInt = rand.nextInt(1);
 
-        if (selectedStyle.equals("Select Dress Code")){
+        if (selectedStyle.equals("Generate an outfit!")){
             Random rand = new Random();
             int randStyle = rand.nextInt(2);
             if(randStyle == 0){generateCasual();}
