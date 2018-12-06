@@ -1,6 +1,7 @@
 package com.example.noobkenneth.cody.Recommendations;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.example.noobkenneth.cody.R;
@@ -13,57 +14,54 @@ public class RecQueryDB {
     private String LogCatTAG = "RecommendationsLog";
     Random rand = new Random();
     int randInt = rand.nextInt(3);
+    Bitmap bitmap = null;
 
-    public int queryRandTopFromDB(String selectedStyle) {
+    public Bitmap queryRandTopFromDB(String selectedStyle) {
         //TODO
         //if (database.top == null) return R.id.transparent;
         //Cursor cursor = readableDb.rawQuery("SELECT * FROM" + SPACE + CharaEntry.TABLE_NAME.TOPS + SPACE + "ORDER BY RANDOM() LIMIT 1";)
-        switch(randInt){
-            case 0: return R.drawable.hoodie;
-            case 1: return R.drawable.shirt;
-            case 2: return R.drawable.pink_shirt;
-        }
+
         Log.i(LogCatTAG,"queried Top");
         //return getDataFromCursor(?,cursor);
-        return R.drawable.tshirt;
+        return bitmap;
     }
 
-    public int queryBottomFromDB(String selectedStyle) {
+    public Bitmap queryRandBottomFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Bottom");
 
-        return R.drawable.jeans;
+        return bitmap;
     }
 
-    public int queryOverallsFromDB(String selectedStyle) {
+    public Bitmap queryRandOverallsFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Overalls");
 
-        return R.drawable.formal;
+        return bitmap;
     }
 
-    public int queryShoesFromDB(String selectedStyle) {
+    public Bitmap queryRandShoesFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Shoes");
 
-        return R.drawable.whiteshoes;
+        return bitmap;
     }
 
-    public int queryBagFromDB(String selectedStyle) {
+    public Bitmap queryRandBagFromDB(String selectedStyle) {
         //TODO
 
         Log.i(LogCatTAG,"queried Bag");
 
-        return R.drawable.example_bag;
+        return bitmap;
     }
 
 
-    public int queryAccessoriesFromDB(String selectedStyle) {
+    public Bitmap queryRandAccessoriesFromDB(String selectedStyle) {
         //TODO
 
         Log.i(LogCatTAG,"queried accessories");
 
-        return R.drawable.cap;
+        return bitmap;
     }
 
 }

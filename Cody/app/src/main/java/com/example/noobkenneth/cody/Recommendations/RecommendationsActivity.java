@@ -39,6 +39,8 @@ public class RecommendationsActivity extends AppCompatActivity {
     ImageButton reGenerate;
     int pageChosen;
     int currentPageChosen = -1;
+    String selectedStyle = "Casual";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +48,6 @@ public class RecommendationsActivity extends AppCompatActivity {
         Log.i(LogCatTAG, "Created RecommendationsActivity");
         setContentView(R.layout.rec_activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        Intent intent = getIntent();
-        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
 
         closeBtn = findViewById(R.id.closeRecommendations);
         closeBtn.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +97,7 @@ public class RecommendationsActivity extends AppCompatActivity {
                    mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                }
-               else if (pageChosen != currentPageChosen){ //select
+               else if (pageChosen != currentPageChosen || pageChosen == -1){ //select
                    pageChosen = currentPageChosen;
                    mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
