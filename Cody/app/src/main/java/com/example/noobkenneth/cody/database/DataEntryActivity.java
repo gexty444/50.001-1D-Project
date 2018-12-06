@@ -46,30 +46,39 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_entry);
 
-        //TODO 8.4 Get a reference to the CharaDbHelper
+        //Get a reference to the CharaDbHelper
         charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
 
-        //Category spinner stuff here
-        final Spinner spinnerCategory = findViewById(R.id.spinnerCategory);
-        final Spinner spinnerFormality = findViewById(R.id.spinnerFormality);
+
+        //creates references to the button and imageView widgets
+        Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
+        imageViewSelected = findViewById(R.id.imageViewSelected);
+
+        //Category and Formality spinner widgets
+        Spinner spinnerCategory = findViewById(R.id.spinnerCategory);
+        Spinner spinnerFormality = findViewById(R.id.spinnerFormality);
         spinnerCategory.setOnItemSelectedListener(this);
         spinnerFormality.setOnItemSelectedListener(this);
-        List<String> categories = new ArrayList<String>(Arrays.asList("Tops", "Bottoms", "One-piece", "Shoes", "Bags", "Accessories")){};
-        List<String> formalities = new ArrayList<String>(Arrays.asList("Casual", "Smart Casual", "Business Formal", "Formal")){};
+
+        //Adds the appropriate entries into the spinners
+        List<String> categories = new ArrayList<String>(Arrays.asList("Tops", "Bottoms",
+                "One-piece", "Shoes", "Bags", "Accessories")){};
+        List<String> formalities = new ArrayList<String>(Arrays.asList("Casual", "Smart Casual",
+                "Business Formal", "Formal")){};
+
+        //Sets the adapter to the based on the list of strings
         ArrayAdapter<String> dataAdapterCategories = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, categories);
         ArrayAdapter<String> dataAdapterFormality = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, formalities);
+
+        //fills the spinners with the categories
         dataAdapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dataAdapterFormality.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(dataAdapterCategories);
         spinnerFormality.setAdapter(dataAdapterFormality);
 
-        //TODO 8.5 Get references to the widgets
-        Button buttonSelectImage = findViewById(R.id.buttonSelectImage);
-        imageViewSelected = findViewById(R.id.imageViewSelected);
-
-        //TODO 8.6 when the selectImage button is clicked, set up an Implicit Intent to the gallery
+        //When the selectImage button is clicked, set up an Implicit Intent to the gallery
         buttonSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +89,7 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
             }
         });
 
-        //TODO 8.8 when the OK button is clicked, add the data to the db
+        //Then the OK button is clicked, add the data to the Database
         Button buttonOK = findViewById(R.id.buttonOK);
         buttonOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,20 +97,17 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
 
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                String last_used = formatter.format(date);
-                boolean ootd = false;
+                String last_used = formatter.format(date); //populates the database with default date
+                boolean ootd = false; // when adding clothing into the database, it is not an ootd
 
                 if( bitmapSelected == null){
                     Toast.makeText(DataEntryActivity.this,
                             "no image selected",
                             Toast.LENGTH_LONG).show();
                 }else{
-
-                    CharaDbHelper.CharaData charaData
-                            = new CharaDbHelper.CharaData(category, formality, last_used, ootd, bitmapSelected);
-
+                    CharaDbHelper.CharaData charaData = new CharaDbHelper.CharaData(category,
+                            formality, last_used, ootd, bitmapSelected);
                     charaDbHelper.insertOneRow( charaData );
-
                     Toast.makeText(DataEntryActivity.this,
                             "inserting to database",
                             Toast.LENGTH_LONG).show();
@@ -112,7 +118,6 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
                     setResult(Activity.RESULT_OK, returnIntent);
                     finish();
                 }
-
             }
         });
     }
@@ -126,26 +131,24 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
         switch (parent.getId()) {
             case R.id.spinnerCategory:
                 category = item;
-                Toast.makeText(parent.getContext(), "Category: " + item, Toast.LENGTH_LONG).show();
+                Log.i("Logcat", "Category: " + item);
                 break;
             case R.id.spinnerFormality:
                 formality = item;
-                Toast.makeText(parent.getContext(), "Formality: " + item, Toast.LENGTH_LONG).show();
+                Log.i("Logcat", "Formality: " + item);
                 break;
         }
     }
     public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
+        //Auto-generated method stub
     }
 
-    //TODO 8.7 Complete OnActivityResult so that the selected image is displayed in the imageView
+    //OnActivityResult so that the selected image is displayed in the imageView
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if( requestCode == REQUEST_CODE_IMAGE
-                && resultCode == Activity.RESULT_OK){
-            //do stuff here - recipe code follows, don't fret ..
+        if( requestCode == REQUEST_CODE_IMAGE && resultCode == Activity.RESULT_OK){
             try{
                 Uri uri = data.getData();
                 InputStream inputStream = this.getContentResolver()

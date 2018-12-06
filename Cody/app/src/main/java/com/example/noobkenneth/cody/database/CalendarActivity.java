@@ -25,7 +25,6 @@ public class CalendarActivity extends AppCompatActivity {
     CharaDbHelper charaDbHelper;
     CharaDbHelper.CharaData charaData = null;
     
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,18 +73,9 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
-        //developer defined widgets
+        //Get references to the widgets
         calendarView = findViewById(R.id.calendarCalendarView);
         imageView = findViewById(R.id.calendarImageView);
-
-        //get today's date
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
-//        today = dateFormat.format(calendarView.getDate());
-
-        //this sets the imageView image to the OOTD taken today
-//        imageResource = getResources().getIdentifier("@drawable/ootd" + today, null, ""+getApplicationContext().getPackageName());
-//        Log.i(TAG,"imageResource: "+ imageResource);
-//        imageView.setImageResource(imageResource);
 
         //when a date on the calendar is selected
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

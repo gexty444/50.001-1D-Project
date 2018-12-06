@@ -4,18 +4,18 @@ import android.provider.BaseColumns;
 
 /**
  * Created by norman_lee on 6/10/17.
+ * Adapted by thaddeus_phua for 50.001 1D project
  */
+
 
 public class CharaContract {
 
-    //TODO 7.1 Examine the static inner classes. No coding is needed
-
-    //TODO 7.2 Prevent Instantiation of this Contract class
+    //Prevent Instantiation of this Contract class
     private CharaContract(){}
 
     public static final class CharaEntry implements BaseColumns {
 
-        public static final String TABLE_NAME = "Chara";
+        public static final String TABLE_NAME = "WardrobeDb";
         public static final String COL_CATEGORY = "category";
         public static final String COL_FORMALITY = "formality";
         public static final String COL_LAST_USED= "last_used";

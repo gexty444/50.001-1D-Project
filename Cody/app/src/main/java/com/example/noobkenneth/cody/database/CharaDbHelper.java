@@ -22,7 +22,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
- * Created by norman_lee on 6/10/17.
+ * Created by norman_lee on 6/10/
+ * Adapted by thaddeus_phua for 50.001 1D project
  */
 
 public class CharaDbHelper extends SQLiteOpenHelper {
@@ -36,7 +37,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     private SQLiteDatabase writeableDb;
     private static CharaDbHelper charaDbHelper;
 
-    //TODO 7.4 Create the Constructor and make it a singleton
+    // Create the Constructor and make it a singleton
     private CharaDbHelper(Context context) {
         super(context, CharaContract.CharaEntry.TABLE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -49,15 +50,14 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return charaDbHelper;
     }
 
-    //TODO 7.5 Complete onCreate. You may make use of fillTable below
+    //Creates the database and fills the table with default values
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CharaContract.CharaSql.SQL_CREATE_TABLE);
 //        fillTable(sqLiteDatabase);
-
     }
 
-    //TODO 7.6 Complete onUpgrade
+    //Check if database version has changed, in which case the table is dropped and data is removed
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(CharaContract.CharaSql.SQL_DROP_TABLE);
@@ -65,7 +65,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     }
 
 
-    //TODO 7.8 query one row at random
+    // Query one row at random
     public CharaData queryOneRowRandom() {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
@@ -78,8 +78,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     }
 
-    //TODO 7.9 queryOneRow gets the entire database
-    // TODO and returns the row in position as a CharaData object
+    //queryOneRow gets the entire database returns the row in position as a CharaData object
     public CharaData queryOneRow(int position) {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
@@ -91,6 +90,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return getDataFromCursor(position, cursor);
     }
 
+    //queryOneRowDate gets the data from an ootd worn on the day
     public CharaData queryOneRowDate(String date) {
         Log.i("Logcat", CharaContract.CharaSql.SQL_QUERY_ONE_DATE + date);
         if (readableDb == null) {
@@ -107,15 +107,14 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     }
 
 
-
-
+    //queryOneRowWhereCatOotd queries data from the database filtered by category and whether
+    // it is an article of clothing or an ootd
     public CharaData queryOneRowWhereCatOotd(int position, String category, String ootd) {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
         Cursor cursor = null;
         if (category == null && ootd == null) {
-            Log.i("Logcat", "SQL_QUERY_CAT_OOTD: null, null");
             cursor = readableDb.rawQuery(
                     CharaContract.CharaSql.SQL_QUERY_WHERE +
                             "category is not null and ootd is not null",
@@ -140,7 +139,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     }
 
 
-    //TODO 7.8 Get the data from cursor
+    //Get the data from cursor
     private CharaData getDataFromCursor(int position, Cursor cursor) {
 
         int id = 0;
@@ -154,7 +153,6 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         int idIndex = cursor.getColumnIndex(CharaContract.CharaEntry._ID);
         id = Integer.parseInt(cursor.getString(idIndex));
-        Log.i("Logcat", "getDataFromCursor: id: " + id);
 
         int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
         category = cursor.getString(categoryIndex);
@@ -174,17 +172,19 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 0,
                 bitmapByteArray.length);
 
+        Log.i("Logcat", "CharaDbHelper.getDataFromCursor" +
+                category + " " + formality + " " +
+                last_used + " " + ootd);
+
         return new CharaData(id, category, formality, last_used, ootd, bitmap);
     }
 
-    //TODO 7.10 Insert one row when data is passed to it
+    //Insert one row when data is passed to it
     public void insertOneRow(CharaData charaData) {
 
         Log.i("Logcat", "CharaDbHelper.insertOneRow  " +
-//                charaData.getName() + " " + charaData.getDescription() + " " +
                         charaData.getCategory() + " " + charaData.getFormality() + " " +
-                        charaData.getLastUsed() + " " + charaData.getOotd()
-        );
+                        charaData.getLastUsed() + " " + charaData.getOotd());
 
         if (writeableDb == null) {
             writeableDb = getWritableDatabase();
@@ -218,7 +218,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     }
 
 
-    //TODO 7.11 Delete one row given the name field
+    //Delete one row given the unique id
     public int deleteOneRow(String id) {
         if (writeableDb == null) {
             writeableDb = getWritableDatabase();
@@ -232,7 +232,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         return rowsDeleted;
     }
 
-    //TODO 7.7 return the number of rows in the database
+    //Return the total number of rows in the database
     public long queryNumRows() {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
@@ -241,6 +241,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                 CharaContract.CharaEntry.TABLE_NAME);
     }
 
+    //return the number of rows for the category and string query
     public long queryNumRowsCatOotd(String category, String ootd) {
         if (readableDb == null) {
             readableDb = getReadableDatabase();
@@ -270,8 +271,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
                     null);
         }
         int count = cursor.getCount();
-        Log.i("Logcat", "queryNumRows:" + "Category: " + category + "ootd: " + ootd + "count: " + count);
-//        cursor.close();
+        Log.i("Logcat", "CharaDbHelper.queryNumRows: " + " Category: " + category +
+                " ootd: " + ootd + " count: " + count);
         return count;
     }
 
@@ -280,7 +281,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
     }
 
 
-    //TODO 7.3 Create a model class to represent our data
+    //Create a model class to represent our data
     public static class CharaData {
 
         private int id;
@@ -293,12 +294,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         public CharaData(String category, String formality,
                          String last_used, boolean ootd, Bitmap bitmap) {
-            Log.i("Logcat", "CharaData constructor called " +
-                    category + " " +
-                    formality + " " +
-                    last_used + " " +
-                    ootd
-            );
+            Log.i("Logcat", "CharaData constructor called " + category + " " +
+                    formality + " " + last_used + " " + ootd);
             this.category = category;
             this.formality = formality;
             this.last_used = last_used;
@@ -308,13 +305,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
         public CharaData(int id, String category, String formality,
                          String last_used, boolean ootd, Bitmap bitmap) {
-            Log.i("Logcat", "CharaData constructor called " +
-                    id + " " +
-                    category + " " +
-                    formality + " " +
-                    last_used + " " +
-                    ootd
-            );
+            Log.i("Logcat", "CharaData constructor called " + id + " " + category + " " +
+                    formality + " " + last_used + " " + ootd);
             this.id = id;
             this.category = category;
             this.formality = formality;
@@ -323,10 +315,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             this.bitmap = bitmap;
         }
 
-
-        public Bitmap getBitmap() {
-            return bitmap;
-        }
+        public int getId() { return id; }
 
         public String getCategory() {
             return category;
@@ -344,14 +333,13 @@ public class CharaDbHelper extends SQLiteOpenHelper {
             return ootd;
         }
 
+        public Bitmap getBitmap() { return bitmap; }
+
         public String getFile() {
             return file;
         }
 
-        public int getId() {
-            Log.i("Logcat", "getId() with value of: " + id);
-            return id;
-        }
+
 
 
     }
