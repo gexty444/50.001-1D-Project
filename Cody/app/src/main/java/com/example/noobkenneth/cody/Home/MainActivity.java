@@ -153,7 +153,23 @@ public class MainActivity extends AppCompatActivity {
                 businessNewsClicked = true;
 
                 LoadBusinessNewsJson();
+            }
+        });
+        
+        // Spinner
+        final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        homeSpinner.setAdapter(adapter);
 
+        //button to Recommendations activity on Home page
+        toRecommendations = findViewById(R.id.toRecommendations);
+        toRecommendations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),RecommendationsActivity.class);
+                intent.putExtra(selectedStyleKey, homeSpinner.getSelectedItem().toString());
+                startActivity(intent);
             }
         });
 
