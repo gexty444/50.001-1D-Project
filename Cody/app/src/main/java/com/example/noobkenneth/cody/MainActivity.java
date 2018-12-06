@@ -102,8 +102,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         fashionNews = findViewById(R.id.fashion_news);
         businessNews = findViewById(R.id.business_news);
 
-        //lstFashionArticle = new ArrayList<>();
-
         fashionNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         for (int i = 0; i < 1; i++) {
 
-            View view = galleryInflater.inflate(R.layout.item, gallery, false);
+            View view = galleryInflater.inflate(R.layout.all_clothing_category, gallery, false);
 
             TextView textView = view.findViewById(R.id.textView);
             textView.setText("All Clothing");
@@ -263,7 +261,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         businessNewsAdapter.setOnItemClickListener(new BusinessNewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(MainActivity.this, NewsDetailActivity.class);
+                Intent intent = new Intent(MainActivity.this, BusinessNewsDetailActivity.class);
 
                 BusinessArticle article = businessArticles.get(position);
                 intent.putExtra("url", article.getUrl());
@@ -307,7 +305,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         BusinessApiInterface apiInterface = BusinessApiClient.getApiClient().create(BusinessApiInterface.class);
 
         String country = Utils.getCountry();
-        //String category = "business";
         int pageSize = 100;
 
 
@@ -325,7 +322,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     businessArticles = response.body().getBusinessArticle();
                     List<BusinessArticle> articleWithImage = new ArrayList<>();
                     for (BusinessArticle article : businessArticles) {
-                        //System.out.println("TITLE: " + article.getUrlToImage());
                         if (article.getUrlToImage() != null) {
                             articleWithImage.add(article);
                         }
