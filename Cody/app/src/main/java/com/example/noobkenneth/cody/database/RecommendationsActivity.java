@@ -44,6 +44,7 @@ public class RecommendationsActivity extends AppCompatActivity {
 
     static CharaDbHelper charaDbHelper;
 
+    String selectedStyle = "Casual";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +52,8 @@ public class RecommendationsActivity extends AppCompatActivity {
 
         charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
 
-        Log.i(LogCatTAG, "Created RecommendationsActivity");
         setContentView(R.layout.rec_activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        Intent intent = getIntent();
-        String selectedStyle = intent.getStringExtra(MainActivity.selectedStyleKey);
 
         closeBtn = findViewById(R.id.closeRecommendations);
         closeBtn.setOnClickListener(new View.OnClickListener() {
