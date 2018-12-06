@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 LoadBusinessNewsJson();
             }
         });
-        
+
         // Spinner
         final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, R.layout.spinner_item);
