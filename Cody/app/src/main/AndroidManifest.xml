@@ -17,12 +17,12 @@
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".NewsDetailActivity"
+            android:name=".Home.NewsDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FashionNewsDetailActivity"
+            android:name=".Home.FashionNewsDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Home.SplashScreenActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
