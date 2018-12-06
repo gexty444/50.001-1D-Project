@@ -51,7 +51,7 @@ public class RecommendationsActivity extends AppCompatActivity {
 
     static CharaDbHelper charaDbHelper;
 
-    String selectedStyle = "Casual";
+    String selectedStyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,10 +104,11 @@ public class RecommendationsActivity extends AppCompatActivity {
         });
 
         // Spinner
-        final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
+        final Spinner recSpinner = (Spinner) findViewById(R.id.recSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        homeSpinner.setAdapter(adapter);
+        recSpinner.setAdapter(adapter);
+
 
         recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
         generatedOutfit = recGenerateOutfit.getGeneratedOutfit();
