@@ -24,7 +24,7 @@
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/generate_navigation"
-        android:title="@string/title_profile" />
+        android:title="@string/title_generate" />
 
 
 </menu>

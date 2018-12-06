@@ -32,28 +32,28 @@ public class RecQueryDB {
         return charaData.getBitmap();
     }
 
-    public Bitmap queryRandBottomFromDB(String selectedStyle) {
+    public int queryRandBottomFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Bottom");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Bottoms'");
         return charaData.getBitmap();
     }
 
-    public Bitmap queryRandOverallsFromDB(String selectedStyle) {
+    public int queryRandOverallsFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Overalls");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'One-piece'");
         return charaData.getBitmap();
     }
 
-    public Bitmap queryRandShoesFromDB(String selectedStyle) {
+    public int queryRandShoesFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Shoes");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Shoes'");
         return charaData.getBitmap();
     }
 
-    public Bitmap queryRandBagFromDB(String selectedStyle) {
+    public int queryRandBagFromDB(String selectedStyle) {
         //TODO
 
         Log.i(LogCatTAG,"queried Bag");
@@ -62,7 +62,7 @@ public class RecQueryDB {
     }
 
 
-    public Bitmap queryRandAccessoriesFromDB(String selectedStyle) {
+    public int queryRandAccessoriesFromDB(String selectedStyle) {
         //TODO
 
         Log.i(LogCatTAG,"queried accessories");
