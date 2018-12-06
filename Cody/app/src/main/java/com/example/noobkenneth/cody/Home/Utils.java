@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Home;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;

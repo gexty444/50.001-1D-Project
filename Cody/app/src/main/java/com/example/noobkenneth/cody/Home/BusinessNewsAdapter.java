@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Home;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -21,6 +21,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.models.BusinessArticle;
 
 import java.util.List;

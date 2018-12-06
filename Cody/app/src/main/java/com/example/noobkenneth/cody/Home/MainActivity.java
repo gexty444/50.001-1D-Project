@@ -21,14 +21,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.noobkenneth.cody.BusinessNewsAdapter;
+import com.example.noobkenneth.cody.Home.BusinessNewsAdapter;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
-import com.example.noobkenneth.cody.FashionNewsAdapter;
-import com.example.noobkenneth.cody.FashionNewsDetailActivity;
-import com.example.noobkenneth.cody.NewsDetailActivity;
+import com.example.noobkenneth.cody.Home.FashionNewsAdapter;
+import com.example.noobkenneth.cody.Home.FashionNewsDetailActivity;
+import com.example.noobkenneth.cody.Home.NewsDetailActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.database.RecommendationsActivity;
-import com.example.noobkenneth.cody.Utils;
+import com.example.noobkenneth.cody.Home.Utils;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.BusinessApiClient;
 import com.example.noobkenneth.cody.api.BusinessApiInterface;
@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
     public static String API_KEY = "a2f02240b01c4e25a1377b872c016b93";
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private List<Article> articles = new ArrayList<>();
-    private Adapter adapter;
     private String TAG = MainActivity.class.getSimpleName();
     private TextView toRecommendations;
     public static final String selectedStyleKey = "SELECTED_STYLE";

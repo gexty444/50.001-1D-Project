@@ -1,5 +1,6 @@
 package com.example.noobkenneth.cody.Home;
 
+import com.example.noobkenneth.cody.models.BusinessArticle;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -17,7 +18,7 @@ public class News {
 
     @SerializedName("articles")
     @Expose
-    private List<Article> article;
+    private List<BusinessArticle> article;
 
     public String getStatus() {
         return status;
@@ -35,11 +36,11 @@ public class News {
         this.totalResult = totalResult;
     }
 
-    public List<Article> getArticle() {
+    public List<BusinessArticle> getArticle() {
         return article;
     }
 
-    public void setArticle(List<Article> article) {
+    public void setArticle(List<BusinessArticle> article) {
         this.article = article;
     }
 }

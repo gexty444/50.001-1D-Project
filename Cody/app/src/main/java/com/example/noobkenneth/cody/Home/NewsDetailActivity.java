@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.noobkenneth.cody.R;
 
 import org.w3c.dom.Text;
 
-public class FashionNewsDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
+public class NewsDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
 
     private ImageView imageView;
     private TextView appbar_title, appbar_subtitle, date, time, title;
@@ -58,12 +59,12 @@ public class FashionNewsDetailActivity extends AppCompatActivity implements AppB
         title = findViewById(R.id.title);
 
         Intent intent = getIntent();
-        mUrl = intent.getStringExtra("url").substring(1, intent.getStringExtra("url").length() - 1);
-        mImg = intent.getStringExtra("img").substring(1, intent.getStringExtra("img").length() - 1);
-        mTitle = intent.getStringExtra("title").substring(1, intent.getStringExtra("title").length() - 1);
-        //mDate = intent.getStringExtra("date").substring(1, intent.getStringExtra("date").length() - 1);
-        mSource = intent.getStringExtra("source").substring(1, intent.getStringExtra("source").length() - 1);
-        //mAuthor = intent.getStringExtra("author").substring(1, intent.getStringExtra("author").length() - 1);
+        mUrl = intent.getStringExtra("url");
+        mImg = intent.getStringExtra("img");
+        mTitle = intent.getStringExtra("title");
+        mDate = intent.getStringExtra("date");
+        mSource = intent.getStringExtra("source");
+        mAuthor = intent.getStringExtra("author");
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.error(Utils.getRandomDrawbleColor());
@@ -76,7 +77,7 @@ public class FashionNewsDetailActivity extends AppCompatActivity implements AppB
 
         appbar_title.setText(mSource);
         appbar_subtitle.setText(mUrl);
-        //date.setText(Utils.DateFormat(mDate));
+        date.setText(Utils.DateFormat(mDate));
         title.setText(mTitle);
 
         String author = null;

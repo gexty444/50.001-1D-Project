@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody;
+package com.example.noobkenneth.cody.Home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.noobkenneth.cody.Home.MainActivity;
+import com.example.noobkenneth.cody.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
