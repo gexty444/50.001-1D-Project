@@ -3,11 +3,10 @@ package com.example.noobkenneth.cody.Recommendations;
 import android.util.Log;
 
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.database.RecQueryDB;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import com.example.noobkenneth.cody.Recommendations.RecQueryDB;
 
 public class RecGenerateOutfit {
 

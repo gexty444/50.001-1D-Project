@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
+import com.example.noobkenneth.cody.database.RecommendationsActivity;
 import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;

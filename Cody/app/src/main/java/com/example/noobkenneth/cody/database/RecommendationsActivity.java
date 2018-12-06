@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody.Recommendations;
+package com.example.noobkenneth.cody.database;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -6,7 +6,6 @@ import android.content.pm.ActivityInfo;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,6 +17,9 @@ import android.widget.Toast;
 
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Recommendations.RecAdapter;
+import com.example.noobkenneth.cody.Recommendations.RecGenerateOutfit;
+import com.example.noobkenneth.cody.Recommendations.Recommendations;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,9 +42,15 @@ public class RecommendationsActivity extends AppCompatActivity {
     int pageChosen;
     int currentPageChosen = -1;
 
+    static CharaDbHelper charaDbHelper;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
+
         Log.i(LogCatTAG, "Created RecommendationsActivity");
         setContentView(R.layout.rec_activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

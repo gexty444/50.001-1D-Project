@@ -70,7 +70,7 @@
         <activity android:name=".database.DataEntryActivity" />
 
 
-        <activity android:name=".Recommendations.RecommendationsActivity"
+        <activity android:name=".database.RecommendationsActivity"
             android:configChanges="orientation|screenSize"
             android:parentActivityName=".Home.MainActivity">
         </activity>
