@@ -19,10 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.noobkenneth.cody.api.BusinessApiClient;
 import com.example.noobkenneth.cody.api.BusinessApiInterface;
 
@@ -47,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     public static String API_KEY = "a2f02240b01c4e25a1377b872c016b93";
     private final String JSON_URL = "https://api.myjson.com/bins/1darxi";
-    private JsonArrayRequest request;
-    private RequestQueue requestQueue;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<BusinessArticle> businessArticles = new ArrayList<>();
