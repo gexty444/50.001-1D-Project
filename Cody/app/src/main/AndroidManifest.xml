@@ -45,12 +45,7 @@
             >
         </activity>
 
-        <activity android:name=".Recommendations.RecommendationsActivity"
-            android:configChanges="orientation|screenSize"
-            android:parentActivityName=".Home.MainActivity">
-        </activity>
-
-        <activity android:name=".Calendar.CalendarActivity"
+        <activity android:name=".database.CalendarActivity"
             android:parentActivityName=".Home.MainActivity"
             ></activity>
 
@@ -62,6 +57,16 @@
 
         <activity android:name=".Customise.Screenshotpage"
             android:parentActivityName=".Customise.CustomiseActivity"/>
+
+        <activity android:name=".database.RecyclerViewActivity" />
+
+        <activity android:name=".database.DataEntryActivity" />
+
+
+        <activity android:name=".Recommendations.RecommendationsActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".Home.MainActivity">
+        </activity>
 
     </application>
 

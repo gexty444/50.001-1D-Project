@@ -27,7 +27,8 @@ import com.example.noobkenneth.cody.Utils;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.ApiClient;
 import com.example.noobkenneth.cody.api.ApiInterface;
-import com.example.noobkenneth.cody.Calendar.CalendarActivity;
+import com.example.noobkenneth.cody.database.CalendarActivity;
+import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
-
         //sets the selected bottom bar item
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -87,11 +87,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from MainActivity");
+                        Intent intent_RecyclerView = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                        intent_RecyclerView.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_RecyclerView);
                         break;
                 }
                 return false;
             }
         });
+
+//        mTextMessage = (TextView) findViewById(R.id.message);
+//        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         LinearLayout gallery = findViewById(R.id.gallery);
 

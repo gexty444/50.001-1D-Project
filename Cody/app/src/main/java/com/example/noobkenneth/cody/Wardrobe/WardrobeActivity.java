@@ -13,10 +13,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.example.noobkenneth.cody.Calendar.CalendarActivity;
+import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 
 public class WardrobeActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -104,17 +105,77 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
             switch (position)
             {
                 // each case for a different item on gridView, where case number is item index in thumbnail array (in ImageAdapter.java)
-                case 4:
+                case 0:
                 {
                     // onclick, start new intent to go to another activity
-                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(WardrobeActivity.this, ShoeActivity.class);
+//                    Toast.makeText(getApplicationContext(), "This toast is for tops!!", Toast.LENGTH_LONG).show();
+                    Log.i("Logcat", "Wardrobe activity requesting for tops from RecyclerViewActivity");
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Tops'");
                     startActivity(intent);
                     break;
                 }
+
+                case 1:
+                {
+                    // onclick, start new intent to go to another activity
+//                    Toast.makeText(getApplicationContext(), "This toast is for bottoms!!", Toast.LENGTH_LONG).show();
+                    Log.i("Logcat", "WardrobeActivity requesting for Bottoms from RecyclerViewActivity");
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Bottoms'");
+                    startActivity(intent);
+                    break;
+                }
+
+                case 2:
+                {
+                    // onclick, start new intent to go to another activity
+//                    Toast.makeText(getApplicationContext(), "This toast is for onepiece!!", Toast.LENGTH_LONG).show();
+                    Log.i("Logcat", "WardrobeActivity requesting for One-piece from RecyclerViewActivity");
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'One-piece'");
+                    startActivity(intent);
+                    break;
+                }
+
+                case 3: {
+                    // onclick, start new intent to go to another activity
+
+//                    Toast.makeText(getApplicationContext(), "This toast is for shoes!!", Toast.LENGTH_LONG).show();
+                    Log.i("Logcat", "WardrobeActivity requesting for Shoes from RecyclerViewActivity");
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Shoes'");
+                    startActivity(intent);
+                    break;
+                }
+
+                case 4:
+                {
+                    // onclick, start new intent to go to another activity
+//                    Toast.makeText(getApplicationContext(), "This toast is for bags!!", Toast.LENGTH_LONG).show();
+                    Log.i("Logcat", "WardrobeActivity requesting for Bags from RecyclerViewActivity");
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Bags'");
+                    startActivity(intent);
+                    break;
+                }
+                case 5:
+                {
+                    // onclick, start new intent to go to another activity
+//                    Toast.makeText(getApplicationContext(), "This toast is for accessories!!", Toast.LENGTH_LONG).show();
+                    Log.i("Logcat", "WardrobeActivity requesting for Accessories from RecyclerViewActivity");
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Accessories'");
+                    startActivity(intent);
+                    break;
+                }
+
                 default:
                 {
                     Toast.makeText(getApplicationContext(), "No action associated with this item", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "");
+                    startActivity(intent);
                     break;
                 }
             }
