@@ -52,5 +52,8 @@ public class CharaContract {
         public static String SQL_QUERY_ONE_DATE = "SELECT * FROM " + CharaEntry.TABLE_NAME +
                 " WHERE last_used = ";
 
+        public static String SQL_QUERY_ONE_RANDOM_ROW_CAT = "SELECT * FROM" + SPACE
+                + CharaEntry.TABLE_NAME + SPACE + "WHERE category = ";
+
     }
 }

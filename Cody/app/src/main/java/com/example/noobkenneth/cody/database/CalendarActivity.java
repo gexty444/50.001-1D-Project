@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
-import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -25,7 +24,6 @@ public class CalendarActivity extends AppCompatActivity {
 
     CharaDbHelper charaDbHelper;
     CharaDbHelper.CharaData charaData = null;
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

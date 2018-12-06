@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
+import com.example.noobkenneth.cody.database.RecommendationsActivity;
 import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
