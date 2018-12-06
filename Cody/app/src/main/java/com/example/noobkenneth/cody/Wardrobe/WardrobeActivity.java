@@ -37,7 +37,9 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
         addItemfab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Add new category when clicked?", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Add new category when clicked?", Toast.LENGTH_LONG).show();
+                Intent start_recyclerView = new Intent(WardrobeActivity.this, RecyclerViewActivity.class);
+                startActivity(start_recyclerView);
             }
         });
 
