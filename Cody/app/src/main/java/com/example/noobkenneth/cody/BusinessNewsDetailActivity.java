@@ -21,7 +21,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import org.w3c.dom.Text;
 
-public class NewsDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
+public class BusinessNewsDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
 
     private ImageView imageView;
     private TextView appbar_title, appbar_subtitle, date, time, title;
@@ -86,7 +86,7 @@ public class NewsDetailActivity extends AppCompatActivity implements AppBarLayou
             author = "";
         }
 
-        //time.setText(mSource + author + " \u2022 " + Utils.DateToTimeFormat(mDate));
+        time.setText(mSource + author + " \u2022 " + Utils.DateToTimeFormat(mDate));
 
         initWebView(mUrl);
 
