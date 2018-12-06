@@ -3,6 +3,7 @@ package com.example.noobkenneth.cody.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -92,17 +93,15 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     //queryOneRowDate gets the data from an ootd worn on the day
     public CharaData queryOneRowDate(String date) {
-        Log.i("Logcat", CharaContract.CharaSql.SQL_QUERY_ONE_DATE + date);
+        Log.i("Logcat", CharaContract.CharaSql.SQL_QUERY_ONE_DATE + date +"and ootd ='1'");
         if (readableDb == null) {
             readableDb = getReadableDatabase();
         }
+
         Cursor cursor = readableDb.rawQuery(
                 CharaContract.CharaSql.SQL_QUERY_ONE_DATE + "'"+date+"'"+ "and ootd = '1'",
                 null);
         int count = cursor.getCount();
-        if (count == 0) {
-            return null;
-        }
         return getDataFromCursor(0, cursor);
     }
 
@@ -149,34 +148,39 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         boolean ootd = false;
         Bitmap bitmap = null;
 
-        cursor.moveToPosition(position);
+        Log.i("Logcat", "get data from cursor");
+        try {
+            cursor.moveToPosition(position);
 
-        int idIndex = cursor.getColumnIndex(CharaContract.CharaEntry._ID);
-        id = Integer.parseInt(cursor.getString(idIndex));
+            int idIndex = cursor.getColumnIndex(CharaContract.CharaEntry._ID);
+            id = Integer.parseInt(cursor.getString(idIndex));
 
-        int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
-        category = cursor.getString(categoryIndex);
+            int categoryIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_CATEGORY);
+            category = cursor.getString(categoryIndex);
 
-        int formalityIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FORMALITY);
-        formality = cursor.getString(formalityIndex);
+            int formalityIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FORMALITY);
+            formality = cursor.getString(formalityIndex);
 
-        int last_usedIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_LAST_USED);
-        last_used = cursor.getString(last_usedIndex);
+            int last_usedIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_LAST_USED);
+            last_used = cursor.getString(last_usedIndex);
 
-        int ootdIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_OOTD);
-        ootd = Boolean.parseBoolean(cursor.getString(ootdIndex));
+            int ootdIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_OOTD);
+            ootd = Boolean.parseBoolean(cursor.getString(ootdIndex));
 
-        int bitmapIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FILE);
-        byte[] bitmapByteArray = cursor.getBlob(bitmapIndex);
-        bitmap = BitmapFactory.decodeByteArray(bitmapByteArray,
-                0,
-                bitmapByteArray.length);
+            int bitmapIndex = cursor.getColumnIndex(CharaContract.CharaEntry.COL_FILE);
+            byte[] bitmapByteArray = cursor.getBlob(bitmapIndex);
+            bitmap = BitmapFactory.decodeByteArray(bitmapByteArray,
+                    0,
+                    bitmapByteArray.length);
 
-        Log.i("Logcat", "CharaDbHelper.getDataFromCursor" +
-                category + " " + formality + " " +
-                last_used + " " + ootd);
+            Log.i("Logcat", "CharaDbHelper.getDataFromCursor" +
+                    category + " " + formality + " " +
+                    last_used + " " + ootd);
 
-        return new CharaData(id, category, formality, last_used, ootd, bitmap);
+            return new CharaData(id, category, formality, last_used, ootd, bitmap);
+        } catch (CursorIndexOutOfBoundsException cursorIndexOutofBoundsException) {
+            return new CharaData();
+        }
     }
 
     //Insert one row when data is passed to it
@@ -291,6 +295,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         private boolean ootd;
         private String file;
         private Bitmap bitmap;
+
+        public CharaData() {}
 
         public CharaData(String category, String formality,
                          String last_used, boolean ootd, Bitmap bitmap) {
