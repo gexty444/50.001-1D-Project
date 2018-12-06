@@ -21,14 +21,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.noobkenneth.cody.Home.BusinessNewsAdapter;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
-import com.example.noobkenneth.cody.Home.FashionNewsAdapter;
-import com.example.noobkenneth.cody.Home.FashionNewsDetailActivity;
-import com.example.noobkenneth.cody.Home.NewsDetailActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.database.RecommendationsActivity;
-import com.example.noobkenneth.cody.Home.Utils;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 import com.example.noobkenneth.cody.api.BusinessApiClient;
 import com.example.noobkenneth.cody.api.BusinessApiInterface;
@@ -103,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
                         intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_customise);
                         break;
-                    case R.id.navigation_profile:
-                        Log.i("Logcat", "profile pressed from MainActivity");
+                    case R.id.navigation_generate:
+                        Log.i("Logcat", "generate pressed from MainActivity");
                         Intent intent_recommendations = new Intent(MainActivity.this, RecommendationsActivity.class);
                         intent_recommendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_recommendations);
