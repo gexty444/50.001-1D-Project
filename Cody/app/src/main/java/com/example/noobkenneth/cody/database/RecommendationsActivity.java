@@ -13,9 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
@@ -64,7 +66,7 @@ public class RecommendationsActivity extends AppCompatActivity {
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         //sets the selected bottom bar item
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_generate);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -100,6 +102,12 @@ public class RecommendationsActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        // Spinner
+        final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        homeSpinner.setAdapter(adapter);
 
         recGenerateOutfit = new RecGenerateOutfit(selectedStyle);
         generatedOutfit = recGenerateOutfit.getGeneratedOutfit();

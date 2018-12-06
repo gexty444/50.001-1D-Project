@@ -47,10 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private String TAG = MainActivity.class.getSimpleName();
-    private TextView toRecommendations;
-    public static final String selectedStyleKey = "SELECTED_STYLE";
     private TextView mTextMessage;
-    private String selectedStyle = "";
 
     private final String JSON_URL = "https://api.myjson.com/bins/1darxi";
     private List<BusinessArticle> businessArticles = new ArrayList<>();
@@ -145,22 +142,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Spinner
-        final Spinner homeSpinner = (Spinner) findViewById(R.id.homespinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dresscode, R.layout.spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        homeSpinner.setAdapter(adapter);
-
-        //button to Recommendations activity on Home page
-        toRecommendations = findViewById(R.id.toRecommendations);
-        toRecommendations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),RecommendationsActivity.class);
-                intent.putExtra(selectedStyleKey, homeSpinner.getSelectedItem().toString());
-                startActivity(intent);
-            }
-        });
 
         // Implements the wardrobe layout in the homepage
 
