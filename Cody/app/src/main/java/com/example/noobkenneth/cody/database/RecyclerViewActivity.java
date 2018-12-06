@@ -81,7 +81,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                         intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_customise);
                         break;
-                    case R.id.navigation_profile:
+                    case R.id.navigation_generate:
                         Log.i("Logcat", "profile pressed from RecyclerViewActivity");
                         break;
                 }

@@ -74,8 +74,8 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
                         intent_customise.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_customise);
                         break;
-                    case R.id.navigation_profile:
-                        Log.i("Logcat", "profile pressed from WardrobeActivity");
+                    case R.id.navigation_generate:
+                        Log.i("Logcat", "generate pressed from WardrobeActivity");
                         Intent intent_recommendations = new Intent(WardrobeActivity.this, RecommendationsActivity.class);
                         intent_recommendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_recommendations);

@@ -22,7 +22,7 @@
         android:title="@string/title_customize" />
 
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/navigation_generate"
         android:icon="@drawable/generate_navigation"
         android:title="@string/title_profile" />
 
