@@ -1,6 +1,7 @@
 package com.example.noobkenneth.cody.database;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.example.noobkenneth.cody.R;
@@ -19,7 +20,7 @@ public class RecQueryDB {
     CharaDbHelper.CharaData charaData = null;
 
 
-    public int queryRandTopFromDB(String selectedStyle) {
+    public Bitmap queryRandTopFromDB(String selectedStyle) {
         //TODO
         //if (database.top == null) return R.id.transparent;
         //Cursor cursor = readableDb.rawQuery("SELECT * FROM" + SPACE + CharaEntry.TABLE_NAME.TOPS + SPACE + "ORDER BY RANDOM() LIMIT 1";)
@@ -28,45 +29,45 @@ public class RecQueryDB {
 
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Tops'");
         Log.i("Logcat", "queryRandTopFromDB: "+ charaData.getCategory());
-        return R.drawable.tshirt;
+        return charaData.getBitmap();
     }
 
-    public int queryBottomFromDB(String selectedStyle) {
+    public Bitmap queryRandBottomFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Bottom");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Bottoms'");
-        return R.drawable.jeans;
+        return charaData.getBitmap();
     }
 
-    public int queryOverallsFromDB(String selectedStyle) {
+    public Bitmap queryRandOverallsFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Overalls");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'One-piece'");
-        return R.drawable.formal;
+        return charaData.getBitmap();
     }
 
-    public int queryShoesFromDB(String selectedStyle) {
+    public Bitmap queryRandShoesFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Shoes");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Shoes'");
-        return R.drawable.whiteshoes;
+        return charaData.getBitmap();
     }
 
-    public int queryBagFromDB(String selectedStyle) {
+    public Bitmap queryRandBagFromDB(String selectedStyle) {
         //TODO
 
         Log.i(LogCatTAG,"queried Bag");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Bags'");
-        return R.drawable.example_bag;
+        return charaData.getBitmap();
     }
 
 
-    public int queryAccessoriesFromDB(String selectedStyle) {
+    public Bitmap queryRandAccessoriesFromDB(String selectedStyle) {
         //TODO
 
         Log.i(LogCatTAG,"queried accessories");
         charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Accessories'");
-        return R.drawable.cap;
+        return charaData.getBitmap();
     }
 
 }
