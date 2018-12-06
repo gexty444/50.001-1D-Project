@@ -1,6 +1,7 @@
 package com.example.noobkenneth.cody.Recommendations;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.example.noobkenneth.cody.R;
