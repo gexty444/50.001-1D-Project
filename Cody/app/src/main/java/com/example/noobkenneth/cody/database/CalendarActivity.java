@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -67,6 +68,9 @@ public class CalendarActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from CalendarActivity");
+                        Intent intent_recomendations = new Intent(CalendarActivity.this, RecommendationsActivity.class);
+                        intent_recomendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_recomendations);
                         break;
                 }
                 return false;

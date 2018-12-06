@@ -111,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from MainActivity");
-                        Intent intent_RecyclerView = new Intent(MainActivity.this, RecyclerViewActivity.class);
-                        intent_RecyclerView.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent_RecyclerView);
+                        Intent intent_recommendations = new Intent(MainActivity.this, RecommendationsActivity.class);
+                        intent_recommendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_recommendations);
                         break;
                 }
                 return false;

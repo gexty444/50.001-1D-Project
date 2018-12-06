@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
 import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
@@ -75,6 +76,9 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from WardrobeActivity");
+                        Intent intent_recommendations = new Intent(WardrobeActivity.this, RecommendationsActivity.class);
+                        intent_recommendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_recommendations);
                         break;
                 }
                 return false;

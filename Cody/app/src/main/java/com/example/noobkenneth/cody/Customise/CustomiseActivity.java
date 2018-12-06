@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.noobkenneth.cody.Recommendations.RecommendationsActivity;
 import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
@@ -69,6 +70,9 @@ public class CustomiseActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_profile:
                         Log.i("Logcat", "profile pressed from CalendarActivity");
+                        Intent intent_recommendations = new Intent(CustomiseActivity.this, RecommendationsActivity.class);
+                        intent_recommendations.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent_recommendations);
                         break;
                 }
                 return false;
