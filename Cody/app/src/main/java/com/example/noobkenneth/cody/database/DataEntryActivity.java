@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Wardrobe.CroppingActivity;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -120,6 +122,19 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
                 }
             }
         });
+
+        //go to cropper activity if floating action button is pressed
+        FloatingActionButton fabCropper = (FloatingActionButton) findViewById(R.id.fabCropper);
+        fabCropper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_DataEntry = new Intent(DataEntryActivity.this, CroppingActivity.class);
+                intent_DataEntry.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_DataEntry);
+            }
+        });
+
+
     }
 
     @Override
