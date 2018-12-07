@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.example.noobkenneth.cody.R;
 
 public class ImageAdapter extends BaseAdapter {
+    // Image Adapter to add images into the categories gridview
     private Context mContext;
 
     public ImageAdapter(Context c) {
@@ -52,6 +53,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     // reference all Images from an array, index of items starts from 0
+    // Thumbnails for categories.
     public Integer[] mThumbIds = {
             R.drawable.category_tops, R.drawable.category_bottoms, R.drawable.category_onepiece, R.drawable.category_shoes, R.drawable.category_bags,  R.drawable.category_accessories
     };

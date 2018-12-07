@@ -31,7 +31,6 @@ public class WardrobeActivity extends AppCompatActivity implements View.OnClickL
         gridview.setAdapter(new ImageAdapter(this)); // Image adapter to put images into WardrobeActivity
         gridview.setOnItemClickListener(this); // Make gridView clickable by user
 
-        // floating action button NOTE: remember to put items into onCreate! previously failed to complete a toolbar perhaps because i forgot to put it here.
         // to add a floating action button, add implementation 'com.android.support:design:28.0.0' to gradle dependencies
         FloatingActionButton addItemfab = findViewById(R.id.addItemfab); // add item floating action button
         addItemfab.setOnClickListener(new View.OnClickListener() {
