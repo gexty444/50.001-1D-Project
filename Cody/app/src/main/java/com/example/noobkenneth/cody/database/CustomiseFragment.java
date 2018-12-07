@@ -62,7 +62,7 @@ public class CustomiseFragment extends Fragment {
         imagebutton_cus1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "clicked cus1", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "clicked cus1", Toast.LENGTH_LONG).show();
 //                imagebutton_cus1.setImageResource(R.drawable.example_top);
                 imagebutton_cus1.setImageBitmap(CustomiseActivity.charaDbHelper.queryOneRowRandom("'Tops'").getBitmap());
             }
@@ -73,7 +73,7 @@ public class CustomiseFragment extends Fragment {
         imagebutton_cus2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "clicked cus2", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "clicked cus2", Toast.LENGTH_LONG).show();
 //                imagebutton_cus2.setImageResource(R.drawable.example_bag);
                 imagebutton_cus2.setImageBitmap(CustomiseActivity.charaDbHelper.queryOneRowRandom("'Bottoms'").getBitmap());
             }
@@ -84,7 +84,7 @@ public class CustomiseFragment extends Fragment {
         imagebutton_cus3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "clicked cus3", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "clicked cus3", Toast.LENGTH_LONG).show();
 //                imagebutton_cus3.setImageResource(R.drawable.example_bottom);
                 imagebutton_cus3.setImageBitmap(CustomiseActivity.charaDbHelper.queryOneRowRandom("'One-piece'").getBitmap());
             }
@@ -96,7 +96,7 @@ public class CustomiseFragment extends Fragment {
         imagebutton_cus4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "clicked cus4", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "clicked cus4", Toast.LENGTH_LONG).show();
 //                imagebutton_cus4.setImageResource(R.drawable.transparent);
                 imagebutton_cus4.setImageBitmap(CustomiseActivity.charaDbHelper.queryOneRowRandom("'Shoes'").getBitmap());
             }
@@ -107,7 +107,7 @@ public class CustomiseFragment extends Fragment {
         imagebutton_cus5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "clicked cus5", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "clicked cus5", Toast.LENGTH_LONG).show();
 //                imagebutton_cus5.setImageResource(R.drawable.example_shoes);
                 imagebutton_cus5.setImageBitmap(CustomiseActivity.charaDbHelper.queryOneRowRandom("'Bags'").getBitmap());
             }
@@ -117,7 +117,7 @@ public class CustomiseFragment extends Fragment {
         imagebutton_cus6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "clicked cus6", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "clicked cus6", Toast.LENGTH_LONG).show();
 //                imagebutton_cus6.setImageResource(R.drawable.transparent);
                 imagebutton_cus6.setImageBitmap(CustomiseActivity.charaDbHelper.queryOneRowRandom("'Accessories'").getBitmap());
             }
@@ -137,8 +137,8 @@ public class CustomiseFragment extends Fragment {
                 byte[] byteArray = bStream.toByteArray();
                 Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
-                String category = "Tops";
-                String formality = "Casual";
+                String category = "Null";
+                String formality = "Null";
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String last_used = formatter.format(date); //populates the database with default date
@@ -147,11 +147,6 @@ public class CustomiseFragment extends Fragment {
                 CharaDbHelper.CharaData charaData = new CharaDbHelper.CharaData(category,
                         formality, last_used, ootd, bitmap);
                 CustomiseActivity.charaDbHelper.insertOneRow( charaData );
-
-
-//                Intent intent = new Intent(v.getContext(), Screenshotpage.class);
-//                intent.putExtra("screenshot", byteArray);
-//                startActivity(intent);
 
             }
         });
