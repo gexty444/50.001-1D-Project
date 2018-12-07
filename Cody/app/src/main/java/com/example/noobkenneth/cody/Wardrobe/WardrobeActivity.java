@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.noobkenneth.cody.database.RecommendationsActivity;
 import com.example.noobkenneth.cody.database.CalendarActivity;
-import com.example.noobkenneth.cody.Customise.CustomiseActivity;
+import com.example.noobkenneth.cody.database.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.database.RecyclerViewActivity;

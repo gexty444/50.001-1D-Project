@@ -1,4 +1,4 @@
-package com.example.noobkenneth.cody.Customise;
+package com.example.noobkenneth.cody.database;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,23 +10,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.noobkenneth.cody.Customise.FavouritesFragment;
+import com.example.noobkenneth.cody.Customise.SectionsPageAdapter;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
-import com.example.noobkenneth.cody.database.RecommendationsActivity;
-import com.example.noobkenneth.cody.database.CalendarActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
-import com.example.noobkenneth.cody.database.RecyclerViewActivity;
+
+
 
 public class CustomiseActivity extends AppCompatActivity {
     private static final String TAG = "CustomiseActivity";
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewpager;
 
+    static CharaDbHelper charaDbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customise);
         Log.d(TAG, "onCreate: Starting");
+
+        charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
         //Set up ViewPager with sections Adapter

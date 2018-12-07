@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.noobkenneth.cody.Customise.CustomiseActivity;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 
