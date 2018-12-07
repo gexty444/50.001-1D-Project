@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -42,6 +43,7 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
     int REQUEST_CODE_IMAGE = 2000;
     String category = null;
     String formality = null;
+    public static Bitmap bitmap = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,9 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
             }
         });
 
+        //sets the data from the cropper activity if available
+        imageViewSelected.setImageBitmap(bitmap);
+
         //Then the OK button is clicked, add the data to the Database
         Button buttonOK = findViewById(R.id.buttonOK);
         buttonOK.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +138,7 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
                 startActivity(intent_DataEntry);
             }
         });
+
 
 
     }

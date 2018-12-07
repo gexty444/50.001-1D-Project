@@ -12,15 +12,19 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.database.DataEntryActivity;
+import com.example.noobkenneth.cody.database.Utils;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
@@ -54,9 +58,9 @@ public class CroppingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (cropped.getCroppedImage() != null) {
                     Bitmap cropped2 = cropped.getCroppedImage(1000,1000);
-                    Bitmap bm=Bitmap.createScaledBitmap(cropped2, 300, 300, true);
-                    Intent intent = new Intent(CroppingActivity.this, TaggingActivity.class);
-                    intent.putExtra(PREVIMAGE, bm);
+                    Bitmap bitmap=Bitmap.createScaledBitmap(cropped2, 300, 300, true);
+                    Intent intent = new Intent(CroppingActivity.this, DataEntryActivity.class);
+                    DataEntryActivity.bitmap = bitmap;
                     startActivity(intent);
                 } else {
                     Toast.makeText(CroppingActivity.this, "no image", Toast.LENGTH_LONG).show();
