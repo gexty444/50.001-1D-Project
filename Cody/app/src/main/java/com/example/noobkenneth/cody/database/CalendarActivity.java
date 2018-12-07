@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
+import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -48,7 +49,7 @@ public class CalendarActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_wardrobe:
                         Log.i("Logcat", "wardrobe pressed from CalendarActivity");
-                        Intent intent_wardrobe = new Intent(CalendarActivity.this, RecyclerViewActivity.class);
+                        Intent intent_wardrobe = new Intent(CalendarActivity.this, WardrobeActivity.class);
                         intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent_wardrobe);
                         break;
