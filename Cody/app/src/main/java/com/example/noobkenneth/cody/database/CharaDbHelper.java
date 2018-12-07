@@ -31,7 +31,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 72;
+    private static final int DATABASE_VERSION = 73;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -176,7 +176,8 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         }
 
         Cursor cursor = readableDb.rawQuery(
-                CharaContract.CharaSql.SQL_QUERY_ONE_DATE + "'" + date + "'" + "and ootd = '1'",
+                CharaContract.CharaSql.SQL_QUERY_ONE_DATE + "'" + date + "'" + "and ootd = '1'" +
+                        " order by _id desc",
                 null);
         int count = cursor.getCount();
         return getDataFromCursor(0, cursor);
