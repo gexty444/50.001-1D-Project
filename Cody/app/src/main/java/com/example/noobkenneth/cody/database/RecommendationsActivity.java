@@ -51,7 +51,7 @@ public class RecommendationsActivity extends AppCompatActivity {
 
     static CharaDbHelper charaDbHelper;
 
-    String selectedStyle;
+    String selectedStyle = "Casual";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
