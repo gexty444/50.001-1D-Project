@@ -31,7 +31,7 @@ public class CharaDbHelper extends SQLiteOpenHelper {
 
     private final Context context;
     private static String PACKAGE_NAME;
-    private static final int DATABASE_VERSION = 68;
+    private static final int DATABASE_VERSION = 72;
     private SQLiteDatabase sqLiteDatabase;
     private SQLiteDatabase readableDb;
     private SQLiteDatabase writeableDb;
@@ -140,6 +140,18 @@ public class CharaDbHelper extends SQLiteOpenHelper {
         Cursor cursor = readableDb.rawQuery(
                 "SELECT TBL.* FROM (SELECT * FROM WardrobeDb WHERE CATEGORY = " + category +
                         " ) TBL ORDER BY RANDOM() LIMIT 1",
+                null);
+        return getDataFromCursor(0, cursor);
+    }
+
+    //query one row at random based on category and formality
+    public CharaData queryOneRowRandom(String category, String formality) {
+        if (readableDb == null) {
+            readableDb = getReadableDatabase();
+        }
+        Cursor cursor = readableDb.rawQuery(
+                "SELECT TBL.* FROM (SELECT * FROM WardrobeDb WHERE CATEGORY = " + category +
+                        "AND FORMALITY = " + formality + " ) TBL ORDER BY RANDOM() LIMIT 1",
                 null);
         return getDataFromCursor(0, cursor);
     }
