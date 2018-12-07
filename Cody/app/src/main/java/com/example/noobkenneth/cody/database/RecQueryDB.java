@@ -19,7 +19,6 @@ public class RecQueryDB {
 
     CharaDbHelper.CharaData charaData = null;
 
-    CharaDbHelper charaDbHelper;
 
     public Bitmap queryRandTopFromDB(String selectedStyle) {
         //TODO
@@ -28,7 +27,7 @@ public class RecQueryDB {
         Log.i(LogCatTAG,"queried Top");
         //return getDataFromCursor(?,cursor);
 
-        charaData = charaDbHelper.queryOneRowRandom("'Tops'");
+        charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Tops'");
         Log.i("Logcat", "queryRandTopFromDB: "+ charaData.getCategory());
         return charaData.getBitmap();
     }
@@ -36,21 +35,21 @@ public class RecQueryDB {
     public Bitmap queryRandBottomFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Bottom");
-        charaData = charaDbHelper.queryOneRowRandom("'Bottoms'");
+        charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Bottoms'");
         return charaData.getBitmap();
     }
 
     public Bitmap queryRandOverallsFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Overalls");
-        charaData = charaDbHelper.queryOneRowRandom("'One-piece'");
+        charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'One-piece'");
         return charaData.getBitmap();
     }
 
     public Bitmap queryRandShoesFromDB(String selectedStyle) {
         //TODO
         Log.i(LogCatTAG,"queried Shoes");
-        charaData = charaDbHelper.queryOneRowRandom("'Shoes'");
+        charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Shoes'");
         return charaData.getBitmap();
     }
 
@@ -58,7 +57,7 @@ public class RecQueryDB {
         //TODO
 
         Log.i(LogCatTAG,"queried Bag");
-        charaData = charaDbHelper.queryOneRowRandom("'Bags'");
+        charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Bags'");
         return charaData.getBitmap();
     }
 
@@ -67,7 +66,7 @@ public class RecQueryDB {
         //TODO
 
         Log.i(LogCatTAG,"queried accessories");
-        charaData = charaDbHelper.queryOneRowRandom("'Accessories'");
+        charaData = RecommendationsActivity.charaDbHelper.queryOneRowRandom("'Accessories'");
         return charaData.getBitmap();
     }
 
