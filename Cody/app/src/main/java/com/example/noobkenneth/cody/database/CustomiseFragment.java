@@ -1,7 +1,6 @@
 package com.example.noobkenneth.cody.database;
 
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -17,11 +16,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.noobkenneth.cody.Customise.Screenshot;
-import com.example.noobkenneth.cody.Customise.Screenshotpage;
 import com.example.noobkenneth.cody.R;
-import com.example.noobkenneth.cody.database.CharaDbHelper;
-import com.example.noobkenneth.cody.database.CustomiseActivity;
-import com.example.noobkenneth.cody.database.RecommendationsActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;

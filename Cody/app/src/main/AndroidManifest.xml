@@ -62,9 +62,6 @@
             >
         </activity>
 
-        <activity android:name=".Customise.Screenshotpage"
-            android:parentActivityName=".database.CustomiseActivity"/>
-
         <activity android:name=".database.RecyclerViewActivity" />
 
         <activity android:name=".database.DataEntryActivity" />

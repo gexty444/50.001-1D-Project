@@ -5,6 +5,7 @@
     <string name="title_ootds">OOTDs</string>
     <string name="title_customize">Customise</string>
     <string name="title_profile">Generate</string>
+    <string name="cust_wearthis">"Wear Today!</string>
 
     <string name="rec_regenerate">Refreshed recommended outfits!</string>
 </resources>
