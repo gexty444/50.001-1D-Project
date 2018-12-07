@@ -44,25 +44,25 @@ public class FavouritesFragment extends Fragment {
         ArrayList<Outfit> outfits = new ArrayList<>();
 
         Outfit o1 = new Outfit();
-        Bitmap bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.outfit1);
+        Bitmap bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ootd_casual1);
         o1.setImage(bittie);
         o1.setTextthing("hi1");
         outfits.add(o1);
 
         o1 = new Outfit();
-        bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.outfit2);
+        bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ootd_casual2);
         o1.setImage(bittie);
         o1.setTextthing("hi2");
         outfits.add(o1);
 
         o1 = new Outfit();
-        bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.outfit1);
+        bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ootd_casual1);
         o1.setImage(bittie);
         o1.setTextthing("hi3");
         outfits.add(o1);
 
         o1 = new Outfit();
-        bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.outfit2);
+        bittie = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ootd_casual2);
         o1.setImage(bittie);
         o1.setTextthing("hi4");
         outfits.add(o1);

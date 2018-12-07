@@ -189,5 +189,26 @@
     "formality": "Formal",
     "last_used": "2018-12-6",
     "ootd": "false",
-    "file": "accessories_formal_3"}
+    "file": "accessories_formal_3"},
+
+  {"category": "null",
+    "formality": "Casual",
+    "last_used": "2018-12-11",
+    "ootd": "true",
+    "file": "ootd_casual1"},
+  {"category": "null",
+    "formality": "Casual",
+    "last_used": "2018-12-10",
+    "ootd": "true",
+    "file": "ootd_casual2"},
+  {"category": "null",
+    "formality": "Formal",
+    "last_used": "2018-12-09",
+    "ootd": "true",
+    "file": "ootd_formal1"},
+  {"category": "null",
+    "formality": "Formal",
+    "last_used": "2018-12-08",
+    "ootd": "true",
+    "file": "ootd_formal2"}
 ]
