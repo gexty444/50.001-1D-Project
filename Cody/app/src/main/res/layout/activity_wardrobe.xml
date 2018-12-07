@@ -30,7 +30,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="71dp"
-        android:src="@drawable/add" />
+        android:src="@android:drawable/ic_menu_gallery" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
