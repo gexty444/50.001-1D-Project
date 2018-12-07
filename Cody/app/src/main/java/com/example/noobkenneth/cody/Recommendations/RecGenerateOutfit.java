@@ -20,7 +20,7 @@ public class RecGenerateOutfit {
 
     private Bitmap[] apparelIDs = new Bitmap[6]; //allow us to keep track of the combination of outfits
 
-    //TODO: get required clothes from database (implement database methods)
+    //get required clothes from database (implement database methods)
     //If there are items in a category, get a random one
     // otherwise, set a transparent image
     // if we can pass a style parameter in the following methods

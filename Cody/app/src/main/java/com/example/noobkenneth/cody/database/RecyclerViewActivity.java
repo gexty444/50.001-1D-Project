@@ -32,14 +32,14 @@ public class RecyclerViewActivity extends AppCompatActivity {
         Intent intent_fromWardrobe = getIntent();
         CharaAdapter.category_query = intent_fromWardrobe.getStringExtra("CATEGORY");
 
-        //TODO 9.7 The standard code to fill the recyclerview with data
+        // standard code to fill the recyclerview with data
         recyclerView = findViewById(R.id.charaRecyclerView);
         charaDbHelper = CharaDbHelper.createCharaDbHelper(this);
         charaAdapter = new CharaAdapter(this, charaDbHelper);
         recyclerView.setAdapter(charaAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        //TODO 8.3 When the fab is clicked, launch DataEntryActivity and invoke startActivityForResult
+        //When the fab is clicked, launch DataEntryActivity and invoke startActivityForResult
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +88,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
         });
 
-        //TODO 9.8 Put in code to allow each recyclerview item to be deleted when swiped
+        //Put in code to allow each recyclerview item to be deleted when swiped
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback( 0 ,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -99,7 +99,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
 
-                //TODO ATTENTION SVP - to write this code we had to make the CharaViewHolder class static
+                //to write this code we had to make the CharaViewHolder class static
                 CharaAdapter.CharaViewHolder charaViewHolder
                         = (CharaAdapter.CharaViewHolder) viewHolder;
 
@@ -112,7 +112,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         };
 
 
-        //TODO 9.9 attach the recyclerView to helper
+        //attach the recyclerView to helper
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper( simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 

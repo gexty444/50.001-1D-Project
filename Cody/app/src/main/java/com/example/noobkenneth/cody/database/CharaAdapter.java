@@ -22,15 +22,15 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
     static String ootd_query = null;
 
 
-    //TODO 9.3 Constructor takes in a context object and a CharaDbHelper object
-    //TODO 9.3 assign the inputs to instance variables
+    //Constructor takes in a context object and a CharaDbHelper object
+    //assign the inputs to instance variables
     public CharaAdapter(Context context, CharaDbHelper charaDbHelper) {
         mInflater = LayoutInflater.from(context);
         this.context = context;
         this.charaDbHelper = charaDbHelper;
     }
 
-    //TODO 9.4 onCreateViewHolder inflates each CardView layout (no coding)
+    //onCreateViewHolder inflates each CardView layout
     @NonNull
     @Override
     public CharaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -38,7 +38,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         return new CharaViewHolder(itemView);
     }
 
-    //TODO 9.5 onBindViewHolder binds the data to each card according to its position
+    //onBindViewHolder binds the data to each card according to its position
     @Override
     public void onBindViewHolder(@NonNull CharaViewHolder charaViewHolder, int i) {
         // i is the position in the recyclerview
@@ -90,7 +90,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         }
     }
 
-    //TODO 9.6 this method controls the number of cardviews in the recyclerview
+    //this method controls the number of cardviews in the recyclerview
     @Override
     public int getItemCount() {
         int numberOfRows = (int) charaDbHelper.queryNumRowsCatOotd(category_query, ootd_query);
@@ -98,8 +98,7 @@ public class CharaAdapter extends RecyclerView.Adapter<CharaAdapter.CharaViewHol
         return numberOfRows;
     }
 
-    //TODO 9.2 Complete the constructor to initialize the widgets
-    //TODO ATTENTION SVP we had to make this class static
+    //Complete the constructor to initialize the widgets
     static class CharaViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textViewId;
