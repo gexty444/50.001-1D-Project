@@ -40,12 +40,6 @@
             >
         </activity>
 
-        <activity android:name=".Wardrobe.TaggingActivity"
-            android:parentActivityName=".Wardrobe.CroppingActivity"
-            android:label="Tagging"
-            >
-        </activity>
-
         <activity android:name=".Wardrobe.CroppingActivity"
             android:parentActivityName=".Home.MainActivity"
             android:label="Tagging"

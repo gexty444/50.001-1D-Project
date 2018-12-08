@@ -101,25 +101,8 @@ public class CroppingActivity extends AppCompatActivity {
         }
     }
         public Intent getPickImageChooserIntent() {
-// Determine Uri of camera image to  save.
-            Uri outputFileUri =  getCaptureImageOutputUri();
-
             List<Intent> allIntents = new ArrayList<>();
             PackageManager packageManager =  getPackageManager();
-
-// collect all camera intents
-            Intent captureIntent = new  Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-            List<ResolveInfo> listCam =  packageManager.queryIntentActivities(captureIntent, 0);
-            for (ResolveInfo res : listCam) {
-                Intent intent = new  Intent(captureIntent);
-                intent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
-                intent.setPackage(res.activityInfo.packageName);
-                if (outputFileUri != null) {
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
-                }
-                allIntents.add(intent);
-            }
-
 // collect all gallery intents
             Intent galleryIntent = new  Intent(Intent.ACTION_GET_CONTENT);
             galleryIntent.setType("image/*");
@@ -154,7 +137,7 @@ public class CroppingActivity extends AppCompatActivity {
         }
         return outputFileUri;
     }
-
+    //gets the resulting URI of the image selected
     public Uri getPickImageResultUri(Intent  data) {
         boolean isCamera = true;
         if (data != null && data.getData() != null) {
@@ -163,7 +146,7 @@ public class CroppingActivity extends AppCompatActivity {
         }
         return isCamera ?  getCaptureImageOutputUri() : data.getData();
     }
-
+    //check if getting the URI requires permissions
     public boolean isUriRequiresPermissions(Uri uri) {
         try {
             ContentResolver resolver = getContentResolver();
