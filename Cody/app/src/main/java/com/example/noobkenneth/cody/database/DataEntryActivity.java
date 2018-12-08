@@ -38,12 +38,11 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
 
     ImageView imageViewSelected;
     CharaDbHelper charaDbHelper;
-    Bitmap bitmapSelected = null;
+    public static Bitmap bitmapSelected = null;
     SQLiteDatabase db;
     int REQUEST_CODE_IMAGE = 2000;
     String category = null;
     String formality = null;
-    public static Bitmap bitmap = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +93,7 @@ public class DataEntryActivity extends AppCompatActivity implements OnItemSelect
         });
 
         //sets the data from the cropper activity if available
-        imageViewSelected.setImageBitmap(bitmap);
+        imageViewSelected.setImageBitmap(bitmapSelected);
 
         //Then the OK button is clicked, add the data to the Database
         Button buttonOK = findViewById(R.id.buttonOK);

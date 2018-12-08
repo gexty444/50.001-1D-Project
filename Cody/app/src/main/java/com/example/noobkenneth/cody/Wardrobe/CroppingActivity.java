@@ -60,7 +60,7 @@ public class CroppingActivity extends AppCompatActivity {
                     Bitmap cropped2 = cropped.getCroppedImage(1000,1000);
                     Bitmap bitmap=Bitmap.createScaledBitmap(cropped2, 300, 300, true);
                     Intent intent = new Intent(CroppingActivity.this, DataEntryActivity.class);
-                    DataEntryActivity.bitmap = bitmap;
+                    DataEntryActivity.bitmapSelected = bitmap;
                     startActivity(intent);
                 } else {
                     Toast.makeText(CroppingActivity.this, "no image", Toast.LENGTH_LONG).show();
