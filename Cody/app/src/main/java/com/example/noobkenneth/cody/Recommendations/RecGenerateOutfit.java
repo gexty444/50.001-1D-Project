@@ -10,6 +10,7 @@ import com.example.noobkenneth.cody.database.RecQueryDB;
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class RecGenerateOutfit {
 
     String selectedStyle = "Casual";
@@ -18,7 +19,7 @@ public class RecGenerateOutfit {
 
     RecQueryDB recQueryDB = new RecQueryDB();
 
-    private Bitmap[] apparelIDs = new Bitmap[6]; //allow us to keep track of the combination of outfits
+    private Bitmap[] apparelIDs = new Bitmap[6];
 
     Bitmap top;
     Bitmap bottom;
@@ -33,11 +34,7 @@ public class RecGenerateOutfit {
     Random rand = new Random();
     private int randInt = rand.nextInt(1);
 
-    //get required clothes from database (implement database methods)
-    //If there are items in a category, get a random one
-    // otherwise, set a transparent image
-
-    //getApparelIDs is used for debugging purposes (to track images generated)
+    //allow us to keep track of the combination of outfits
     public Bitmap[] getApparelIDs() {
         return apparelIDs;
     }
@@ -51,12 +48,23 @@ public class RecGenerateOutfit {
         return anotherOutfit.getGeneratedOutfit();
     }
 
+    //get required clothes from database (implement database methods)
+    //If there are items in a category, get a random one
+    // otherwise, set a transparent image
     public RecGenerateOutfit(String selectedStyle) {
-
-        if (selectedStyle == "Generate any outfit!") {
+        // Coded such that there are only two categories
+        // (since we only populated database with 2 categories)
+        if (selectedStyle.equals("Generate any outfit!")) {
             if (randInt == 1) this.selectedStyle = "Casual";
-            else this.selectedStyle = "Formal";
-        } else this.selectedStyle = selectedStyle;
+            else this.selectedStyle = "Formal";}
+
+        else if (selectedStyle.equals("Smart Casual"))
+            this.selectedStyle = "Casual";
+
+        else if (selectedStyle.equals("Business Formal")){
+            this.selectedStyle = "Formal";
+        }
+        else {this.selectedStyle = selectedStyle;}
 
         top = recQueryDB.queryRandTopFromDB(selectedStyle);
         bottom = recQueryDB.queryRandBottomFromDB(selectedStyle);
@@ -66,8 +74,13 @@ public class RecGenerateOutfit {
         accessories = recQueryDB.queryRandAccessoriesFromDB(selectedStyle);
         accessories2 = recQueryDB.queryRandAccessoriesFromDB(selectedStyle);
 
+        //Tries to make sure that accessories1 != accessories2,
+        //the normal way would be to loop through all accessories in one but that's an O(n^2) comparison
+        //just try 3 times and set transparent for accessories if within 3 tries they are still the same
+        // unlikely unless there's only one accessory
         count = 0;
-        while(count<=2 && accessories.sameAs(accessories2)){
+        while(count<=2 && (accessories2!=null || accessories!=null)
+                && accessories.sameAs(accessories2)){
             accessories2 = recQueryDB.queryRandAccessoriesFromDB(selectedStyle);
             count+=1;
             if (count==3 && accessories.sameAs(accessories2)) accessories2 = null;
@@ -78,14 +91,15 @@ public class RecGenerateOutfit {
         generatedOutfits.add(new Recommendations(shoes));
         generatedOutfits.add(new Recommendations(bag));
         generatedOutfits.add(new Recommendations(accessories));
+        generatedOutfits.add(new Recommendations(accessories2));
 
-        if(count!=3){
-            generatedOutfits.add(new Recommendations(accessories2));
-            apparelIDs[5] = accessories2;
-        }
-        else {
-            generatedOutfits.add(new Recommendations(transparent));
-            apparelIDs[5] = transparent;
+
+        //set any null getters to transparent; else the example Bitmap will be shown instead
+        for (int i =0; i<generatedOutfits.size(); i++){
+            if (generatedOutfits.get(i) == null) {
+                generatedOutfits.remove(i);
+                generatedOutfits.add(i,new Recommendations(transparent));
+            }
         }
 
         apparelIDs[0] = top;
@@ -93,5 +107,7 @@ public class RecGenerateOutfit {
         apparelIDs[2] = shoes;
         apparelIDs[3] = bag;
         apparelIDs[4] = accessories;
+        apparelIDs[5] = accessories2;
+
     }
 }

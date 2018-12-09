@@ -33,25 +33,23 @@ import java.util.HashMap;
 
 public class RecommendationsActivity extends AppCompatActivity {
 
-    private final String sharedPrefFile = "com.example.android.mainsharedprefs";
-    SharedPreferences mPreferences;
-    ViewPager viewPager;
-    RecAdapter recAdapter;
-    ArrayList<Recommendations> recommendationsList;
-    HashMap<int[], String> recommendationsPreferences; //store user preferences
-    ArrayList<Recommendations> generatedOutfit = new ArrayList<>(); //store generated outfits
-    ImageButton closeBtn;
-    String LogCatTAG = "RecommendationsLog";
-    RecGenerateOutfit recGenerateOutfit;
-    boolean chosen = false;
-    Animation scale;
-    ImageButton reGenerate;
-    int pageChosen;
-    int currentPageChosen = -1;
+    private ViewPager viewPager;
+    private RecAdapter recAdapter;
+    private ArrayList<Recommendations> generatedOutfit = new ArrayList<>(); //store generated outfits
+    private String LogCatTAG = "RecommendationsLog";
+    private RecGenerateOutfit recGenerateOutfit;
+    private Animation scale;
+    private ImageButton reGenerate;
+    private int pageChosen;
+    private int currentPageChosen = -1;
+    private int pos;
 
     static CharaDbHelper charaDbHelper;
 
-    String selectedStyle = "Casual";
+    private Intent intent;
+    private String SELECTED_STYLE_KEY = "SELECTED_STYLE";
+    private String selectedStyle = "Generate any outfit!";
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +60,20 @@ public class RecommendationsActivity extends AppCompatActivity {
         setContentView(R.layout.rec_activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        intent = new Intent(getApplicationContext(),RecommendationsActivity.class);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            selectedStyle = extras.getString(SELECTED_STYLE_KEY);
+            Log.i(LogCatTAG,"extra != null, selectedStyle is " + selectedStyle);
+
+            if (selectedStyle.equals("Smart Casual"))
+                this.selectedStyle = "Casual";
+
+            else if (selectedStyle.equals("Business Formal")){
+                this.selectedStyle = "Formal";
+            }
+        }
 
         //This part dictates the behaviour of the bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
@@ -109,10 +121,21 @@ public class RecommendationsActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         recSpinner.setAdapter(adapter);
 
+        if(selectedStyle.equals("Generate any outfit!")) pos = 0;
+        else if(selectedStyle.equals("Casual")) pos = 1;
+        else if(selectedStyle.equals("Smart Casual")) pos = 2;
+        else if(selectedStyle.equals("Formal")) pos = 3;
+        else if(selectedStyle.equals("Business Formal")) pos = 4;
+
+        recSpinner.setSelection(pos,false);
+
         recSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedStyle = recSpinner.getSelectedItem().toString();
+                Log.i(LogCatTAG,selectedStyle);
+                if (selectedStyle!= null) intent.putExtra(SELECTED_STYLE_KEY,selectedStyle);
+                startActivity(intent);
             }
 
             @Override
@@ -148,6 +171,7 @@ public class RecommendationsActivity extends AppCompatActivity {
             }
         });
 
+        //the whole section below dictates behaviour of background and button "WEAR THIS"
         final Button chooseOutfit = findViewById(R.id.chooseOutfit);
         final RelativeLayout mainLayout = findViewById(R.id.recommendationsMain);
 

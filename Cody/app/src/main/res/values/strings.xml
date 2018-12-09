@@ -8,4 +8,10 @@
     <string name="cust_wearthis">"Wear Today!</string>
 
     <string name="rec_regenerate">Refreshed recommended outfits!</string>
+
+    <string name="generate_random">Generate any outfit!</string>
+    <string name="casual">Casual</string>
+    <string name="formal">Formal</string>
+    <string name="smart_casual">Smart Casual</string>
+    <string name="business_formal">Business Formal</string>
 </resources>

@@ -53,7 +53,7 @@ public class RecAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return generatedOutfit.size();
+        return 5; //this determines the number of cards
     }
 
     @NonNull //denotes that a parameter/field/method can never return null
@@ -84,7 +84,8 @@ public class RecAdapter extends PagerAdapter {
                 case 5: apparel = apparel5; break;
             }
 
-            switch(position) {
+
+            switch (position) {
                 case 0:
                     apparel.setImageBitmap(generatedOutfit.get(count).getImage());
                     break;
@@ -101,8 +102,8 @@ public class RecAdapter extends PagerAdapter {
                     apparel.setImageBitmap(generatedOutfit5.get(count).getImage());
                     break;
             }
-
             count += 1;
+
         }
 
         container.addView(view, 0);
