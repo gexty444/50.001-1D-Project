@@ -49,7 +49,7 @@ public class RecommendationsActivity extends AppCompatActivity {
     private Intent intent;
     private String SELECTED_STYLE_KEY = "SELECTED_STYLE";
     private String selectedStyle = "Generate any outfit!";
-    
+    private String actualSelectedStyle = "Casual";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,7 @@ public class RecommendationsActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras!=null){
+            actualSelectedStyle = extras.getString(SELECTED_STYLE_KEY);
             selectedStyle = extras.getString(SELECTED_STYLE_KEY);
             Log.i(LogCatTAG,"extra != null, selectedStyle is " + selectedStyle);
 
@@ -121,20 +122,20 @@ public class RecommendationsActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         recSpinner.setAdapter(adapter);
 
-        if(selectedStyle.equals("Generate any outfit!")) pos = 0;
-        else if(selectedStyle.equals("Casual")) pos = 1;
-        else if(selectedStyle.equals("Smart Casual")) pos = 2;
-        else if(selectedStyle.equals("Formal")) pos = 3;
-        else if(selectedStyle.equals("Business Formal")) pos = 4;
+        if(actualSelectedStyle.equals("Generate any outfit!")) pos = 0;
+        else if(actualSelectedStyle.equals("Casual")) pos = 1;
+        else if(actualSelectedStyle.equals("Smart Casual")) pos = 2;
+        else if(actualSelectedStyle.equals("Formal")) pos = 3;
+        else if(actualSelectedStyle.equals("Business Formal")) pos = 4;
 
         recSpinner.setSelection(pos,false);
 
         recSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedStyle = recSpinner.getSelectedItem().toString();
-                Log.i(LogCatTAG,selectedStyle);
-                if (selectedStyle!= null) intent.putExtra(SELECTED_STYLE_KEY,selectedStyle);
+                actualSelectedStyle = recSpinner.getSelectedItem().toString();
+                Log.i(LogCatTAG,actualSelectedStyle);
+                if (actualSelectedStyle!= null) intent.putExtra(SELECTED_STYLE_KEY,actualSelectedStyle);
                 startActivity(intent);
             }
 
