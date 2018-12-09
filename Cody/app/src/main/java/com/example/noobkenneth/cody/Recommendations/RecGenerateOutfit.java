@@ -20,12 +20,6 @@ public class RecGenerateOutfit {
 
     private Bitmap[] apparelIDs = new Bitmap[6]; //allow us to keep track of the combination of outfits
 
-    //get required clothes from database (implement database methods)
-    //If there are items in a category, get a random one
-    // otherwise, set a transparent image
-    // if we can pass a style parameter in the following methods
-    // so that it can just be written once at the start, that would be good
-
     Bitmap top;
     Bitmap bottom;
     Bitmap overalls;
@@ -35,10 +29,15 @@ public class RecGenerateOutfit {
     Bitmap accessories2;
     Bitmap transparent = null;
 
+    int count;
     Random rand = new Random();
-    int randInt = rand.nextInt(1);
+    private int randInt = rand.nextInt(1);
 
+    //get required clothes from database (implement database methods)
+    //If there are items in a category, get a random one
+    // otherwise, set a transparent image
 
+    //getApparelIDs is used for debugging purposes (to track images generated)
     public Bitmap[] getApparelIDs() {
         return apparelIDs;
     }
@@ -47,59 +46,17 @@ public class RecGenerateOutfit {
         return generatedOutfits;
     }
 
-    public ArrayList<Recommendations> getAnotherOutfit(){
+    public ArrayList<Recommendations> getAnotherOutfit() {
         RecGenerateOutfit anotherOutfit = new RecGenerateOutfit(selectedStyle);
         return anotherOutfit.getGeneratedOutfit();
     }
 
-    private void generateCasual(){
-        Log.i(LogCatTAG,"entered generateCasual");
-
-        if (randInt==0){
-
-            generatedOutfits.add(new Recommendations(top));
-            generatedOutfits.add(new Recommendations(bottom));
-
-            apparelIDs[0] = top;
-            apparelIDs[1] = bottom;
-        }
-
-        if (randInt==1){
-            generatedOutfits.add(new Recommendations(overalls));
-            apparelIDs[0] = overalls;
-            generatedOutfits.add(new Recommendations(transparent));
-            apparelIDs[1] = transparent;
-        }
-
-        generatedOutfits.add(new Recommendations(shoes));
-        generatedOutfits.add(new Recommendations(bag));
-        generatedOutfits.add(new Recommendations(accessories));
-        generatedOutfits.add(new Recommendations(transparent));
-
-        apparelIDs[2] = shoes;
-        apparelIDs[3] = bag;
-        apparelIDs[4] = accessories;
-        apparelIDs[5] = accessories2;
-
-    }
-
-    public void generateSmartCasual(){
-        //TODO
-    }
-
-    public void generateFormal(){
-        //TODO
-    }
-
-    public void generateBusinessFormal(){
-        //TODO
-    }
-
-
-
     public RecGenerateOutfit(String selectedStyle) {
 
-        this.selectedStyle = selectedStyle;
+        if (selectedStyle == "Generate any outfit!") {
+            if (randInt == 1) this.selectedStyle = "Casual";
+            else this.selectedStyle = "Formal";
+        } else this.selectedStyle = selectedStyle;
 
         top = recQueryDB.queryRandTopFromDB(selectedStyle);
         bottom = recQueryDB.queryRandBottomFromDB(selectedStyle);
@@ -109,35 +66,32 @@ public class RecGenerateOutfit {
         accessories = recQueryDB.queryRandAccessoriesFromDB(selectedStyle);
         accessories2 = recQueryDB.queryRandAccessoriesFromDB(selectedStyle);
 
-        Log.i(LogCatTAG,selectedStyle);
-        this.selectedStyle = selectedStyle;
-        int randInt = rand.nextInt(1);
-
-        if (selectedStyle.equals("Generate an outfit!")){
-            Random rand = new Random();
-            int randStyle = rand.nextInt(2);
-            if(randStyle == 0){generateCasual();}
-            if(randStyle == 1){generateFormal();}
-        }
-        if (selectedStyle.equals("Casual")){
-            generateCasual();
+        count = 0;
+        while(count<=2 && accessories.sameAs(accessories2)){
+            accessories2 = recQueryDB.queryRandAccessoriesFromDB(selectedStyle);
+            count+=1;
+            if (count==3 && accessories.sameAs(accessories2)) accessories2 = null;
         }
 
-        if (selectedStyle.equals("Smart Casual")){
-            generateSmartCasual();
+        generatedOutfits.add(new Recommendations(top));
+        generatedOutfits.add(new Recommendations(bottom));
+        generatedOutfits.add(new Recommendations(shoes));
+        generatedOutfits.add(new Recommendations(bag));
+        generatedOutfits.add(new Recommendations(accessories));
+
+        if(count!=3){
+            generatedOutfits.add(new Recommendations(accessories2));
+            apparelIDs[5] = accessories2;
+        }
+        else {
+            generatedOutfits.add(new Recommendations(transparent));
+            apparelIDs[5] = transparent;
         }
 
-        if (selectedStyle.equals("Formal")){
-            generateFormal();
-        }
-
-        if (selectedStyle.equals("Business Formal")){
-            generateBusinessFormal();
-        }
+        apparelIDs[0] = top;
+        apparelIDs[1] = bottom;
+        apparelIDs[2] = shoes;
+        apparelIDs[3] = bag;
+        apparelIDs[4] = accessories;
     }
-
-
-
-    //future implementation: lock certain items and enable re-generation of other apparels
 }
-

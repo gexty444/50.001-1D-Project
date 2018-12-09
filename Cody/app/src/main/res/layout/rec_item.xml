@@ -75,7 +75,7 @@
                     android:layout_marginEnd="-1dp"
                     android:paddingRight="5dp"
                     android:layout_marginRight="0dp"
-                    app:srcCompat="@drawable/example_bag" />
+                    app:srcCompat="@drawable/accessories_casual_2" />
 
 
                 <ImageView
@@ -84,10 +84,10 @@
                     android:layout_height="113dp"
                     android:layout_alignStart="@+id/rec_imageView5"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="0dp"
+                    android:layout_marginStart="2dp"
                     android:layout_marginBottom="13dp"
                     android:paddingRight="5dp"
-                    app:srcCompat="@drawable/example_shoes" />
+                    app:srcCompat="@drawable/bags_formal_3" />
 
             </RelativeLayout>
 
