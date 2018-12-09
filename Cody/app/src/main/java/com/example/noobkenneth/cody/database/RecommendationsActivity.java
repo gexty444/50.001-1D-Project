@@ -3,6 +3,8 @@ package com.example.noobkenneth.cody.database;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
@@ -22,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Customise.Screenshot;
 import com.example.noobkenneth.cody.Home.MainActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.Recommendations.RecAdapter;
@@ -29,7 +32,10 @@ import com.example.noobkenneth.cody.Recommendations.RecGenerateOutfit;
 import com.example.noobkenneth.cody.Recommendations.Recommendations;
 import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 
+import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -207,6 +213,25 @@ public class RecommendationsActivity extends AppCompatActivity {
                    pageChosen = currentPageChosen;
                    mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
+
+                   Bitmap screen = Screenshot.takescreenshotOfView(v.getRootView().findViewById(R.id.rec_cardView));
+
+                   ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+                   screen.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+                   byte[] byteArray = bStream.toByteArray();
+                   Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+
+                   String category = "Null";
+                   String formality = "Null";
+                   Date date = new Date();
+                   SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                   String last_used = formatter.format(date); //populates the database with default date
+                   boolean ootd = true; // when adding clothing into the database, it is an ootd
+
+                   CharaDbHelper.CharaData charaData = new CharaDbHelper.CharaData(category,
+                           formality, last_used, ootd, bitmap);
+                   charaDbHelper.insertOneRow( charaData );
+
                }
             }
         });
