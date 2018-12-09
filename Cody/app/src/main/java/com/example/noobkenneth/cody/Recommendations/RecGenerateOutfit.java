@@ -13,25 +13,25 @@ import java.util.Random;
 
 public class RecGenerateOutfit {
 
-    String selectedStyle = "Casual";
-    ArrayList<Recommendations> generatedOutfits = new ArrayList<>();
+    private String selectedStyle = "Casual";
+    private ArrayList<Recommendations> generatedOutfits = new ArrayList<>();
     private String LogCatTAG = "RecommendationsLog";
 
-    RecQueryDB recQueryDB = new RecQueryDB();
+    private RecQueryDB recQueryDB = new RecQueryDB();
 
     private Bitmap[] apparelIDs = new Bitmap[6];
 
-    Bitmap top;
-    Bitmap bottom;
-    Bitmap overalls;
-    Bitmap shoes;
-    Bitmap bag;
-    Bitmap accessories;
-    Bitmap accessories2;
-    Bitmap transparent = null;
+    private Bitmap top;
+    private Bitmap bottom;
+    private Bitmap overalls;
+    private Bitmap shoes;
+    private Bitmap bag;
+    private Bitmap accessories;
+    private Bitmap accessories2;
+    private Bitmap transparent = null;
 
-    int count;
-    Random rand = new Random();
+    private int count;
+    private Random rand = new Random();
     private int randInt = rand.nextInt(1);
 
     //allow us to keep track of the combination of outfits

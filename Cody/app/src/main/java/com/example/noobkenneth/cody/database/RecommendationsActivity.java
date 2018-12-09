@@ -30,6 +30,7 @@ import com.example.noobkenneth.cody.Wardrobe.WardrobeActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class RecommendationsActivity extends AppCompatActivity {
 
@@ -49,7 +50,10 @@ public class RecommendationsActivity extends AppCompatActivity {
     private Intent intent;
     private String SELECTED_STYLE_KEY = "SELECTED_STYLE";
     private String selectedStyle = "Generate any outfit!";
-    private String actualSelectedStyle = "Casual";
+    private String actualSelectedStyle = "Generate any outfit!";
+
+    Random random = new Random();
+    int randInt = random.nextInt(2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,11 @@ public class RecommendationsActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         intent = new Intent(getApplicationContext(),RecommendationsActivity.class);
+
+        if (selectedStyle.equals("Generate any outfit!")){
+            if (randInt ==1) this.selectedStyle = "Casual";
+            else this.selectedStyle = "Formal";
+        }
 
         Bundle extras = getIntent().getExtras();
         if(extras!=null){
