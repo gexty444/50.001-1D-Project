@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -77,6 +78,11 @@ public class RecommendationsActivity extends AppCompatActivity {
             selectedStyle = extras.getString(SELECTED_STYLE_KEY);
             Log.i(LogCatTAG,"extra != null, selectedStyle is " + selectedStyle);
 
+            if (selectedStyle.equals("Generate any outfit!")){
+                if (randInt ==1) this.selectedStyle = "Casual";
+                else this.selectedStyle = "Formal";
+            }
+
             if (selectedStyle.equals("Smart Casual"))
                 this.selectedStyle = "Casual";
 
@@ -145,7 +151,10 @@ public class RecommendationsActivity extends AppCompatActivity {
                 actualSelectedStyle = recSpinner.getSelectedItem().toString();
                 Log.i(LogCatTAG,actualSelectedStyle);
                 if (actualSelectedStyle!= null) intent.putExtra(SELECTED_STYLE_KEY,actualSelectedStyle);
+                finish();
+                overridePendingTransition(0, 0); //so activity won't blink when it's refreshed
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
 
             @Override
@@ -164,7 +173,6 @@ public class RecommendationsActivity extends AppCompatActivity {
         viewPager.setAdapter(recAdapter);
         viewPager.setPadding(130, 0, 130, 0); //the reason we see other cards
         Log.i(LogCatTAG, "finished setting up viewPager!");
-
 
         scale = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
 
