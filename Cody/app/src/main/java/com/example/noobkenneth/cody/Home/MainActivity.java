@@ -141,6 +141,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //see all button
+        TextView seeAll = findViewById(R.id.seeAll);
+        seeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent_wardrobe = new Intent(MainActivity.this, WardrobeActivity.class);
+                intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_wardrobe);
+            }
+        });
+
+
         // Implements the wardrobe layout in the homepage
 
         LinearLayout gallery = findViewById(R.id.gallery);
