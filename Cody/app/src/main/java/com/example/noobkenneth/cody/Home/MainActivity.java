@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = MainActivity.class.getSimpleName();
     private TextView mTextMessage;
 
-    private final String JSON_URL = "https://api.myjson.com/bins/1darxi";
+    private final String JSON_URL = "https://api.myjson.com/bins/887mc";
     private List<BusinessArticle> businessArticles = new ArrayList<>();
     private List<FashionArticle> fashionArticles = new ArrayList<>();
     private BusinessNewsAdapter businessNewsAdapter;
