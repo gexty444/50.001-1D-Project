@@ -57,4 +57,8 @@ public class ImageAdapter extends BaseAdapter {
     public Integer[] mThumbIds = {
             R.drawable.category_tops, R.drawable.category_bottoms, R.drawable.category_onepiece, R.drawable.category_shoes, R.drawable.category_bags,  R.drawable.category_accessories
     };
+
+    public int getImageId(int position) {
+        return mThumbIds[position];
+    }
 }

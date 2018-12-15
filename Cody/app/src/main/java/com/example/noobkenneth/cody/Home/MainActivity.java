@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.noobkenneth.cody.Wardrobe.ImageAdapter;
 import com.example.noobkenneth.cody.database.CustomiseActivity;
 import com.example.noobkenneth.cody.R;
 import com.example.noobkenneth.cody.database.RecommendationsActivity;
@@ -34,6 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import com.example.noobkenneth.cody.database.RecyclerViewActivity;
 import com.example.noobkenneth.cody.models.BusinessArticle;
 import com.example.noobkenneth.cody.models.FashionArticle;
 import com.example.noobkenneth.cody.models.News;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = MainActivity.class.getSimpleName();
     private TextView mTextMessage;
 
-    private final String JSON_URL = "https://api.myjson.com/bins/1darxi";
+    private final String JSON_URL = "https://api.myjson.com/bins/887mc";
     private List<BusinessArticle> businessArticles = new ArrayList<>();
     private List<FashionArticle> fashionArticles = new ArrayList<>();
     private BusinessNewsAdapter businessNewsAdapter;
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private TextView fashionNews;
     private TextView businessNews;
+
     private boolean businessNewsClicked = false;
 
 
@@ -153,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //All Clothing Button
+
+
 
         // Implements the wardrobe layout in the homepage
 
@@ -171,6 +178,17 @@ public class MainActivity extends AppCompatActivity {
             imageView.setImageResource(R.drawable.blue_suit);
 
             gallery.addView(view);
+
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    Intent intent_wardrobe = new Intent(MainActivity.this, WardrobeActivity.class);
+                    intent_wardrobe.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent_wardrobe);
+                }
+            });
+
         }
 
         for (int i = 0; i < 1; i++) {
@@ -179,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
 
             TextView textView = view.findViewById(R.id.textView2);
             textView.setText(getString(R.string.home_cat_shirts));
+
+            ImageAdapter imageAdapter = new ImageAdapter(this);
 
             ImageView imageView0 = view.findViewById(R.id.imageView0);
             ImageView imageView1 = view.findViewById(R.id.imageView1);
@@ -190,6 +210,16 @@ public class MainActivity extends AppCompatActivity {
             imageView3.setImageResource(R.drawable.white_shirt);
 
             gallery.addView(view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Tops'");
+                    startActivity(intent);
+                }
+            });
         }
 
         for (int i = 0; i < 1; i++) {
@@ -209,6 +239,45 @@ public class MainActivity extends AppCompatActivity {
             imageView3.setImageResource(R.drawable.brown_loafers);
 
             gallery.addView(view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Shoes'");
+                    startActivity(intent);
+                }
+            });
+        }
+
+        for (int i = 0; i < 1; i++) {
+
+            View view = galleryInflater.inflate(R.layout.clothing_category, gallery, false);
+
+            TextView textView = view.findViewById(R.id.textView2);
+            textView.setText("Accessories");
+
+            ImageView imageView0 = view.findViewById(R.id.imageView0);
+            ImageView imageView1 = view.findViewById(R.id.imageView1);
+            ImageView imageView2 = view.findViewById(R.id.imageView2);
+            ImageView imageView3 = view.findViewById(R.id.imageView3);
+            imageView0.setImageResource(R.drawable.accessories_casual_2);
+            imageView1.setImageResource(R.drawable.accessories_formal_2);
+            imageView2.setImageResource(R.drawable.accessories_formal_3);
+            imageView3.setImageResource(R.drawable.accessories_casual_1);
+
+            gallery.addView(view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
+                    intent.putExtra("CATEGORY", "'Accessories'");
+                    startActivity(intent);
+                }
+            });
         }
 
         // Implements the ability to refresh news

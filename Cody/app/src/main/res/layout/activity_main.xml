@@ -40,6 +40,39 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                     <Spinner
+                        android:id="@+id/homespinner"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                         android:layout_marginLeft="20dp"
+                        android:textAlignment="center"
+                         android:gravity="center"
+                         android:background="@drawable/spinner_shape"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/toRecommendations"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="0dp"
+                        android:clickable="true"
+                        android:fontFamily="Roboto-Light"
+                        android:gravity="center_vertical"
+                        android:text="Generate"
+                        android:textColor="#2D2DC7"
+                        android:textSize="12sp" />
+
+                 </LinearLayout>
+
+>>>>>>> Stashed changes
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
