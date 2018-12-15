@@ -1,5 +1,6 @@
 package com.example.noobkenneth.cody.Recommendations;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -34,7 +35,14 @@ public class RecGenerateOutfit {
     private Random rand = new Random();
     private int randInt = rand.nextInt(1);
 
-    //allow us to keep track of the combination of outfits
+    //a little convoluted trying to get context and R.string due to the internal calls
+    //variables used instead of getting R.string
+    private String generate_random = "Generate any outfit!";
+    private String casual = "Casual";
+    private String formal = "Formal";
+    private String smart_casual = "Smart Casual";
+    private String business_formal = "Business Formal";
+
     public Bitmap[] getApparelIDs() {
         return apparelIDs;
     }
@@ -54,15 +62,15 @@ public class RecGenerateOutfit {
     public RecGenerateOutfit(String selectedStyle) {
         // Coded such that there are only two categories
         // (since we only populated database with 2 categories)
-        if (selectedStyle.equals("Generate any outfit!")) {
-            if (randInt == 1) this.selectedStyle = "Casual";
-            else this.selectedStyle = "Formal";}
+        if (selectedStyle.equals(generate_random)) {
+            if (randInt == 1) this.selectedStyle = casual;
+            else this.selectedStyle = formal;}
 
-        else if (selectedStyle.equals("Smart Casual"))
-            this.selectedStyle = "Casual";
+        else if (selectedStyle.equals(smart_casual))
+            this.selectedStyle = casual;
 
-        else if (selectedStyle.equals("Business Formal")){
-            this.selectedStyle = "Formal";
+        else if (selectedStyle.equals(business_formal)){
+            this.selectedStyle = formal;
         }
         else {this.selectedStyle = selectedStyle;}
 

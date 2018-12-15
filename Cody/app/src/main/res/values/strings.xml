@@ -14,4 +14,8 @@
     <string name="formal">Formal</string>
     <string name="smart_casual">Smart Casual</string>
     <string name="business_formal">Business Formal</string>
+
+
+    <string name="home_cat_shirts">Shirts</string>
+    <string name="home_cat_shoes">Shoes</string>
 </resources>

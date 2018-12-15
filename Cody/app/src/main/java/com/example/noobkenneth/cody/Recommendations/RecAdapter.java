@@ -53,7 +53,7 @@ public class RecAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 5; //this determines the number of cards
+        return 3; //this determines the number of cards
     }
 
     @NonNull //denotes that a parameter/field/method can never return null

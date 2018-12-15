@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             View view = galleryInflater.inflate(R.layout.clothing_category, gallery, false);
 
             TextView textView = view.findViewById(R.id.textView2);
-            textView.setText("Shirts");
+            textView.setText(getString(R.string.home_cat_shirts));
 
             ImageView imageView0 = view.findViewById(R.id.imageView0);
             ImageView imageView1 = view.findViewById(R.id.imageView1);
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             View view = galleryInflater.inflate(R.layout.clothing_category, gallery, false);
 
             TextView textView = view.findViewById(R.id.textView2);
-            textView.setText("Shoes");
+            textView.setText(getString(R.string.home_cat_shoes));
 
             ImageView imageView0 = view.findViewById(R.id.imageView0);
             ImageView imageView1 = view.findViewById(R.id.imageView1);

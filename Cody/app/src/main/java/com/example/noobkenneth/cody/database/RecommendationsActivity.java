@@ -48,7 +48,7 @@ public class RecommendationsActivity extends AppCompatActivity {
     private RecGenerateOutfit recGenerateOutfit;
     private Animation scale;
     private ImageButton reGenerate;
-    private int pageChosen;
+    private int pageChosen = -1;
     private int currentPageChosen = -1;
     private int pos;
 
@@ -203,36 +203,36 @@ public class RecommendationsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               currentPageChosen = viewPager.getCurrentItem();
-               if (pageChosen == currentPageChosen){ //un-select
-                   pageChosen = -1;
-                   mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
-                   chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-               }
-               else if (pageChosen != currentPageChosen){ //select
-                   pageChosen = currentPageChosen;
-                   mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                   chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
+                currentPageChosen = viewPager.getCurrentItem();
+                if (pageChosen == currentPageChosen){ //un-select
+                    pageChosen = -1;
+                    mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                }
+                else if (pageChosen != currentPageChosen){ //select
+                    pageChosen = currentPageChosen;
+                    mainLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                    chooseOutfit.setBackgroundColor(getResources().getColor(R.color.dark_grey));
 
-                   Bitmap screen = Screenshot.takescreenshotOfView(v.getRootView().findViewById(R.id.rec_cardView));
+                    Bitmap screen = Screenshot.takescreenshotOfView(v.getRootView().findViewById(R.id.rec_cardView));
 
-                   ByteArrayOutputStream bStream = new ByteArrayOutputStream();
-                   screen.compress(Bitmap.CompressFormat.PNG, 100, bStream);
-                   byte[] byteArray = bStream.toByteArray();
-                   Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                    ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+                    screen.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+                    byte[] byteArray = bStream.toByteArray();
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
-                   String category = "Null";
-                   String formality = "Null";
-                   Date date = new Date();
-                   SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                   String last_used = formatter.format(date); //populates the database with default date
-                   boolean ootd = true; // when adding clothing into the database, it is an ootd
+                    String category = "Null";
+                    String formality = "Null";
+                    Date date = new Date();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    String last_used = formatter.format(date); //populates the database with default date
+                    boolean ootd = true; // when adding clothing into the database, it is an ootd
 
-                   CharaDbHelper.CharaData charaData = new CharaDbHelper.CharaData(category,
-                           formality, last_used, ootd, bitmap);
-                   charaDbHelper.insertOneRow( charaData );
+                    CharaDbHelper.CharaData charaData = new CharaDbHelper.CharaData(category,
+                            formality, last_used, ootd, bitmap);
+                    charaDbHelper.insertOneRow( charaData );
 
-               }
+                }
             }
         });
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
