@@ -1,11 +1,18 @@
 # Cody, your Fashion Assistant
-Please branch from here and open pull requests to merge your app feature/ layout into master :D
+Cody acts as a personal fashion assistant for its user.
 
-## Layouts
-* login page
-* tip of the day
-* Front page (choosing of dress code)
-* Recommendations (tinder swipe thing)
-* My Wardrobe
-* History
-* Customize
+## Features include
+- a home page with the latest fashion and business news
+- a digital wardrobe that allows viewing of your apparel on-the-go 
+- an OOTD calendar that lets you keep track of what you have worn
+- a customise page for constructing your desired outfit easily 
+- a recommendations page that generates random outfits based on a formality filter
+
+## With Cody, you can
+- Keep up to date with the latest fashion and business news -- for fashionistas and those interested/in the fashion business
+- Make better shopping choices -- pick the right clothings that match existing ones, avoid buying something similar
+- Avoid rewearing the same attire
+- Plan for your outfits on-the-go
+- Dress according to the occassion
+- Try new looks easily
+
