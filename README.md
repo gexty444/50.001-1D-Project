@@ -16,3 +16,10 @@ Cody acts as a personal fashion assistant for its user.
 - Dress according to the occassion
 - Try new looks easily
 
+![Screenshot](/screenshots/Screenshot01.jpg)
+![Screenshot](/screenshots/Screenshot02.jpg)
+![Screenshot](/screenshots/Screenshot03.jpg)
+![Screenshot](/screenshots/Screenshot04.jpg)
+![Screenshot](/screenshots/Screenshot05.jpg)
+![Screenshot](/screenshots/Screenshot06.jpg)
+![Screenshot](/screenshots/Screenshot07.jpg)
