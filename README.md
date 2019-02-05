@@ -1,5 +1,8 @@
 # Cody, your Fashion Assistant
-Cody acts as a personal fashion assistant for its user.
+Cody acts as a personal fashion assistant for its user. <br/>  
+
+## Creators
+In no particular order: Thaddeus Phua, Ashyln Goh, Cheng Huan An, Dominic Cordeiro, Wong Chi Seng, Kenneth Ng
 
 ## Features include
 - a home page with the latest fashion and business news
